@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Aaron Hong - Game Developer</title>
+        <link rel="stylesheet" href="../main.css">
+        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    </head>
+    
+    <body>
+        <!--
+        <div id="headercontainer">
+            <h1>Aaron Hong</h1>
+            <h3>Portfolio</h3>
+            <ul id="contactinfo">
+                <li>Phone: 813-391-7068</li>
+                <li>Email: <a href="mailto:hong.aaron.c@gmail.com">hong.aaron.c@gmail.com</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/hongaaronc/">hongaaronc</a></li>
+            </ul>
+        </div>
+        -->
+        <div id="sectionscontainer">
+            <h3 class="pieceheader">AI Implementation</h3>
+            <h4 class="piecesubheader">in <i>AT SUNDOWN</i></h4>
+            <ul class="piecesection">
+                <div class="pieceimages">
+                    
+                </div>
+                <div class="piecebody" style="max-width:100%;">
+                    <h4 class="piecesectionheader">Some Backstory</h4>
+                    <p>
+                        To make it so you could play the game as a single player, we wanted to add computer-controlled bots. Initially, our publisher thought this would be too big of a task to handle given the timeframe of development, but I didn’t want to spend money on that and I wanted ownership of the codebase, so I took it upon myself to do the entire AI implementation and swore to spend as much time overtime as needed to complete the task (which I didn’t need to do as it turned out).
+                    </p>
+                    <p>
+                        Our publisher had the contractor did a code review anyway to see how easy it was and to get a quote - the contractor replied to us saying that he needs us to reorient everything in the game to fit 3D axis. This was the consequence of an old mistake - starting the project as a 2D project. Due to this, Unity’s built-in navmeshes would not work. After hearing this, I realized even with a contractor, AI would be a ton of work on our end, so I insisted even more on doing it myself, and I immediately started working on it.
+                    </p>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Repurposing Legacy Code</h4>
+                    <p>
+                        Since I didn’t want to go through the trouble of reorienting everything in the game, or writing tools to do it, I decided I would just write my own navmesh. Luckily for me, the game was originally based on a grid-based game concept, and we still had legacy grid code in the game. Here is a very old video of me making a map in the old grid-based editor.
+                    </p>
+                </div>
+                <div class="pieceimages">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/QADPwLgy5Pc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="pieceimages">
+                    <a href="../Pieces/Gameplay/Navmesh.PNG" target="_blank"><img src="../Pieces/Gameplay/Navmesh.PNG"/></a>
+                </div>
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Building a Navmesh</h4>
+                    <p>
+                        Fortunately, this was able to be repurposed to generate a navmesh. By drawing triangles between the nodes, and raycasting along these edges, we could figure out what was traversable in the game world. It worked. Here is an image of the navmesh that was constructed using this method.
+                    </p>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Pathfinding and Baking</h4>
+                    <p>
+                        Then I wrote some code for aiming and pathfinding via A-star. Here is a video of the bots working for the first time.
+                    </p>
+                    <p>
+                        Now a big issue was that the navmesh needed to be recreated using the grid after loading any level. Using scriptable objects however, I was able to serialize the data for the navmesh that was generated and store them in these scriptable objects. These let me bake the navmeshes once and never have to regenerate them again. It also allowed me to quickly swap between pre-baked navmeshes to account for changes in the environment, such as the train passing through in Subway levels.
+                    </p>
+                </div>
+                <div class="pieceimages">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4uwepKUFlIk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="pieceimages">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6fRViSIr-G0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Now Everything Else...</h4>
+                    <p>
+                        Then, I wrote a visibility scanner which samples the lightmap, which would store the last known position of any player. Now that the bots are limited to the same information as a human player, I was able to create behaviours for various conditions based on what knowledge the bots had. I set this up like a state-machine, with states determined by information and conditions, and states making the bots follow certain behaviours. Some of the states used in the game are: approach, rushdown, hide, flee, search. Here’s a video of me playing against 3 bots.
+                    </p>
+                </div>
+            </ul>
+        </div>
+    </body>
+</html>

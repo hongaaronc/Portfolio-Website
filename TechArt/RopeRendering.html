@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>Aaron Hong - Game Developer</title>
+        <link rel="stylesheet" href="../main.css">
+        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    </head>
+    
+    <body>
+        <!--
+        <div id="headercontainer">
+            <h1>Aaron Hong</h1>
+            <h3>Portfolio</h3>
+            <ul id="contactinfo">
+                <li>Phone: 813-391-7068</li>
+                <li>Email: <a href="mailto:hong.aaron.c@gmail.com">hong.aaron.c@gmail.com</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/hongaaronc/">hongaaronc</a></li>
+            </ul>
+        </div>
+        -->
+        <div id="sectionscontainer">
+            <h3 class="pieceheader">Rope Rendering</h3>
+            <h4 class="piecesubheader">Sometimes, Simpler is Better</h4>
+            <ul class="piecesection">
+                <div class="pieceimages">
+                    <iframe width="540" height="315" src="https://www.youtube.com/embed/cgFTgD9bHR4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Playing with Physics</h4>
+                    <p>
+                        The first time I tried rendering rope was in a game jam from my sophomore year. This was a game called Toppletarian, where the players are on bungee cords. In this approach, I used several Unity2D spring components linked together. I was pretty happy with this for my first implementation of rope, however there were many issues with it. As a physics-based model, it was prone to instability, and also affected the motion of the player (which has pros and cons, but for gameplay can feel weird) - this made the rope feel like it has noticeable weight. It also felt more like an elastic chain than a rope.
+                    </p>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Verlet Integration &amp Other Experiments</h4>
+                    <p>
+                        My next opportunity to implement rope rendering was in my senior capstone project Skyshot. We tried another physics-based approach, this time with verlet integration, with the cable rendered as a chain of particles tethered together. However, since we already implemented the player’s physics for swinging with a grappling hook separately, the rope physics did not affect the player at all. For gameplay, this was nice - however it introduced a lot more instability in terms of the rope’s motion, since it was being forced around by the player’s motion with no resistance.
+                    </p>
+                </div>
+                <div class="pieceimages">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/R3-Ec36kK2c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="pieceimages">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/LUTtM7t5KP4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">A Simpler Approach</h4>
+                    <p>
+                        I had been thinking of a better way to render rope for a while since then. I realized three main priorities: to make it feel unintrusive in gameplay - it shouldn’t affect the player much, to make the simulation stable and consistent - so it won’t spazz out, and to look correct - whether this be realistic or stylized.
+                    </p>
+                    <p>
+                        I thought a lot about how a rope would actually look in real life shooting out of a grappling hook. I figured it would have an un-coiling sort of appearance, perhaps like a corkscrew since the cable would probably be wrapped around a wire spool and uncoil from there. When I kept trying to imagine how it would look - I just kept imagining that corkscrew motion, so I realized why not start by trying to replicate that rather than start with physics?
+                    </p>
+                    <p>
+                        The resulting implementation did not use any physics at all, and simply used sine functions to produce the expected shape of what the rope should look like. This produced an extremely realistic-looking and stable rendering of the rope, with no effect on gameplay.
+                    </p>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Let's Add More...</h4>
+                    <p>
+                        To further improve on the effect and gameplay of the weapon, I added rope wrapping around objects. This works by storing a queue of points that the rope is wrapped around, and raycasting between the rope’s end and the last position to see if we want to add a new point to wrap around to the queue. Using the last 3 points, by treating them as a plane, we can create a normal vector to that plane (using cross product) which is either positive or negative, telling us if the rope is wrapped clockwise or counter-clockwise. This is used to ensure stability when unwrapping.
+                    </p>
+                    <p>
+                        The electric arcing effect is also rendered with sine functions, which are chosen more in a randomly generated way. Additionally, the width of the arc is randomized on both ends.
+                    </p>
+                </div>
+                <div class="pieceimages">
+                    <a href="../Pieces/TechArt/GIF/Shockbow-1.gif" target="_blank"><img src="../Pieces/TechArt/GIF/Shockbow-1.gif"/></a>
+                </div>
+            </ul>
+        </div>
+    </body>
+</html>

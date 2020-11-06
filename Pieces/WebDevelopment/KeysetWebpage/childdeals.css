@@ -1,0 +1,29 @@
+﻿#baseTable {
+    margin:auto;
+    max-width:1000px;
+}
+
+#baseTable tr td {
+    padding:20px;
+}
+
+#baseTable tr td img {
+    max-width:400px;
+}
+
+#dealsTable {
+    margin:auto;
+    max-width:1000px;
+}
+
+#dealsTable tr td {
+    padding:20px;
+}
+
+#dealsTable tr td img {
+    max-width:200px;
+}
+
+.descriptionImage {
+    border-radius:0px;
+}

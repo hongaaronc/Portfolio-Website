@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Aaron Hong - Game Developer</title>
+        <link rel="stylesheet" href="../main.css">
+        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    </head>
+    
+    <body>
+        <!--
+        <div id="headercontainer">
+            <h1>Aaron Hong</h1>
+            <h3>Portfolio</h3>
+            <ul id="contactinfo">
+                <li>Phone: 813-391-7068</li>
+                <li>Email: <a href="mailto:hong.aaron.c@gmail.com">hong.aaron.c@gmail.com</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/hongaaronc/">hongaaronc</a></li>
+            </ul>
+        </div>
+        -->
+        <div id="sectionscontainer">
+            <h3 class="pieceheader">Making Things Feel Fast</h3>
+            <h4 class="piecesubheader">Inspired by Fighter Jets, Not Games</h4>
+            <ul class="piecesection">
+                <div class="pieceimages">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/R3-Ec36kK2c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Camera Tilt</h4>
+                    <p>
+                        Here is one of the earliest videos of my senior capstone project, Skyshot. To make the game feel faster, smoother, and more natural, I added camera motions. One of the goals in doing so was to make them feel smooth, directly linked to the motions, and unobtrusive in terms of first-person aiming. I decided to only have camera motions in the forward axis, so that the reticle position would be unaffected. To supplement these motions, field of view punch and adjustments were also put in to make running feel faster. Using the grappling hook worked by comparing your camera forward vector to the vector from your camera to the grapple point. This was nice, since the two vectors were always initially equal at the point of firing, so these type of motions always smoothly started from 0 degrees of tilt for every grapple motion.
+                    </p>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Inspiration from Fighter Jets</h4>
+                    <p>
+                        Later, I worked on the UI. The first picture here shows another team member’s mockup of what they believed the HUD should look like. I really did not like where this was going, so I made a mockup of my own (the second image). Since I wanted to convey the feeling of speed, rather than design my HUD based on other sports games, I looked more into the HUDs of fast things - namely fighter jets and fantasy spaceships. This is extremely reflected in my mockup, particularly with the horizon line. This video shows how the HUD looked in-game after I implemented it (please ignore the first-person arm animations, that was someone else’s work).
+                    </p>
+                    <p>
+                        I also recognized the opportunity to add more juice to supplement the screen shake and tilt I worked on earlier. I put HUD shake, which let me give the illusion of screen-shaking in the upward and left axis, while not actually affecting the player’s aim. I split the HUD elements onto different layers depending on how close to the center they were, so that elements that were more in peripheral vision shook more drastically while elements closer to the middle only shook subtly. I also found that the horizon line helped emphasize the camera tilt effect, which was a nice touch.
+                    </p>
+                </div>
+                <div class="pieceimages">
+                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/NotMyUI.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/NotMyUI.png"/></a>
+                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI.fw.png"/></a>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/t50c__D-nKE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="pieceimages">
+                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI1.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI1.fw.png"/></a>
+                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI2.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI2.fw.png"/></a>
+                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI3.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI3.fw.png"/></a>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/A267Dj3yDnQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Enhancing Readability</h4>
+                    <p>
+                        The team and faculty really liked where I was going with this HUD design, particularly in aesthetics. However, in terms of readability and usefulness - there was room for improvement. These pictures are some other HUD concepts that I iterated on.
+                    </p>
+                    <p>
+                        This video is the final trailer for the project, and shows the final HUD.
+                    </p>
+                </div>
+            </ul>
+        </div>
+    </body>
+</html>

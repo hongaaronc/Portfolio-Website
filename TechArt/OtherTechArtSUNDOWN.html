@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Aaron Hong - Game Developer</title>
+        <link rel="stylesheet" href="../main.css">
+        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    </head>
+    
+    <body>
+        <!--
+        <div id="headercontainer">
+            <h1>Aaron Hong</h1>
+            <h3>Portfolio</h3>
+            <ul id="contactinfo">
+                <li>Phone: 813-391-7068</li>
+                <li>Email: <a href="mailto:hong.aaron.c@gmail.com">hong.aaron.c@gmail.com</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/hongaaronc/">hongaaronc</a></li>
+            </ul>
+        </div>
+        -->
+        <div id="sectionscontainer">
+            <h3 class="pieceheader">Other Tech Art</h3>
+            <h4 class="piecesubheader">in <i>AT SUNDOWN</i></h4>
+            <ul class="piecesection">
+                <div class="pieceimages">
+                    
+                </div>
+                <div class="piecebody" style="max-width:100%;">
+                    <h4 class="piecesectionheader">Weapon Effects</h4>
+                    <p>
+                        I did pretty much every particle effect and most of the in-game effects for AT SUNDOWN. I made the appearance of every projectile or effect from firing any weapon in the game.
+                    </p>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Smoke Simulation</h4>
+                    <p>
+                        At a certain stage of development of AT SUNDOWN, we were moving from using particle effects to more line renderers and trail renderers for the bullets. We wanted the sniper to look ridiculously powerful for a single bullet, so we wanted it to have a crazy looking smoke trail. I implemented a simple 2D screen space fluid simulation to create this effect. The fluid simulation samples a noise texture to determine how to disperse itself, and disperses itself by ping-ponging across two textures. The first image is when I first got the fluid simulation working at all. The second image is after I got it to work with alpha. The last image is the fluid simulation in-game.
+                    </p>
+                </div>
+                <div class="pieceimages">
+                    <a href="../Pieces/TechArt/GIF/Fluid1.gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fluid1.gif"/></a>
+                    <a href="../Pieces/TechArt/GIF/Fluid2.gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fluid2.gif"/></a>
+                    <a href="../Pieces/TechArt/GIF/Fluid3.gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fluid3.gif"/></a>
+                    <a href="../Pieces/TechArt/GIF/Sniper.gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Sniper.gif"/></a>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="pieceimages">
+                    <a href="../Pieces/TechArt/GIF/Tesla1.gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Tesla1.gif"/></a>
+                    <a href="../Pieces/TechArt/GIF/Tesla2.gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Tesla2.gif"/></a>
+                </div>
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Tesla Effect</h4>
+                    <p>
+                        We needed to spice up one of the Lab levels, and wanted some effects on the tesla coils. I made a tesla effect which works on the odd shape of the tesla coils, as well as any other shape mesh. It simply has a cloud of drifting points in 2D space. These points are converted from UV to worldspace through some calculations. Then, nearby points will create tesla arcs between them. Here are some images of it applied to various objects.
+                    </p>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Laser Rendering</h4>
+                    <p>
+                        Here’s a cool looking image of the blazer back when it could reflect off of walls. It is made with line renderers using simple sine functions, to make various corkscrew shapes of various frequencies and amplitudes overlaid on top of each other, as well as some screen space distortion.
+                    </p>
+                </div>
+                <div class="pieceimages">
+                    <a href="../Pieces/TechArt/GIF/Laser.gif" target="_blank"><img src="../Pieces/TechArt/GIF/Laser.gif"/></a>
+                </div>
+            </ul>
+            <ul class="piecesection">
+                <div class="pieceimages">
+                    <a href="../Pieces/TechArt/GIF/Fountain%20(1).gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fountain%20(1).gif"/></a>
+                    <a href="../Pieces/TechArt/GIF/Fountain%20(2).gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fountain%20(2).gif"/></a>
+                    <a href="../Pieces/TechArt/GIF/Fountain%20(3).gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fountain%20(3).gif"/></a>
+                    <a href="../Pieces/TechArt/GIF/Fountain%20(4).gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fountain%20(4).gif"/></a>
+                    <a href="../Pieces/TechArt/GIF/Fountain%20(5).gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fountain%20(5).gif"/></a>
+                </div>
+                <div class="piecebody">
+                    <h4 class="piecesectionheader">Fountain Effects with Particle Systems</h4>
+                    <p>
+                        Here’s are some pictures of some fountain effects in AT SUNDOWN I made using Unity particle systems.
+                    </p>
+                </div>
+            </ul>
+        </div>
+    </body>
+</html>

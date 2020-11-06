@@ -1,0 +1,119 @@
+﻿body {
+    background:#A33; text-align:center;
+}
+
+#content {
+    display:inline-block;
+    width:100%;
+    max-width:1200px;
+}
+
+.container {
+    display:inline-block;
+    background:#FFF;
+    font-family:'Raleway', sans-serif;
+    font-size:24px;
+    text-align:center;
+    width:100%;
+    max-width:1200px;
+    border-radius:12px;
+    margin-top:50px;
+    box-shadow: 0px 0px 20px #FA3;
+}
+
+h1 {
+    font-family:'Julius Sans One','Raleway',sans-serif;
+}
+
+h2 {
+    font-family:'Julius Sans One','Raleway',sans-serif;
+}
+
+h3 {
+    font-family:'Julius Sans One','Raleway',sans-serif;
+}
+
+h4 {
+    font-family:'Julius Sans One','Raleway',sans-serif;
+}
+
+h5 {
+    font-family:'Julius Sans One','Raleway',sans-serif;
+}
+
+.social_icon img {
+    border-radius:50%;
+    width:60px;
+    margin:20px;
+    border:#FFF solid 0px;
+    transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    -webkit-transition: all 0.25s ease-out;
+}
+
+.social_icon:hover img {
+    border-radius:0%;
+    width:70px;
+    border:#9CF solid 10px;
+    margin:5px;
+    transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    -webkit-transition: all 0.25s ease-out;
+}
+
+p {
+    margin:50px;
+}
+
+#viewer {
+    opacity:0;
+    visibility:hidden;
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.9);
+    z-index:2;
+    transition:all 0.25s ease-out; 
+    -moz-transition:all 0.25s ease-out; 
+    -o-transition:all 0.25s ease-out; 
+    -webkit-transition:all 0.25s ease-out; 
+}
+
+#viewer img {
+    position:fixed;
+    top:50%;
+    left:50%;
+    box-shadow: 0px 0px 200px #000;
+    transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -o-transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    background-color:rgba(0,0,0,1);
+    border-radius:12px;
+    border:#333 solid 12px;
+    max-width:1000px;
+}
+
+.descriptionImage {
+    width:800px;
+    margin:10px;
+    border:#9CF solid 0px;
+    border-radius:12px;
+    transition:all 0.25s ease-out; 
+    -moz-transition:all 0.25s ease-out; 
+    -o-transition:all 0.25s ease-out; 
+    -webkit-transition:all 0.25s ease-out; 
+}
+
+.descriptionImage:hover {
+    border:#9CF solid 10px;
+    margin:0px;
+    transition:all 0.25s ease-out; 
+    -moz-transition:all 0.25s ease-out; 
+    -o-transition:all 0.25s ease-out; 
+    -webkit-transition:all 0.25s ease-out; 
+}
