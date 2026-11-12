@@ -494,6 +494,20 @@ a.t-row:hover .t-go .icon {
 .cards.three {
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 13.5rem), 1fr));
 }
+/* A project with a single write-up gets one large card */
+.cards.feature {
+  grid-template-columns: minmax(0, 1fr);
+}
+.cards.feature .card-img {
+  aspect-ratio: 16 / 10;
+}
+.cards.feature h3 {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+.cards.feature .card-desc {
+  max-width: 38em;
+  font-size: 1rem;
+}
 .card {
   display: block;
   height: 100%;
@@ -674,6 +688,14 @@ a.t-row:hover .t-go .icon {
 .row-text li::marker {
   color: var(--accent);
 }
+.row-text code {
+  padding: 0.12em 0.4em;
+  border-radius: 4px;
+  background: var(--bg-2);
+  font-family: var(--mono);
+  font-size: 0.88em;
+  white-space: nowrap;
+}
 .row-media {
   display: grid;
   gap: 0.75rem;
@@ -733,6 +755,9 @@ a.t-row:hover .t-go .icon {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+video[data-clip]:not([controls]) {
+  cursor: pointer;
 }
 .shot > a img {
   transition: transform 0.6s var(--ease), opacity 0.2s;
@@ -870,6 +895,54 @@ a.t-row:hover .t-go .icon {
 .player video {
   width: 100%;
   aspect-ratio: var(--ar, 16 / 9);
+}
+
+/* A pipeline drawn as a list: nodes on a rail, top to bottom */
+ol.flow {
+  position: relative;
+  padding-left: 2rem;
+}
+.flow li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: -1.7rem;
+  top: 1.1rem;
+  bottom: -0.42rem;
+  width: 1px;
+  background: var(--ink);
+}
+.flow li {
+  position: relative;
+  padding-bottom: 1.35rem;
+}
+.flow li::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 0.42rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border: 1px solid var(--ink);
+  background: var(--bg);
+}
+.flow li:first-child::before,
+.flow li:last-child::before {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.flow strong {
+  display: block;
+  font-weight: 650;
+  font-stretch: 106%;
+  line-height: 1.3;
+}
+.flow span {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+  text-wrap: pretty;
 }
 
 /* Audio tracks */
@@ -1193,6 +1266,12 @@ a.t-row:hover .t-go .icon {
   .card h3 .icon,
   .card-desc {
     display: none;
+  }
+  .cards.feature {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cards.feature .card-desc {
+    display: block;
   }
   .card .label {
     margin-top: 0.7rem;

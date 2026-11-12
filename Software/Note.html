@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>n.ot.e, a collaborative beatmap editor · Aaron Hong</title>
+  <meta name="description" content="A peer-to-peer collaborative editor with its own expression language for scroll speed and in-editor testplay that matches the game. It runs in the browser and on five native platforms.">
+  <meta name="author" content="Aaron Hong">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aaron Hong">
+  <meta property="og:title" content="n.ot.e, a collaborative beatmap editor · Aaron Hong">
+  <meta property="og:description" content="A peer-to-peer collaborative editor with its own expression language for scroll speed and in-editor testplay that matches the game. It runs in the browser and on five native platforms.">
+  <meta property="og:url" content="https://aaron-hong.com/Software/Note.html">
+  <meta property="og:image" content="https://aaron-hong.com/media/cards/note-og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f4f3ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://aaron-hong.com/Software/Note.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect class="mark-cap" x="2" y="2" width="20" height="20" rx="5.5"/><circle class="mark-dish" cx="12" cy="12" r="5"/></svg>
+      Aaron Hong
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#work">Work</a>
+      <a href="../Pieces/Aaron%20Hong%20Resume%202026.pdf">Resume</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path class="half" d="M12 3.75a8.25 8.25 0 0 1 0 16.5z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <header class="case-head wrap">
+    <a class="back" href="../index.html#note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> All work</a>
+    <p class="eyebrow">Personal project &middot; Software</p>
+    <h1>n.ot.e</h1>
+    <p class="case-sub">A real-time collaborative beatmap editor for osu!taiko, in the browser and as a native app.</p>
+    <p class="case-links">
+      <a class="ext" href="https://note.nostril.io/" target="_blank" rel="noopener">Open n.ot.e <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      <a class="ext" href="https://note.nostril.io/info" target="_blank" rel="noopener">Take the tour <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    </p>
+  </header>
+
+  <article class="chapters wrap">
+    <section class="chapter">
+      <div class="row stack">
+        <div class="row-text">
+          <h2>What it is</h2>
+          <p>n.ot.e is a beatmap editor for osu!taiko that I started in July 2026 and publish under my osu! name, Nostril. It runs in the browser with nothing to install, and as a standalone app for Windows, macOS, Linux, Android and iOS.</p>
+          <p>It is the same editor on desktop, tablet and phone, and can be fully operated with mouse, pen or touchscreen.</p>
+          <p>The clips on this page are the real app. They are recorded from its own guided tour, where every demo is a live editor being driven by a script instead of a video.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.6000">
+                <a href="../media/Software/Note/overview-2400.webp" data-lb data-w="2400" data-h="1500" data-orig="../Pieces/Software/Note/overview.png">
+                  <img src="../media/Software/Note/overview-960.webp" srcset="../media/Software/Note/overview-480.webp 480w, ../media/Software/Note/overview-960.webp 960w, ../media/Software/Note/overview-1600.webp 1600w, ../media/Software/Note/overview-2400.webp 2400w" sizes="(min-width: 82rem) 76rem, 92vw" width="2400" height="1500" alt="The n.ot.e editor: a dense run of red and blue notes on the note band, the SV strip below it with speed curves and linear() Transform brackets, then the toolbar and the song&#x27;s details." loading="lazy" decoding="async">
+                </a>
+              </figure>
+            </div>
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.6000">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/responsive-poster.webp" width="1424" height="890" aria-label="The editor window reshaping itself from a desktop window into a phone held upright, a phone on its side and a tablet, the interface rearranging each time.">
+                    <source src="../Pieces/Software/Note/responsive.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row stack">
+        <div class="row-text">
+          <h2>Collaboration with no server in between</h2>
+          <p>Several people can work on the same map at once and see each other's cursors, selections and edits as they happen. It is fully peer-to-peer, so nothing is ever uploaded to a server.</p>
+          <p>The map is held in a CRDT (Yjs) that each browser syncs directly with the others over WebRTC; a small signaling server only introduces peers to each other. The song and the rest of the set's files travel peer to peer as well, over WebTorrent, and undo only takes back your own edits.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row">
+              <figure class="shot" style="--ar:3.2661">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/collab-poster.webp" width="1424" height="436" aria-label="Two editors side by side. The first invites a friend, the second accepts and loads the same map, and the two take turns placing notes that appear on both screens.">
+                    <source src="../Pieces/Software/Note/collab.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row stack">
+        <div class="row-text">
+          <h2>Parametric SV</h2>
+          <p>Taiko mappers change the scroll speed of notes for effect (slider velocity, or SV), which normally means placing and editing a separate timing line for every change.</p>
+          <p>n.ot.e has its own expression language for it. A Transform covers a stretch of the map and computes the speed at each note from an expression such as <code>linear(1.0, 0.9)</code>. Transforms stack for nested effects, and you can write your own functions.</p>
+          <p>The language is deterministic by design, so every collaborator derives the same result. When an existing map is opened, a curve fitter recognises the ramps already in it and turns them into Transforms.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.6000">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/sv-poster.webp" width="1424" height="890" aria-label="On the SV strip, a Transform bracket is drawn over a phrase and given the expression linear(); it is pasted onto the following phrases, then a handle is dragged during testplay and the notes re-space live.">
+                    <source src="../Pieces/Software/Note/sv.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row stack">
+        <div class="row-text">
+          <h2>Timing</h2>
+          <p>Spectrogram, onset and waveform views sit behind the timeline for timing a song to the millisecond.</p>
+          <p>Adjusting a red line (a tempo or offset change) under a finished map normally breaks it. Here the notes stay snapped, barlines stay correct and SV multipliers are rescaled automatically.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.6000">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/timing-poster.webp" width="1424" height="890" aria-label="The timing lens showing the song&#x27;s onsets under the notes. A red line is dragged later and back, and with the Maintain toggles on the notes stay snapped to it.">
+                    <source src="../Pieces/Software/Note/timing.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row stack">
+        <div class="row-text">
+          <h2>Linked copies</h2>
+          <p>Linked Paste creates instances of a pattern that keep a permanent reference to the original. Change the source and every instance updates; change one instance and only that one changes.</p>
+          <p>Each copy shows how it differs from the original, and relationships such as Abekobe (the opposite colours) and Reverse carry through.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.6000">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/linked-poster.webp" width="1424" height="890" aria-label="A pattern is copied and pasted as linked copies. Editing the original changes every copy; editing one copy changes only that one.">
+                    <source src="../Pieces/Software/Note/linked.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row stack">
+        <div class="row-text">
+          <h2>Testplay</h2>
+          <p>Testplay plays the map without leaving the editor, by hand or on Autoplay, with the gameplay mods. Judgement and scoring match osu!stable, and the scoring code is checked in the test suite against real osu!stable scores.</p>
+          <p>Full Testplay goes further and simulates osu!stable's taiko gameplay screen: its playfield, health bar and mascot, and the beatmap's background, video and storyboard.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.6000">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/testplay-poster.webp" width="1424" height="890" aria-label="Testplay running on Autoplay inside the editor with score and accuracy counting up, then the Mods panel opening and Hidden being switched on.">
+                    <source src="../Pieces/Software/Note/testplay.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.6000">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/full-testplay-poster.webp" width="1440" height="900" aria-label="Full Testplay running on Autoplay: an osu!stable-style taiko screen with the scrolling playfield, the combo climbing, the score counting up and the health bar filling.">
+                    <source src="../Pieces/Software/Note/full-testplay.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <figcaption>Full Testplay, running on Autoplay.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>More ways to look at a map</h2>
+        </div>
+        <div class="row-media">
+          <div class="figs">
+            <figure class="shot wide" style="--ar:1.6000">
+              <div class="frame">
+                <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/difficulties-poster.webp" width="1424" height="890" aria-label="The difficulty list opening and two more difficulties being added, so three note bands scroll together.">
+                  <source src="../Pieces/Software/Note/difficulties.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Several difficulties open at once, to check the spread or to reference one while mapping another.</figcaption>
+            </figure>
+            <figure class="shot" style="--ar:1.6000">
+              <a href="../media/Software/Note/structure-view-2400.webp" data-lb data-w="2400" data-h="1500" data-orig="../Pieces/Software/Note/structure-view.png">
+                <img src="../media/Software/Note/structure-view-960.webp" srcset="../media/Software/Note/structure-view-480.webp 480w, ../media/Software/Note/structure-view-960.webp 960w, ../media/Software/Note/structure-view-1600.webp 1600w, ../media/Software/Note/structure-view-2400.webp 2400w" sizes="(min-width: 62rem) 27vw, (min-width: 40rem) 46vw, 92vw" width="2400" height="1500" alt="Structure View: three difficulties drawn as stacked rows of measures instead of one scrolling band." loading="lazy" decoding="async">
+              </a>
+              <figcaption>Structure View lays each difficulty out as static rows of measures.</figcaption>
+            </figure>
+            <figure class="shot" style="--ar:1.6000">
+              <div class="frame">
+                <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/modding-poster.webp" width="1424" height="890" aria-label="The Modding view with discussion posts pinned along the timeline and one opened as a card above the notes.">
+                  <source src="../Pieces/Software/Note/modding.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>The Modding view puts a map's osu! discussion posts on the timeline. With the companion browser extension, posts written here appear as a draft in the osu! website's review box.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Every platform</h2>
+          <p>The interface is built for touchscreens as well as mouse and pen. Long-press menus stand in for right-click, and Testplay has a touch drum with rebindable keys.</p>
+          <p>The standalone builds add offline use, a native audio backend and saving straight to the .osu file.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row">
+              <figure class="shot" style="--ar:0.6949">
+                <a href="../media/Software/Note/tablet-1640.webp" data-lb data-w="1640" data-h="2360" data-orig="../Pieces/Software/Note/tablet.png">
+                  <img src="../media/Software/Note/tablet-960.webp" srcset="../media/Software/Note/tablet-480.webp 480w, ../media/Software/Note/tablet-960.webp 960w, ../media/Software/Note/tablet-1640.webp 1640w" sizes="(min-width: 62rem) 18vw, 31vw" width="1640" height="2360" alt="The editor on a tablet in portrait, with three difficulties open." loading="lazy" decoding="async">
+                </a>
+                <figcaption>Tablet</figcaption>
+              </figure>
+              <figure class="shot" style="--ar:0.4621">
+                <a href="../media/Software/Note/phone-1109.webp" data-lb data-w="1109" data-h="2400" data-orig="../Pieces/Software/Note/phone.png">
+                  <img src="../media/Software/Note/phone-960.webp" srcset="../media/Software/Note/phone-480.webp 480w, ../media/Software/Note/phone-960.webp 960w, ../media/Software/Note/phone-1109.webp 1109w" sizes="(min-width: 62rem) 18vw, 31vw" width="1109" height="2400" alt="The editor on a phone: the note band on top, then transport, a compact toolbar and the song&#x27;s details." loading="lazy" decoding="async">
+                </a>
+                <figcaption>Phone</figcaption>
+              </figure>
+              <figure class="shot" style="--ar:0.4621">
+                <a href="../media/Software/Note/phone-drum-1109.webp" data-lb data-w="1109" data-h="2400" data-orig="../Pieces/Software/Note/phone-drum.png">
+                  <img src="../media/Software/Note/phone-drum-960.webp" srcset="../media/Software/Note/phone-drum-480.webp 480w, ../media/Software/Note/phone-drum-960.webp 960w, ../media/Software/Note/phone-drum-1109.webp 1109w" sizes="(min-width: 62rem) 18vw, 31vw" width="1109" height="2400" alt="Testplay on a phone with the touch drum, a large half-circle drum, filling the lower part of the screen." loading="lazy" decoding="async">
+                </a>
+                <figcaption>Testplay with the touch drum</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row text-only">
+        <div class="row-text">
+          <h2>Only writing what was touched</h2>
+          <p>A beatmap is a plain text file that other tools and other mappers edit too, so n.ot.e is strict about what it writes. A map that is opened and exported unchanged comes out byte for byte the same, and an edit changes only the lines it touched.</p>
+          <p>To make that possible the parser keeps a lossless syntax tree of the file, and what n.ot.e adds on top, such as Transforms and linked copies, is stored in a sidecar file beside the map instead of inside it.</p>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Under the hood</h2>
+          <p>The codebase is a TypeScript monorepo: eleven packages underneath a Next.js app, a browser extension for Chrome and Firefox, and Rust shells for the native builds. A map flows through the layers on the right.</p>
+          <p>More than 2,700 tests run on every push alongside a typecheck of the whole app, and GitHub Actions builds the desktop and mobile apps.</p>
+        </div>
+        <div class="row-media">
+          <ol class="flow">
+            <li><strong>Parser</strong><span>A lossless syntax tree of the .osu file, plus the timing helpers every other layer shares.</span></li>
+            <li><strong>Collab</strong><span>The Yjs document that is the source of truth while editing. Peers sync over WebRTC; the set's files go over WebTorrent.</span></li>
+            <li><strong>SV engine</strong><span>The expression compiler, the derivation from Transforms down to timing lines, and the curve fitter.</span></li>
+            <li><strong>Engine</strong><span>Playback and testplay simulation, the audio clock, and the serializer that writes the file back.</span></li>
+            <li><strong>Renderer</strong><span>Pixi.js on WebGPU (WebGL on mobile), one renderer per band, with custom shaders for the snap grid, waveform and spectrogram.</span></li>
+            <li><strong>Editor</strong><span>Input handling, with one class per tool.</span></li>
+            <li><strong>App</strong><span>A Next.js and React interface in 17 languages. Tauri wraps the same app for desktop and mobile, with a native audio backend.</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <nav class="pager wrap" aria-label="More work">
+    <a href="../Cad/Synth060.html" rel="next">
+      <span class="label">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <strong>A 60% Mechanical Keyboard</strong>
+    </a>
+  </nav>
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <h2 class="eyebrow">Contact</h2>
+    <a class="footer-email" href="mailto:hong.aaron.c@gmail.com">hong.aaron.c@gmail.com</a>
+    <ul class="footer-links">
+      <li><a href="https://www.linkedin.com/in/hongaaronc/" target="_blank" rel="noopener">LinkedIn <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+      <li><a href="../Pieces/Aaron%20Hong%20Resume%202026.pdf">Resume (PDF) <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></a></li>
+    </ul>
+    <div class="footer-base">
+      <span>&copy; Aaron Hong</span>
+      <a href="#top">Back to top <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

@@ -42,23 +42,24 @@
     });
   });
 
-  /* ---------- Looping clips: play only while on screen ---------- */
+  /* ---------- Looping clips: play only while on screen; click to pause ---------- */
   var clips = document.querySelectorAll("video[data-clip]");
   if (clips.length && "IntersectionObserver" in window && !reduceMotion.matches) {
+    var start = function (video) {
+      var playing = video.play();
+      if (playing && playing.catch) {
+        playing.catch(function () {
+          video.controls = true;
+        });
+      }
+    };
     var watcher = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           var video = entry.target;
-          if (entry.isIntersecting) {
-            var playing = video.play();
-            if (playing && playing.catch) {
-              playing.catch(function () {
-                video.controls = true;
-              });
-            }
-          } else {
-            video.pause();
-          }
+          video.dataset.inView = entry.isIntersecting ? "1" : "";
+          if (entry.isIntersecting && !video.dataset.held) start(video);
+          else video.pause();
         });
       },
       { rootMargin: "200px 0px" }
@@ -68,6 +69,19 @@
       video.muted = true;
       video.loop = true;
       video.playsInline = true;
+      video.title = "Click to pause";
+      video.addEventListener("click", function () {
+        if (video.controls) return;
+        if (video.paused) {
+          video.dataset.held = "";
+          video.title = "Click to pause";
+          start(video);
+        } else {
+          video.dataset.held = "1";
+          video.title = "Click to play";
+          video.pause();
+        }
+      });
       watcher.observe(video);
     });
   }

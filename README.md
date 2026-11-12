@@ -8,12 +8,14 @@ folder as-is.
 | Path | What it is |
 |---|---|
 | `index.html` | Home page: intro, experience timeline, and one section of cards per project |
-| `Gameplay/`, `UI/`, `TechArt/`, `Cad/`, `ArtAnimation/`, `Other/` | One HTML file per write-up. These URLs are linked from resumes, so keep the file names |
+| `Software/`, `Gameplay/`, `UI/`, `TechArt/`, `Cad/`, `ArtAnimation/`, `Other/` | One HTML file per write-up. These URLs are linked from resumes, so keep the file names |
 | `assets/site.css` | The only stylesheet. Colours and fonts are variables at the top |
 | `assets/site.js` | Lightbox, click-to-play YouTube, looping clips, light/dark toggle. Pages still work without it |
 | `assets/fonts/` | Archivo and IBM Plex Mono, self-hosted (both SIL Open Font License) |
 | `Pieces/` | Original, full-size files |
 | `media/` | Web-sized copies of what's in `Pieces/` (WebP stills, MP4 loops made from the GIFs, video posters, home-page card thumbnails) |
+
+Screen recordings such as the ones on the n.ot.e page are already small MP4s, so they sit in `Pieces/` and are used directly.
 
 ## Editing a page
 
