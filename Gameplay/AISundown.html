@@ -1,86 +1,158 @@
-<html>
-    <head>
-        <title>Aaron Hong - Portfolio</title>
-        <link rel="stylesheet" href="../main.css">
-        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
-    </head>
-    
-    <body>
-        <!--
-        <div id="headercontainer">
-            <h1>Aaron Hong</h1>
-            <h3>Portfolio</h3>
-            <ul id="contactinfo">
-                <li>Phone: 813-391-7068</li>
-                <li>Email: <a href="mailto:hong.aaron.c@gmail.com">hong.aaron.c@gmail.com</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/hongaaronc/">hongaaronc</a></li>
-            </ul>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Implementation in AT SUNDOWN · Aaron Hong</title>
+  <meta name="description" content="Building a navmesh out of legacy grid code, then A* pathfinding and state-machine bots that only know what a player would.">
+  <meta name="author" content="Aaron Hong">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aaron Hong">
+  <meta property="og:title" content="AI Implementation in AT SUNDOWN · Aaron Hong">
+  <meta property="og:description" content="Building a navmesh out of legacy grid code, then A* pathfinding and state-machine bots that only know what a player would.">
+  <meta property="og:url" content="https://aaron-hong.com/Gameplay/AISundown.html">
+  <meta property="og:image" content="https://aaron-hong.com/media/cards/ai-og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f4f3ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://aaron-hong.com/Gameplay/AISundown.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect class="mark-cap" x="2" y="2" width="20" height="20" rx="5.5"/><circle class="mark-dish" cx="12" cy="12" r="5"/></svg>
+      Aaron Hong
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#work">Work</a>
+      <a href="../Pieces/Aaron%20Hong%20Resume%202026.pdf">Resume</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path class="half" d="M12 3.75a8.25 8.25 0 0 1 0 16.5z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <header class="case-head wrap">
+    <a class="back" href="../index.html#at-sundown"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> All work</a>
+    <p class="eyebrow">AT SUNDOWN &middot; Gameplay</p>
+    <h1>AI Implementation</h1>
+    <p class="case-sub">in <i>AT SUNDOWN</i></p>
+  </header>
+
+  <article class="chapters wrap">
+    <section class="chapter">
+      <div class="row text-only">
+        <div class="row-text">
+          <h2>Some Backstory</h2>
+          <p>To make it so you could play the game as a single player, we wanted to add computer-controlled bots. Initially, our publisher thought this would be too big of a task to handle given the timeframe of development, but I didn’t want to spend money on that and I wanted ownership of the codebase, so I took it upon myself to do the entire AI implementation and swore to spend as much time overtime as needed to complete the task (which I didn’t need to do as it turned out).</p>
+          <p>Our publisher had the contractor did a code review anyway to see how easy it was and to get a quote - the contractor replied to us saying that he needs us to reorient everything in the game to fit 3D axis. This was the consequence of an old mistake - starting the project as a 2D project. Due to this, Unity’s built-in navmeshes would not work. After hearing this, I realized even with a contractor, AI would be a ton of work on our end, so I insisted even more on doing it myself, and I immediately started working on it.</p>
         </div>
-        -->
-        <div id="sectionscontainer">
-            <h3 class="pieceheader">AI Implementation</h3>
-            <h4 class="piecesubheader">in <i>AT SUNDOWN</i></h4>
-            <ul class="piecesection">
-                <div class="pieceimages">
-                    
-                </div>
-                <div class="piecebody" style="max-width:100%;">
-                    <h4 class="piecesectionheader">Some Backstory</h4>
-                    <p>
-                        To make it so you could play the game as a single player, we wanted to add computer-controlled bots. Initially, our publisher thought this would be too big of a task to handle given the timeframe of development, but I didn’t want to spend money on that and I wanted ownership of the codebase, so I took it upon myself to do the entire AI implementation and swore to spend as much time overtime as needed to complete the task (which I didn’t need to do as it turned out).
-                    </p>
-                    <p>
-                        Our publisher had the contractor did a code review anyway to see how easy it was and to get a quote - the contractor replied to us saying that he needs us to reorient everything in the game to fit 3D axis. This was the consequence of an old mistake - starting the project as a 2D project. Due to this, Unity’s built-in navmeshes would not work. After hearing this, I realized even with a contractor, AI would be a ton of work on our end, so I insisted even more on doing it myself, and I immediately started working on it.
-                    </p>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Repurposing Legacy Code</h4>
-                    <p>
-                        Since I didn’t want to go through the trouble of reorienting everything in the game, or writing tools to do it, I decided I would just write my own navmesh. Luckily for me, the game was originally based on a grid-based game concept, and we still had legacy grid code in the game. Here is a very old video of me making a map in the old grid-based editor.
-                    </p>
-                </div>
-                <div class="pieceimages">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/QADPwLgy5Pc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="pieceimages">
-                    <a href="../Pieces/Gameplay/Navmesh.PNG" target="_blank"><img src="../Pieces/Gameplay/Navmesh.PNG"/></a>
-                </div>
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Building a Navmesh</h4>
-                    <p>
-                        Fortunately, this was able to be repurposed to generate a navmesh. By drawing triangles between the nodes, and raycasting along these edges, we could figure out what was traversable in the game world. It worked. Here is an image of the navmesh that was constructed using this method.
-                    </p>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Pathfinding and Baking</h4>
-                    <p>
-                        Then I wrote some code for aiming and pathfinding via A-star. Here is a video of the bots working for the first time.
-                    </p>
-                    <p>
-                        Now a big issue was that the navmesh needed to be recreated using the grid after loading any level. Using scriptable objects however, I was able to serialize the data for the navmesh that was generated and store them in these scriptable objects. These let me bake the navmeshes once and never have to regenerate them again. It also allowed me to quickly swap between pre-baked navmeshes to account for changes in the environment, such as the train passing through in Subway levels.
-                    </p>
-                </div>
-                <div class="pieceimages">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4uwepKUFlIk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="pieceimages">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6fRViSIr-G0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Now Everything Else...</h4>
-                    <p>
-                        Then, I wrote a visibility scanner which samples the lightmap, which would store the last known position of any player. Now that the bots are limited to the same information as a human player, I was able to create behaviours for various conditions based on what knowledge the bots had. I set this up like a state-machine, with states determined by information and conditions, and states making the bots follow certain behaviours. Some of the states used in the game are: approach, rushdown, hide, flee, search. Here’s a video of me playing against 3 bots.
-                    </p>
-                </div>
-            </ul>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Repurposing Legacy Code</h2>
+          <p>Since I didn’t want to go through the trouble of reorienting everything in the game, or writing tools to do it, I decided I would just write my own navmesh. Luckily for me, the game was originally based on a grid-based game concept, and we still had legacy grid code in the game. Here is a very old video of me making a map in the old grid-based editor.</p>
         </div>
-    </body>
+        <div class="row-media">
+          <a class="yt" href="https://www.youtube.com/watch?v=QADPwLgy5Pc" data-yt="QADPwLgy5Pc" data-title="Early AT SUNDOWN Grid-based Map Making Timelapse" target="_blank" rel="noopener">
+            <img src="../media/yt/QADPwLgy5Pc-640.webp" srcset="../media/yt/QADPwLgy5Pc-640.webp 640w, ../media/yt/QADPwLgy5Pc-1280.webp 1280w" sizes="(min-width: 62rem) 54vw, 92vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
+            <span class="yt-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="yt-label"><span class="visually-hidden">Play video: </span>Early AT SUNDOWN Grid-based Map Making Timelapse</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Building a Navmesh</h2>
+          <p>Fortunately, this was able to be repurposed to generate a navmesh. By drawing triangles between the nodes, and raycasting along these edges, we could figure out what was traversable in the game world. It worked. Here is an image of the navmesh that was constructed using this method.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row solo">
+              <figure class="shot" style="--ar:1.8462">
+                <a href="../media/Gameplay/Navmesh-1920.webp" data-lb data-w="1920" data-h="1040" data-orig="../Pieces/Gameplay/Navmesh.PNG">
+                  <img src="../media/Gameplay/Navmesh-960.webp" srcset="../media/Gameplay/Navmesh-480.webp 480w, ../media/Gameplay/Navmesh-960.webp 960w, ../media/Gameplay/Navmesh-1600.webp 1600w, ../media/Gameplay/Navmesh-1920.webp 1920w" sizes="(min-width: 62rem) 54vw, 92vw" width="1920" height="1040" alt="Unity editor view of a subway level with the generated navmesh drawn as a green triangle mesh over the walkable floor." loading="lazy" decoding="async">
+                </a>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Pathfinding and Baking</h2>
+          <p>Then I wrote some code for aiming and pathfinding via A-star. Here is a video of the bots working for the first time.</p>
+          <p>Now a big issue was that the navmesh needed to be recreated using the grid after loading any level. Using scriptable objects however, I was able to serialize the data for the navmesh that was generated and store them in these scriptable objects. These let me bake the navmeshes once and never have to regenerate them again. It also allowed me to quickly swap between pre-baked navmeshes to account for changes in the environment, such as the train passing through in Subway levels.</p>
+        </div>
+        <div class="row-media">
+          <a class="yt" href="https://www.youtube.com/watch?v=4uwepKUFlIk" data-yt="4uwepKUFlIk" data-title="AT SUNDOWN early footage - Bots working for the first time" target="_blank" rel="noopener">
+            <img src="../media/yt/4uwepKUFlIk-640.webp" srcset="../media/yt/4uwepKUFlIk-640.webp 640w, ../media/yt/4uwepKUFlIk-1280.webp 1280w" sizes="(min-width: 62rem) 54vw, 92vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
+            <span class="yt-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="yt-label"><span class="visually-hidden">Play video: </span>AT SUNDOWN early footage - Bots working for the first time</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Now Everything Else...</h2>
+          <p>Then, I wrote a visibility scanner which samples the lightmap, which would store the last known position of any player. Now that the bots are limited to the same information as a human player, I was able to create behaviours for various conditions based on what knowledge the bots had. I set this up like a state-machine, with states determined by information and conditions, and states making the bots follow certain behaviours. Some of the states used in the game are: approach, rushdown, hide, flee, search. Here’s a video of me playing against 3 bots.</p>
+        </div>
+        <div class="row-media">
+          <a class="yt" href="https://www.youtube.com/watch?v=6fRViSIr-G0" data-yt="6fRViSIr-G0" data-title="AT SUNDOWN - Me vs 3 Bots" target="_blank" rel="noopener">
+            <img src="../media/yt/6fRViSIr-G0-640.webp" srcset="../media/yt/6fRViSIr-G0-640.webp 640w, ../media/yt/6fRViSIr-G0-1280.webp 1280w" sizes="(min-width: 62rem) 54vw, 92vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
+            <span class="yt-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="yt-label"><span class="visually-hidden">Play video: </span>AT SUNDOWN - Me vs 3 Bots</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <nav class="pager wrap" aria-label="More work">
+    <a href="../Cad/SlkAccessories.html" rel="prev">
+      <span class="label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span>
+      <strong>SLK Dessau Accessory Collaborations</strong>
+    </a>
+    <a href="../UI/UISundown.html" rel="next">
+      <span class="label">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <strong>Quick, Easy, and Readable UI</strong>
+    </a>
+  </nav>
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <h2 class="eyebrow">Contact</h2>
+    <a class="footer-email" href="mailto:hong.aaron.c@gmail.com">hong.aaron.c@gmail.com</a>
+    <ul class="footer-links">
+      <li><a href="https://www.linkedin.com/in/hongaaronc/" target="_blank" rel="noopener">LinkedIn <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+      <li><a href="../Pieces/Aaron%20Hong%20Resume%202026.pdf">Resume (PDF) <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></a></li>
+    </ul>
+    <div class="footer-base">
+      <span>&copy; Aaron Hong</span>
+      <a href="#top">Back to top <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
 </html>

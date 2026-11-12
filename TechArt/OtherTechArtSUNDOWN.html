@@ -1,88 +1,238 @@
-<html>
-    <head>
-        <title>Aaron Hong - Portfolio</title>
-        <link rel="stylesheet" href="../main.css">
-        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
-    </head>
-    
-    <body>
-        <!--
-        <div id="headercontainer">
-            <h1>Aaron Hong</h1>
-            <h3>Portfolio</h3>
-            <ul id="contactinfo">
-                <li>Phone: 813-391-7068</li>
-                <li>Email: <a href="mailto:hong.aaron.c@gmail.com">hong.aaron.c@gmail.com</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/hongaaronc/">hongaaronc</a></li>
-            </ul>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Other Tech Art in AT SUNDOWN · Aaron Hong</title>
+  <meta name="description" content="A screen-space fluid simulation for smoke trails, tesla arcs, lasers and particle fountains.">
+  <meta name="author" content="Aaron Hong">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aaron Hong">
+  <meta property="og:title" content="Other Tech Art in AT SUNDOWN · Aaron Hong">
+  <meta property="og:description" content="A screen-space fluid simulation for smoke trails, tesla arcs, lasers and particle fountains.">
+  <meta property="og:url" content="https://aaron-hong.com/TechArt/OtherTechArtSUNDOWN.html">
+  <meta property="og:image" content="https://aaron-hong.com/media/cards/techart-og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f4f3ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://aaron-hong.com/TechArt/OtherTechArtSUNDOWN.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect class="mark-cap" x="2" y="2" width="20" height="20" rx="5.5"/><circle class="mark-dish" cx="12" cy="12" r="5"/></svg>
+      Aaron Hong
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#work">Work</a>
+      <a href="../Pieces/Aaron%20Hong%20Resume%202026.pdf">Resume</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path class="half" d="M12 3.75a8.25 8.25 0 0 1 0 16.5z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <header class="case-head wrap">
+    <a class="back" href="../index.html#at-sundown"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> All work</a>
+    <p class="eyebrow">AT SUNDOWN &middot; Tech Art</p>
+    <h1>Other Tech Art</h1>
+    <p class="case-sub">in <i>AT SUNDOWN</i></p>
+  </header>
+
+  <article class="chapters wrap">
+    <section class="chapter">
+      <div class="row text-only">
+        <div class="row-text">
+          <h2>Weapon Effects</h2>
+          <p>I did pretty much every particle effect and most of the in-game effects for AT SUNDOWN. I made the appearance of every projectile or effect from firing any weapon in the game.</p>
         </div>
-        -->
-        <div id="sectionscontainer">
-            <h3 class="pieceheader">Other Tech Art</h3>
-            <h4 class="piecesubheader">in <i>AT SUNDOWN</i></h4>
-            <ul class="piecesection">
-                <div class="pieceimages">
-                    
-                </div>
-                <div class="piecebody" style="max-width:100%;">
-                    <h4 class="piecesectionheader">Weapon Effects</h4>
-                    <p>
-                        I did pretty much every particle effect and most of the in-game effects for AT SUNDOWN. I made the appearance of every projectile or effect from firing any weapon in the game.
-                    </p>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Smoke Simulation</h4>
-                    <p>
-                        At a certain stage of development of AT SUNDOWN, we were moving from using particle effects to more line renderers and trail renderers for the bullets. We wanted the sniper to look ridiculously powerful for a single bullet, so we wanted it to have a crazy looking smoke trail. I implemented a simple 2D screen space fluid simulation to create this effect. The fluid simulation samples a noise texture to determine how to disperse itself, and disperses itself by ping-ponging across two textures. The first image is when I first got the fluid simulation working at all. The second image is after I got it to work with alpha. The last image is the fluid simulation in-game.
-                    </p>
-                </div>
-                <div class="pieceimages">
-                    <a href="../Pieces/TechArt/GIF/Fluid1.gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fluid1.gif"/></a>
-                    <a href="../Pieces/TechArt/GIF/Fluid2.gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fluid2.gif"/></a>
-                    <a href="../Pieces/TechArt/GIF/Fluid3.gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fluid3.gif"/></a>
-                    <a href="../Pieces/TechArt/GIF/Sniper.gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Sniper.gif"/></a>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="pieceimages">
-                    <a href="../Pieces/TechArt/GIF/Tesla1.gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Tesla1.gif"/></a>
-                    <a href="../Pieces/TechArt/GIF/Tesla2.gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Tesla2.gif"/></a>
-                </div>
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Tesla Effect</h4>
-                    <p>
-                        We needed to spice up one of the Lab levels, and wanted some effects on the tesla coils. I made a tesla effect which works on the odd shape of the tesla coils, as well as any other shape mesh. It simply has a cloud of drifting points in 2D space. These points are converted from UV to worldspace through some calculations. Then, nearby points will create tesla arcs between them. Here are some images of it applied to various objects.
-                    </p>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Laser Rendering</h4>
-                    <p>
-                        Here’s a cool looking image of the blazer back when it could reflect off of walls. It is made with line renderers using simple sine functions, to make various corkscrew shapes of various frequencies and amplitudes overlaid on top of each other, as well as some screen space distortion.
-                    </p>
-                </div>
-                <div class="pieceimages">
-                    <a href="../Pieces/TechArt/GIF/Laser.gif" target="_blank"><img src="../Pieces/TechArt/GIF/Laser.gif"/></a>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="pieceimages">
-                    <a href="../Pieces/TechArt/GIF/Fountain%20(1).gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fountain%20(1).gif"/></a>
-                    <a href="../Pieces/TechArt/GIF/Fountain%20(2).gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fountain%20(2).gif"/></a>
-                    <a href="../Pieces/TechArt/GIF/Fountain%20(3).gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fountain%20(3).gif"/></a>
-                    <a href="../Pieces/TechArt/GIF/Fountain%20(4).gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fountain%20(4).gif"/></a>
-                    <a href="../Pieces/TechArt/GIF/Fountain%20(5).gif" target="_blank" class="smallimage"><img src="../Pieces/TechArt/GIF/Fountain%20(5).gif"/></a>
-                </div>
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Fountain Effects with Particle Systems</h4>
-                    <p>
-                        Here’s are some pictures of some fountain effects in AT SUNDOWN I made using Unity particle systems.
-                    </p>
-                </div>
-            </ul>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Smoke Simulation</h2>
+          <p>At a certain stage of development of AT SUNDOWN, we were moving from using particle effects to more line renderers and trail renderers for the bullets. We wanted the sniper to look ridiculously powerful for a single bullet, so we wanted it to have a crazy looking smoke trail. I implemented a simple 2D screen space fluid simulation to create this effect. The fluid simulation samples a noise texture to determine how to disperse itself, and disperses itself by ping-ponging across two textures. The first image is when I first got the fluid simulation working at all. The second image is after I got it to work with alpha. The last image is the fluid simulation in-game.</p>
         </div>
-    </body>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.7778; --max:720px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/TechArt/GIF/Fluid1-poster.webp" width="480" height="270" aria-label="The first working fluid simulation: a pink plume on a monitor.">
+                    <source src="../media/TechArt/GIF/Fluid1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+              <figure class="shot" style="--ar:1.7778; --max:720px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/TechArt/GIF/Fluid2-poster.webp" width="480" height="270" aria-label="The fluid simulation with alpha: orange and pink smoke trails on a dark background.">
+                    <source src="../media/TechArt/GIF/Fluid2.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.7778; --max:720px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/TechArt/GIF/Fluid3-poster.webp" width="480" height="270" aria-label="The fluid simulation running in the game.">
+                    <source src="../media/TechArt/GIF/Fluid3.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+              <figure class="shot" style="--ar:1.7843; --max:1092px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/TechArt/GIF/Sniper-poster.webp" width="728" height="408" aria-label="A sniper shot leaving a thick smoke trail in a courtyard level.">
+                    <source src="../media/TechArt/GIF/Sniper.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Tesla Effect</h2>
+          <p>We needed to spice up one of the Lab levels, and wanted some effects on the tesla coils. I made a tesla effect which works on the odd shape of the tesla coils, as well as any other shape mesh. It simply has a cloud of drifting points in 2D space. These points are converted from UV to worldspace through some calculations. Then, nearby points will create tesla arcs between them. Here are some images of it applied to various objects.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.7778; --max:720px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/TechArt/GIF/Tesla1-poster.webp" width="480" height="270" aria-label="Electric arcs crawling over the tesla coils in a Lab level.">
+                    <source src="../media/TechArt/GIF/Tesla1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+              <figure class="shot" style="--ar:1.7778; --max:720px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/TechArt/GIF/Tesla2-poster.webp" width="480" height="270" aria-label="A closer view of the arcs on a tesla coil.">
+                    <source src="../media/TechArt/GIF/Tesla2.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Laser Rendering</h2>
+          <p>Here’s a cool looking image of the blazer back when it could reflect off of walls. It is made with line renderers using simple sine functions, to make various corkscrew shapes of various frequencies and amplitudes overlaid on top of each other, as well as some screen space distortion.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row solo">
+              <figure class="shot" style="--ar:1.7778; --max:720px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/TechArt/GIF/Laser-poster.webp" width="480" height="270" aria-label="A purple laser beam bouncing off walls.">
+                    <source src="../media/TechArt/GIF/Laser.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Fountain Effects with Particle Systems</h2>
+          <p>Here’s are some pictures of some fountain effects in AT SUNDOWN I made using Unity particle systems.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row solo">
+              <figure class="shot" style="--ar:1.7803; --max:705px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/TechArt/GIF/Fountain-1-poster.webp" width="470" height="264" aria-label="A round fountain spraying water in a brick courtyard.">
+                    <source src="../media/TechArt/GIF/Fountain-1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.7744; --max:708px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/TechArt/GIF/Fountain-2-poster.webp" width="472" height="266" aria-label="A square fountain with a wide spray.">
+                    <source src="../media/TechArt/GIF/Fountain-2.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+              <figure class="shot" style="--ar:1.7803; --max:705px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/TechArt/GIF/Fountain-3-poster.webp" width="470" height="264" aria-label="Two fountains with three jets each.">
+                    <source src="../media/TechArt/GIF/Fountain-3.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.7803; --max:705px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/TechArt/GIF/Fountain-4-poster.webp" width="470" height="264" aria-label="Small fountains along a courtyard wall.">
+                    <source src="../media/TechArt/GIF/Fountain-4.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+              <figure class="shot" style="--ar:1.7727; --max:702px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/TechArt/GIF/Fountain-5-poster.webp" width="468" height="264" aria-label="A narrow fountain between hedges.">
+                    <source src="../media/TechArt/GIF/Fountain-5.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <nav class="pager wrap" aria-label="More work">
+    <a href="../TechArt/RopeRendering.html" rel="prev">
+      <span class="label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span>
+      <strong>Rope Rendering</strong>
+    </a>
+    <a href="../Gameplay/FeelFast.html" rel="next">
+      <span class="label">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <strong>Making Fast Gamefeel</strong>
+    </a>
+  </nav>
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <h2 class="eyebrow">Contact</h2>
+    <a class="footer-email" href="mailto:hong.aaron.c@gmail.com">hong.aaron.c@gmail.com</a>
+    <ul class="footer-links">
+      <li><a href="https://www.linkedin.com/in/hongaaronc/" target="_blank" rel="noopener">LinkedIn <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+      <li><a href="../Pieces/Aaron%20Hong%20Resume%202026.pdf">Resume (PDF) <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></a></li>
+    </ul>
+    <div class="footer-base">
+      <span>&copy; Aaron Hong</span>
+      <a href="#top">Back to top <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
 </html>
