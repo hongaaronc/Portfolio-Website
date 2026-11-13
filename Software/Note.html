@@ -281,9 +281,10 @@
     <section class="chapter">
       <div class="row stack">
         <div class="row-text">
-          <h2 id="develop">The idea triage: from a rough note to a merged branch</h2>
-          <p>Most ideas for n.ot.e start as one rough line. The idea triage, at note.nostril.io/develop, is a different interface to Claude that I built for that stage, where being wrong is cheap and writing long prompts is the bottleneck.</p>
-          <p>I jot notes on a napkin, as in a notes app. Claude reads the code and turns each note into a card: how it read the note, what the code already does, what it would build, and how ready the idea is. What it needs from me arrives as multiple-choice questions, so most decisions are one click.</p>
+          <h2 id="develop">The idea triage: from a napkin to a merged branch</h2>
+          <p>Some of my best ideas start on a napkin during lunch. When one is ready to hand to an agent as it stands, I do that from wherever I am: I use the Claude Code mobile app heavily when I am away from my desk.</p>
+          <p>The idea triage, at note.nostril.io/develop, is for the ideas that are not there yet. It is a different interface to Claude that I built for low-stakes brainstorming, and its job is to take a rough idea to one that is ready to prompt.</p>
+          <p>I jot notes on its napkin, as in a notes app. Claude reads the code and turns each note into a card: how it read the note, what the code already does, what it would build, and how ready the idea is. What it needs from me arrives as multiple-choice questions, so working an idea through takes a few taps.</p>
           <p>A card then moves through a pipeline. Build it starts a Claude Code session in the cloud on a branch of its own, follow-up notes start further sessions on that branch, and Merge lands it. The card shows whether main has the branch and whether a release does, across the project's three repositories.</p>
           <p>The site holds no AI credentials of its own. Each user connects their own Claude, and the server only relays calls. A read-only demo with sample cards is public.</p>
           <p class="case-links"><a class="ext" href="https://note.nostril.io/develop?demo" target="_blank" rel="noopener">Open the demo <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></p>
