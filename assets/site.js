@@ -112,7 +112,7 @@
       return range.getBoundingClientRect().width;
     }
 
-    var start, end, rise, cap, travel, gap, stepStart, stepEnd, widths, band, navLeft;
+    var start, end, rise, cap, travel, gap, stepStart, stepEnd, widths, band, navLeft, cleared;
     var last = "";
 
     function measure() {
@@ -142,6 +142,9 @@
       travel = start[1].base - end[1].base;
       band = document.querySelector(".site-header").getBoundingClientRect().bottom;
       navLeft = document.querySelector(".site-nav").getBoundingClientRect().left;
+      /* The scroll position at which the name's top edge reaches the "Portfolio" label. */
+      cleared = 0;
+      while (cleared < travel - 1 && pose(cleared).reach < 18) cleared += 2;
       last = "";
       update();
     }
@@ -160,15 +163,11 @@
       word.style.transform = "translate3d(" + x.toFixed(2) + "px," + (base - rise * size).toFixed(2) + "px,0)";
     }
 
-    function update() {
-      var y = window.scrollY;
-      var key = Math.min(y, Math.max(travel, 72));
-      if (key === last) return;
-      last = key;
-
+    /* Where the name is at scroll position y. The lower line keeps pace with the page, so the
+       content under it pushes the name up; the second word then slides out to the right of the
+       first and lifts onto its line. */
+    function pose(y) {
       var t = clamp(y / travel);
-      /* The lower line keeps pace with the page, so the content under it pushes the name up.
-         The second word then slides out to the right of the first and lifts onto its line. */
       var lower = start[1].base - Math.min(y, travel);
       var slide = ramp(0.56, 0.9, t);
       var lift = ramp(0.8, 1, t);
@@ -180,13 +179,25 @@
         fitted(size, x, lower, step + lerp(widths[1][0], widths[1][1], t))
       );
       var upper = lower - gap * size * (1 - lift);
-      place(words[0], x, upper, size, t);
-      place(words[1], x + step * size, lower, size, t);
+      /* reach: how far the capitals' top edge is into the header */
+      return { t: t, x: x, step: step, size: size, upper: upper, lower: lower, reach: band - (upper - cap * size) };
+    }
+
+    function update() {
+      var y = window.scrollY;
+      var key = Math.min(y, Math.max(travel, 72));
+      if (key === last) return;
+      last = key;
+
+      var p = pose(y);
+      place(words[0], p.x, p.upper, p.size, p.t);
+      place(words[1], p.x + p.step * p.size, p.lower, p.size, p.t);
 
       root.style.setProperty("--hdr", ramp(8, 72, y).toFixed(3));
-      root.style.setProperty("--seal", ramp(0.88, 1, t).toFixed(3));
-      /* "Portfolio" is gone before the name's top edge reaches it. */
-      root.style.setProperty("--tag", (1 - ramp(0, 18, band - (upper - cap * size))).toFixed(3));
+      /* "Portfolio" is gone before the name's top edge reaches it. From that scroll position
+         until the name has docked, the header's rule fades in. */
+      root.style.setProperty("--tag", (y >= cleared ? 0 : 1 - ramp(0, 18, p.reach)).toFixed(3));
+      root.style.setProperty("--seal", ramp(cleared, travel, y).toFixed(3));
     }
 
     onScroll(update);
