@@ -1,0 +1,227 @@
+/* Landing-section options for the home page. Loaded after site.css by hero-a/b/c.html. */
+
+/* ---------- Shared: the header blends into the landing section ---------- */
+html[data-hero] .site-header {
+  background: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+}
+html[data-hero] .site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  -webkit-backdrop-filter: saturate(1.5) blur(14px);
+  backdrop-filter: saturate(1.5) blur(14px);
+  opacity: var(--hdr, 1);
+}
+html[data-hero] .site-header::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 1px;
+  background: var(--line);
+  opacity: var(--seal, 1);
+}
+
+.hero-title {
+  font-size: clamp(1.5rem, 2.7vw, 2.125rem);
+  font-weight: 500;
+  font-stretch: 106%;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.hero-place {
+  margin-top: 0.7rem;
+}
+
+/* ---------- Docking name (options A and C) ---------- */
+.brand {
+  position: relative;
+}
+.brand-tag {
+  position: absolute;
+  left: calc(1.5rem + 0.65rem);
+  top: 50%;
+  translate: 0 -50%;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-stretch: 100%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  opacity: var(--tag, 0);
+  pointer-events: none;
+}
+.dock {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  pointer-events: none;
+  font-family: var(--font);
+  font-weight: 700;
+  color: var(--ink);
+}
+.dock span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 1;
+  white-space: nowrap;
+  will-change: transform;
+}
+html.docking .hero h1 {
+  opacity: 0;
+}
+html.docking .brand-name {
+  opacity: 0;
+}
+html.dock-static .brand-name {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+html.dock-static.docked .brand-name {
+  opacity: 1;
+}
+
+/* ---------- A: the name docks into the header ---------- */
+html[data-hero="a"] .hero {
+  padding-top: clamp(0.5rem, 2.2vw, 1.75rem);
+}
+html[data-hero="a"] .hero-main {
+  container-type: inline-size;
+}
+html[data-hero="a"] .hero h1 {
+  margin: 0 0 0.3em -0.045em;
+  font-size: clamp(4.5rem, 30.5cqi, 13rem);
+}
+html[data-hero="a"] .hero .actions {
+  margin-top: 1.9rem;
+}
+
+/* ---------- B: the title is the headline ---------- */
+html[data-hero="b"] .hero-main {
+  container-type: inline-size;
+}
+html[data-hero="b"] .hero h1 {
+  margin: 0.26em 0 0.3em -0.04em;
+  font-size: clamp(3rem, 20.5cqi, 9.5rem);
+  line-height: 0.9;
+}
+html[data-hero="b"] .hero-place {
+  margin-top: 0;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- C: a full-width masthead that docks into the header ---------- */
+html[data-hero="c"] .hero {
+  display: block;
+  padding-top: clamp(0.25rem, 1.4vw, 1rem);
+  container-type: inline-size;
+}
+html[data-hero="c"] .hero h1 {
+  margin: 0 0 0.16em -0.045em;
+  font-size: 15.2cqi;
+  line-height: 0.92;
+  white-space: nowrap;
+}
+html[data-hero="c"] .hero h1 span {
+  display: inline;
+}
+.masthead-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.4rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--ink);
+}
+.masthead-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem clamp(1.25rem, 3cqi, 2.25rem);
+}
+.masthead-title .hero-place {
+  margin-top: 0;
+}
+html[data-hero="c"] .hero .actions {
+  margin-top: 0;
+}
+html[data-hero="c"] .hero-side {
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+@media (min-width: 62rem) {
+  .masthead-strip {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+  html[data-hero="c"] .timeline {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+    column-gap: clamp(2rem, 5cqi, 4.5rem);
+  }
+}
+
+@media print {
+  .dock {
+    display: none;
+  }
+  html.docking .hero h1,
+  html.docking .brand-name {
+    opacity: 1;
+  }
+}
+
+/* ---------- Option switcher (exploration pages only) ---------- */
+.hero-switch {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  z-index: 70;
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.3rem;
+  translate: -50% 0;
+  border-radius: 999px;
+  background: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 0.25);
+}
+.hero-switch a {
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  color: var(--bg);
+  text-decoration: none;
+  opacity: 0.6;
+}
+.hero-switch a span {
+  display: none;
+}
+.hero-switch a[aria-current] span {
+  display: inline;
+}
+.hero-switch a:hover {
+  opacity: 1;
+  color: var(--bg);
+}
+.hero-switch a[aria-current] {
+  background: var(--bg);
+  color: var(--ink);
+  opacity: 1;
+}
