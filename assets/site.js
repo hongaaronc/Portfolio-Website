@@ -109,7 +109,7 @@
       return range.getBoundingClientRect().width;
     }
 
-    var start, end, rise, travel, gap, stepStart, stepEnd, widths, band, navLeft;
+    var start, end, rise, cap, travel, gap, stepStart, stepEnd, widths, band, navLeft;
     var last = "";
 
     function measure() {
@@ -124,6 +124,9 @@
       words[0].insertBefore(probe, words[0].firstChild);
       rise = (probe.getBoundingClientRect().top - words[0].getBoundingClientRect().top) / 100;
       words[0].removeChild(probe);
+      var pen = document.createElement("canvas").getContext("2d");
+      pen.font = "100px " + getComputedStyle(title).fontFamily;
+      cap = pen.measureText("H").actualBoundingBoxAscent / 100;
 
       /* Each word's width in ems, at the start and at the end. */
       widths = [0, 1].map(function (i) {
@@ -140,11 +143,11 @@
       update();
     }
 
-    /* A word that reaches up into the header is kept narrow enough to stay clear of the nav. */
+    /* A word whose capitals reach up into the header is kept narrow enough to stay clear of the nav. */
     function fitted(size, x, base, reach) {
       var room = (navLeft - 8 - x) / reach;
       if (room >= size) return size;
-      return lerp(size, room, ramp(0, 24, band - (base - rise * size)));
+      return lerp(size, room, ramp(0, 24, band - (base - cap * size)));
     }
 
     function place(word, x, base, size, t) {
@@ -180,7 +183,7 @@
       root.style.setProperty("--hdr", ramp(8, 72, y).toFixed(3));
       root.style.setProperty("--seal", ramp(0.88, 1, t).toFixed(3));
       /* "Portfolio" is gone before the name's top edge reaches it. */
-      root.style.setProperty("--tag", (1 - ramp(0, 18, band - (upper - rise * size))).toFixed(3));
+      root.style.setProperty("--tag", (1 - ramp(0, 18, band - (upper - cap * size))).toFixed(3));
     }
 
     onScroll(update);

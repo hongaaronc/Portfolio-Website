@@ -378,13 +378,16 @@ button {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: clamp(2.5rem, 6vw, 5rem);
-  padding-block: clamp(0.5rem, 2.2vw, 1.75rem) clamp(2.75rem, 6vw, 4.5rem);
+  padding-block: clamp(1rem, 2.2vw, 1.75rem) clamp(2.75rem, 6vw, 4.5rem);
 }
 .hero-main {
   container-type: inline-size;
 }
+/* Optical alignment, from Varela Round's metrics. The negative top margin puts the top of the
+   capitals on the top of the box, and each word gives back its first letter's side bearing
+   (A, then H), so the ink starts on the page's left edge. */
 .hero h1 {
-  margin: 0 0 0.28em -0.03em;
+  margin: -0.063em 0 0.28em;
   font-size: clamp(4.5rem, 34cqi, 14rem);
   font-weight: var(--w-display);
   line-height: 0.9;
@@ -392,8 +395,13 @@ button {
 }
 .hero h1 span {
   display: block;
+  margin-left: -0.047em;
+}
+.hero h1 span + span {
+  margin-left: -0.094em;
 }
 .hero-title {
+  margin-left: -0.047em;
   font-size: clamp(1.5rem, 2.7vw, 2.125rem);
   line-height: 1.15;
   letter-spacing: -0.01em;
@@ -443,7 +451,10 @@ button {
   opacity: 1;
 }
 
+/* Sono's capitals start 0.387em below the top of this label's box; taking that off lines
+   them up with the top of the name beside it. */
 .timeline-title {
+  margin-top: -0.387em;
   padding-bottom: 0.9rem;
   border-bottom: var(--stroke) solid var(--ink);
 }
@@ -1389,7 +1400,21 @@ ol.flow {
 @media (min-width: 62rem) {
   .hero {
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    align-items: end;
+  }
+  /* The experience list runs the full height of the name's column: tops and bottoms line up */
+  .hero-side,
+  .timeline {
+    display: flex;
+    flex-direction: column;
+  }
+  .timeline,
+  .timeline li,
+  .timeline .t-row {
+    flex: 1;
+  }
+  .timeline li {
+    display: flex;
+    align-items: center;
   }
   .project {
     grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
