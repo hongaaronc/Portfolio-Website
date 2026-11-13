@@ -2,82 +2,86 @@
 
 /* ---------- Fonts (self-hosted, SIL Open Font License) ---------- */
 @font-face {
-  font-family: "Archivo";
-  src: url("fonts/archivo-latin-wdth-normal.woff2") format("woff2");
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Archivo";
-  src: url("fonts/archivo-latin-wght-italic.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "IBM Plex Mono";
-  src: url("fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2");
+  font-family: "Varela Round";
+  src: url("fonts/varela-round-latin-400-normal.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "IBM Plex Mono";
-  src: url("fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2");
-  font-weight: 500;
+  font-family: "Sono";
+  src: url("fonts/sono-latin-wght-mono-normal.woff2") format("woff2");
+  font-weight: 200 800;
   font-style: normal;
   font-display: swap;
 }
 
 /* ---------- Tokens ---------- */
+/* Light: machined aluminium, black anodising, brass. Dark: navy anodising, gold. */
 :root {
   color-scheme: light;
-  --bg: #f4f3ee;
-  --bg-2: #e9e7df;
-  --ink: #131316;
-  --ink-2: #55555e;
-  --ink-3: #85858e;
-  --line: rgb(19 19 22 / 0.14);
-  --accent: #d93a17;
-  --on-accent: #fff;
-  --tile-dark: #17171a;
-  --tile-light: #ececec;
+  --bg: #e8eaed;
+  --bg-2: #dadde2;
+  --panel: #f3f4f6;
+  --ink: #16181b;
+  --ink-2: #4b5159;
+  --ink-3: #7c848e;
+  --line: rgb(22 24 27 / 0.2);
+  --dots: rgb(22 24 27 / 0.42);
+  --accent: #8a5e00;
+  --fill: #f4c430;
+  --on-fill: #16181b;
+  --footer-bg: #16181b;
+  --footer-ink: #e8eaed;
+  --tile-dark: #17191c;
+  --tile-light: #f1f2f3;
 
-  --font: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  /* One typeface in one weight carries the page; size and colour set the hierarchy. */
+  --font: "Varela Round", ui-rounded, "Hiragino Maru Gothic ProN", "Arial Rounded MT", system-ui, sans-serif;
+  --mono: "Sono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --w-display: 400;
+  --w-head: 400;
+  --tight: -0.02em;
 
   --wrap: 82rem;
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
   --header-h: 4rem;
-  --radius: 0.5rem;
+  --stroke: 2px;
+  --radius: 0.875rem;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #0f0f11;
-    --bg-2: #1b1b1f;
-    --ink: #f2f1ec;
-    --ink-2: #a9a9b1;
-    --ink-3: #7a7a83;
-    --line: rgb(255 255 255 / 0.15);
-    --accent: #ff6a45;
-    --on-accent: #131316;
+    --bg: #121a2e;
+    --bg-2: #1c2742;
+    --panel: #182139;
+    --ink: #eef0f4;
+    --ink-2: #aab3c6;
+    --ink-3: #7783a0;
+    --line: rgb(255 255 255 / 0.18);
+    --dots: rgb(255 255 255 / 0.4);
+    --accent: #f4c430;
+    --on-fill: #121a2e;
+    --footer-bg: #0b1120;
+    --footer-ink: #eef0f4;
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0f0f11;
-  --bg-2: #1b1b1f;
-  --ink: #f2f1ec;
-  --ink-2: #a9a9b1;
-  --ink-3: #7a7a83;
-  --line: rgb(255 255 255 / 0.15);
-  --accent: #ff6a45;
-  --on-accent: #131316;
+  --bg: #121a2e;
+  --bg-2: #1c2742;
+  --panel: #182139;
+  --ink: #eef0f4;
+  --ink-2: #aab3c6;
+  --ink-3: #7783a0;
+  --line: rgb(255 255 255 / 0.18);
+  --dots: rgb(255 255 255 / 0.4);
+  --accent: #f4c430;
+  --on-fill: #121a2e;
+  --footer-bg: #0b1120;
+  --footer-ink: #eef0f4;
 }
 
 /* ---------- Base ---------- */
@@ -101,6 +105,7 @@ body {
   font-synthesis-weight: none;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-variation-settings: "MONO" 1;
 }
 img,
 video,
@@ -131,8 +136,8 @@ ol[class] {
 a {
   color: inherit;
   text-decoration-color: var(--accent);
-  text-decoration-thickness: 0.09em;
-  text-underline-offset: 0.2em;
+  text-decoration-thickness: var(--stroke);
+  text-underline-offset: 0.22em;
 }
 a:hover {
   color: var(--accent);
@@ -144,11 +149,11 @@ button {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 6px;
 }
 ::selection {
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--fill);
+  color: var(--on-fill);
 }
 [id] {
   scroll-margin-top: calc(var(--header-h) + 1.5rem);
@@ -183,23 +188,25 @@ button {
   white-space: nowrap;
 }
 
-/* Small uppercase mono label, used all over */
+/* Small label in the mono companion, used all over */
 .eyebrow,
 .label {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
   line-height: 1.4;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--ink-2);
 }
 .eyebrow::before {
   content: "";
   display: inline-block;
-  width: 0.5rem;
-  height: 0.5rem;
-  margin-right: 0.65rem;
-  background: var(--accent);
+  width: 0.625rem;
+  height: 0.625rem;
+  margin-right: 0.6rem;
+  border: var(--stroke) solid var(--ink);
+  border-radius: 50%;
+  background: var(--fill);
+  vertical-align: -0.02em;
 }
 
 .icon {
@@ -208,7 +215,7 @@ button {
   flex: none;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.75;
+  stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -259,10 +266,8 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  font-weight: 700;
-  font-stretch: 112%;
-  font-size: 1.0625rem;
-  letter-spacing: -0.01em;
+  font-weight: var(--w-display);
+  font-size: 1.125rem;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -281,11 +286,7 @@ button {
   top: 50%;
   translate: 0 -50%;
   font-family: var(--mono);
-  font-size: 0.75rem;
-  font-weight: 400;
-  font-stretch: 100%;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.8125rem;
   color: var(--ink-2);
   opacity: var(--tag, 0);
   pointer-events: none;
@@ -296,7 +297,7 @@ button {
   stroke-width: 2;
 }
 .brand .mark-dish {
-  fill: var(--accent);
+  fill: var(--fill);
   transition: transform 0.4s var(--ease);
   transform-origin: center;
 }
@@ -309,10 +310,7 @@ button {
   gap: clamp(0.9rem, 2.5vw, 1.9rem);
 }
 .site-nav a {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.9375rem;
   text-decoration: none;
   padding-block: 0.5rem;
 }
@@ -349,18 +347,14 @@ button {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.8rem 1.1rem;
-  border: 1px solid var(--ink);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  text-transform: uppercase;
+  gap: 0.55rem;
+  padding: 0.62rem 1.15rem;
+  border: var(--stroke) solid var(--ink);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  line-height: 1.3;
   text-decoration: none;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 }
 .btn:hover {
   background: var(--ink);
@@ -371,9 +365,8 @@ button {
   color: var(--bg);
 }
 .btn.primary:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--on-accent);
+  background: var(--fill);
+  color: var(--on-fill);
 }
 .btn small {
   font-size: inherit;
@@ -391,22 +384,19 @@ button {
   container-type: inline-size;
 }
 .hero h1 {
-  margin: 0 0 0.3em -0.045em;
-  font-size: clamp(4.5rem, 30.5cqi, 13rem);
-  font-weight: 700;
-  font-stretch: 122%;
-  line-height: 0.86;
-  letter-spacing: -0.04em;
+  margin: 0 0 0.28em -0.03em;
+  font-size: clamp(4.5rem, 34cqi, 14rem);
+  font-weight: var(--w-display);
+  line-height: 0.9;
+  letter-spacing: var(--tight);
 }
 .hero h1 span {
   display: block;
 }
 .hero-title {
   font-size: clamp(1.5rem, 2.7vw, 2.125rem);
-  font-weight: 500;
-  font-stretch: 106%;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 .hero-place {
   margin-top: 0.7rem;
@@ -423,7 +413,7 @@ button {
   left: 0;
   z-index: 60;
   pointer-events: none;
-  font-weight: 700;
+  font-weight: var(--w-display);
 }
 .dock span {
   position: absolute;
@@ -455,10 +445,10 @@ button {
 
 .timeline-title {
   padding-bottom: 0.9rem;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: var(--stroke) solid var(--ink);
 }
 .timeline li {
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--stroke) dotted var(--dots);
 }
 .timeline .t-row {
   display: grid;
@@ -471,15 +461,13 @@ button {
 }
 .t-when {
   font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
+  font-size: 0.8125rem;
   color: var(--ink-2);
   white-space: nowrap;
 }
 .t-what strong {
   display: block;
-  font-weight: 650;
-  font-stretch: 106%;
+  font-weight: var(--w-head);
   line-height: 1.25;
 }
 .t-what span {
@@ -492,10 +480,7 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-family: var(--mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.8125rem;
   color: var(--ink-2);
   white-space: nowrap;
 }
@@ -525,23 +510,20 @@ a.t-row:hover .t-go .icon {
   top: 0;
   left: var(--gutter);
   right: var(--gutter);
-  border-top: 1px solid var(--ink);
+  border-top: var(--stroke) solid var(--ink);
 }
 .project-intro h2 {
   margin-top: 0.9rem;
   font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: 700;
-  font-stretch: 116%;
-  line-height: 0.98;
-  letter-spacing: -0.03em;
+  font-weight: var(--w-head);
+  line-height: 1.04;
+  letter-spacing: var(--tight);
   text-wrap: balance;
 }
 .project-meta {
   margin-top: 0.9rem;
   font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 0.8125rem;
   color: var(--ink-2);
 }
 .project-blurb {
@@ -560,8 +542,7 @@ a.t-row:hover .t-go .icon {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-family: var(--mono);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
 }
 
 .cards {
@@ -624,10 +605,9 @@ a.t-row:hover .t-go .icon {
 .card h3 {
   margin-top: 0.3rem;
   font-size: 1.3125rem;
-  font-weight: 650;
-  font-stretch: 108%;
+  font-weight: var(--w-head);
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 .card h3 .icon {
@@ -661,10 +641,7 @@ a.t-row:hover .t-go .icon {
   align-items: center;
   gap: 0.5rem;
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.9375rem;
   text-decoration: none;
   color: var(--ink-2);
 }
@@ -678,17 +655,15 @@ a.t-row:hover .t-go .icon {
   max-width: 16em;
   margin-top: 1rem;
   font-size: clamp(2.5rem, 6.4vw, 5rem);
-  font-weight: 700;
-  font-stretch: 118%;
-  line-height: 0.95;
-  letter-spacing: -0.035em;
+  font-weight: var(--w-display);
+  line-height: 1;
+  letter-spacing: var(--tight);
   text-wrap: balance;
 }
 .case-sub {
   max-width: 30em;
   margin-top: 1.1rem;
   font-size: clamp(1.2rem, 2.1vw, 1.5rem);
-  font-weight: 450;
   line-height: 1.3;
   color: var(--ink-2);
   text-wrap: balance;
@@ -707,13 +682,11 @@ a.t-row:hover .t-go .icon {
   gap: 1.4rem 2rem;
   margin-top: clamp(2rem, 4vw, 3rem);
   padding-top: 1.4rem;
-  border-top: 1px solid var(--line);
+  border-top: var(--stroke) dotted var(--dots);
 }
 .facts dt {
   font-family: var(--mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.75rem;
   color: var(--ink-2);
 }
 .facts dd {
@@ -726,10 +699,9 @@ a.t-row:hover .t-go .icon {
 .note {
   max-width: 44rem;
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
-  padding: 1rem 1.15rem;
-  border-left: 3px solid var(--accent);
-  background: var(--bg-2);
-  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1rem 1.25rem;
+  background: var(--panel);
+  border-radius: var(--radius);
   font-size: 0.9875rem;
 }
 
@@ -740,10 +712,10 @@ a.t-row:hover .t-go .icon {
   display: grid;
   gap: clamp(2rem, 4vw, 3.25rem);
   padding-block: clamp(2.5rem, 6vw, 4.5rem);
-  border-top: 1px solid var(--line);
+  border-top: var(--stroke) dotted var(--dots);
 }
 .chapter:first-child {
-  border-top-color: var(--ink);
+  border-top: var(--stroke) solid var(--ink);
 }
 .row {
   display: grid;
@@ -758,10 +730,9 @@ a.t-row:hover .t-go .icon {
 }
 .row-text h2 {
   font-size: clamp(1.5rem, 2.6vw, 2.05rem);
-  font-weight: 680;
-  font-stretch: 112%;
-  line-height: 1.08;
-  letter-spacing: -0.022em;
+  font-weight: var(--w-head);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 .row-text h2::before {
@@ -770,10 +741,7 @@ a.t-row:hover .t-go .icon {
   display: block;
   margin-bottom: 0.85rem;
   font-family: var(--mono);
-  font-size: 0.75rem;
-  font-weight: 500;
-  font-stretch: 100%;
-  letter-spacing: 0.08em;
+  font-size: 0.8125rem;
   color: var(--accent);
 }
 /* A titled part of a chapter, numbered under it: 02.1, 02.2 */
@@ -782,14 +750,13 @@ a.t-row:hover .t-go .icon {
 }
 .row.part {
   padding-top: clamp(2rem, 4vw, 3.25rem);
-  border-top: 1px solid var(--line);
+  border-top: var(--stroke) dotted var(--dots);
 }
 .row-text h3 {
   font-size: clamp(1.3rem, 2.1vw, 1.65rem);
-  font-weight: 680;
-  font-stretch: 110%;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  font-weight: var(--w-head);
+  line-height: 1.16;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 .row.part .row-text h3::before {
@@ -798,10 +765,7 @@ a.t-row:hover .t-go .icon {
   display: block;
   margin-bottom: 0.85rem;
   font-family: var(--mono);
-  font-size: 0.75rem;
-  font-weight: 500;
-  font-stretch: 100%;
-  letter-spacing: 0.08em;
+  font-size: 0.8125rem;
   color: var(--accent);
 }
 .row-text .actions {
@@ -826,7 +790,7 @@ a.t-row:hover .t-go .icon {
 }
 .row-text code {
   padding: 0.12em 0.4em;
-  border-radius: 4px;
+  border-radius: 6px;
   background: var(--bg-2);
   font-family: var(--mono);
   font-size: 0.88em;
@@ -990,8 +954,8 @@ video[data-clip]:not([controls]) {
   width: 4.25rem;
   height: 4.25rem;
   border-radius: 50%;
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--fill);
+  color: var(--on-fill);
   transition: transform 0.35s var(--ease);
 }
 .yt:hover .yt-play span {
@@ -1009,8 +973,7 @@ video[data-clip]:not([controls]) {
   padding: 3rem 1rem 0.85rem;
   background: linear-gradient(transparent, rgb(0 0 0 / 0.8));
   font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.03em;
+  font-size: 0.8125rem;
   line-height: 1.4;
 }
 .yt iframe {
@@ -1044,12 +1007,11 @@ video[data-clip]:not([controls]) {
 }
 .points li {
   padding: 1.05rem 0 1.25rem;
-  border-top: 1px solid var(--line);
+  border-top: var(--stroke) dotted var(--dots);
 }
 .points strong {
   display: block;
-  font-weight: 650;
-  font-stretch: 106%;
+  font-weight: var(--w-head);
   line-height: 1.3;
 }
 .points span {
@@ -1069,10 +1031,10 @@ ol.flow {
 .flow li:not(:last-child)::after {
   content: "";
   position: absolute;
-  left: -1.7rem;
+  left: calc(-1.685rem - var(--stroke) / 2);
   top: 1.1rem;
   bottom: -0.42rem;
-  width: 1px;
+  width: var(--stroke);
   background: var(--ink);
 }
 .flow li {
@@ -1082,22 +1044,21 @@ ol.flow {
 .flow li::before {
   content: "";
   position: absolute;
-  left: -2rem;
-  top: 0.42rem;
-  width: 0.65rem;
-  height: 0.65rem;
-  border: 1px solid var(--ink);
+  left: -2.06rem;
+  top: 0.4rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: var(--stroke) solid var(--ink);
+  border-radius: 50%;
   background: var(--bg);
 }
 .flow li:first-child::before,
 .flow li:last-child::before {
-  border-color: var(--accent);
-  background: var(--accent);
+  background: var(--fill);
 }
 .flow strong {
   display: block;
-  font-weight: 650;
-  font-stretch: 106%;
+  font-weight: var(--w-head);
   line-height: 1.3;
 }
 .flow span {
@@ -1115,14 +1076,13 @@ ol.flow {
   gap: 0.75rem;
 }
 .track {
-  padding: 1.1rem 1.15rem 1.15rem;
-  border: 1px solid var(--line);
+  padding: 1.1rem 1.25rem 1.2rem;
+  background: var(--panel);
   border-radius: var(--radius);
 }
 .track h3 {
   font-size: 1.0625rem;
-  font-weight: 650;
-  font-stretch: 106%;
+  font-weight: var(--w-head);
   line-height: 1.25;
 }
 .track p {
@@ -1160,8 +1120,7 @@ ol.flow {
 .jam h3 {
   margin-top: 0.85rem;
   font-size: 1.125rem;
-  font-weight: 650;
-  font-stretch: 106%;
+  font-weight: var(--w-head);
   line-height: 1.2;
 }
 .jam .ext {
@@ -1191,10 +1150,9 @@ ol.flow {
   display: block;
   margin-top: 0.5rem;
   font-size: clamp(1.25rem, 2.4vw, 1.75rem);
-  font-weight: 680;
-  font-stretch: 112%;
+  font-weight: var(--w-head);
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 .pager a:hover .label {
@@ -1204,10 +1162,12 @@ ol.flow {
 /* ---------- Footer ---------- */
 .site-footer {
   margin-top: clamp(1rem, 4vw, 3rem);
-  background: var(--ink);
-  color: var(--bg);
-  --line: color-mix(in srgb, var(--bg) 22%, transparent);
-  --ink-2: color-mix(in srgb, var(--bg) 68%, transparent);
+  background: var(--footer-bg);
+  color: var(--footer-ink);
+  --ink: var(--footer-ink);
+  --ink-2: color-mix(in srgb, var(--footer-ink) 68%, transparent);
+  --dots: color-mix(in srgb, var(--footer-ink) 40%, transparent);
+  --accent: var(--fill);
 }
 .site-footer .wrap {
   padding-block: clamp(3rem, 8vw, 6rem) 1.75rem;
@@ -1219,10 +1179,9 @@ ol.flow {
   display: inline-block;
   margin-top: 1.1rem;
   font-size: clamp(1.6rem, 6.2vw, 4.25rem);
-  font-weight: 700;
-  font-stretch: 114%;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  font-weight: var(--w-display);
+  line-height: 1.06;
+  letter-spacing: var(--tight);
   text-decoration: none;
   overflow-wrap: anywhere;
 }
@@ -1237,9 +1196,7 @@ ol.flow {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-family: var(--mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.03em;
+  font-size: 0.9375rem;
 }
 .footer-base {
   display: flex;
@@ -1248,11 +1205,9 @@ ol.flow {
   gap: 0.5rem 2rem;
   margin-top: clamp(3rem, 7vw, 5rem);
   padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
+  border-top: var(--stroke) dotted var(--dots);
   font-family: var(--mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.75rem;
   color: var(--ink-2);
 }
 .footer-base a {
@@ -1306,7 +1261,7 @@ ol.flow {
   width: auto;
   height: auto;
   object-fit: contain;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 .lb-stage img.on-dark {
   background: var(--tile-dark);
@@ -1333,8 +1288,6 @@ ol.flow {
   flex: none;
   font-family: var(--mono);
   font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: #9a9aa3;
   white-space: nowrap;
 }
