@@ -622,6 +622,29 @@ a.t-row:hover .t-go .icon {
   margin-top: 1.5rem;
 }
 
+/* Key facts under a page title */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr));
+  gap: 1.4rem 2rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+}
+.facts dt {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.facts dd {
+  margin-top: 0.4rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
 .note {
   max-width: 44rem;
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
@@ -814,6 +837,9 @@ video[data-clip]:not([controls]) {
 .figs .wide {
   grid-column: 1 / -1;
 }
+.figs.two {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+}
 
 /* YouTube: a thumbnail that becomes the player on click */
 .yt {
@@ -895,6 +921,31 @@ video[data-clip]:not([controls]) {
 .player video {
   width: 100%;
   aspect-ratio: var(--ar, 16 / 9);
+}
+
+/* Short titled points, set beside a chapter's text */
+.points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 0 2rem;
+}
+.points li {
+  padding: 1.05rem 0 1.25rem;
+  border-top: 1px solid var(--line);
+}
+.points strong {
+  display: block;
+  font-weight: 650;
+  font-stretch: 106%;
+  line-height: 1.3;
+}
+.points span {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+  text-wrap: pretty;
 }
 
 /* A pipeline drawn as a list: nodes on a rail, top to bottom */
