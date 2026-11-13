@@ -1,7 +1,9 @@
 # Portfolio-Website
 
-Source for [aaron-hong.com](https://aaron-hong.com). Plain static HTML: no build step, no dependencies. Upload the
-folder as-is.
+Source for [aaron-hong.com](https://aaron-hong.com). Plain static HTML: no build step, no dependencies.
+
+Hosted on Vercel, which serves the repository as it is. A push to `main` goes live; a push to any other branch gets
+a preview address of its own.
 
 ## Layout
 
@@ -14,6 +16,8 @@ folder as-is.
 | `assets/fonts/` | Archivo and IBM Plex Mono, self-hosted (both SIL Open Font License) |
 | `Pieces/` | Original, full-size files |
 | `media/` | Web-sized copies of what's in `Pieces/` (WebP stills, MP4 loops made from the GIFs, video posters, home-page card thumbnails) |
+| `vercel.json` | Redirects from two retired page addresses to the pages that replaced them |
+| `.vercelignore` | Files kept in the repository but left out of the site |
 
 Screen recordings such as the ones on the n.ot.e page are already small MP4s, so they sit in `Pieces/` and are used directly.
 
