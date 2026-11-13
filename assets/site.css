@@ -17,24 +17,26 @@
 }
 
 /* ---------- Tokens ---------- */
-/* Light: machined aluminium, black anodising, brass. Dark: gunmetal and gold. */
+/* Warm off-white, black and brass; gunmetal and gold when dark. --paper is the
+   off-white itself, which is also the text colour on every dark surface. */
 :root {
   color-scheme: light;
-  --bg: #e8eaed;
-  --bg-2: #dadde2;
-  --panel: #f3f4f6;
-  --ink: #16181b;
-  --ink-2: #4b5159;
-  --ink-3: #7c848e;
-  --line: rgb(22 24 27 / 0.2);
-  --dots: rgb(22 24 27 / 0.42);
-  --accent: #8a5e00;
+  --paper: #eae4da;
+  --bg: var(--paper);
+  --bg-2: #ddd6ca;
+  --panel: #f4f0e8;
+  --ink: #1a1815;
+  --ink-2: #57534b;
+  --ink-3: #888378;
+  --line: rgb(26 24 21 / 0.2);
+  --dots: rgb(26 24 21 / 0.42);
+  --accent: #805700;
   --fill: #f4c430;
-  --on-fill: #16181b;
-  --footer-bg: #16181b;
-  --footer-ink: #e8eaed;
-  --tile-dark: #17191c;
-  --tile-light: #f1f2f3;
+  --on-fill: #1a1815;
+  --footer-bg: #1a1815;
+  --footer-ink: var(--paper);
+  --tile-dark: #1b1917;
+  --tile-light: #f4f0e8;
 
   /* One typeface in one weight carries the page; size and colour set the hierarchy. */
   --font: "Varela Round", ui-rounded, "Hiragino Maru Gothic ProN", "Arial Rounded MT", system-ui, sans-serif;
@@ -54,34 +56,32 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #1c1c1d;
-    --bg-2: #2a2a2b;
-    --panel: #232324;
-    --ink: #ededec;
-    --ink-2: #a9a9a7;
-    --ink-3: #7b7b79;
-    --line: rgb(255 255 255 / 0.16);
-    --dots: rgb(255 255 255 / 0.38);
+    --bg: #1c1a18;
+    --bg-2: #2a2724;
+    --panel: #23211e;
+    --ink: var(--paper);
+    --ink-2: #aaa499;
+    --ink-3: #7d786f;
+    --line: rgb(234 228 218 / 0.16);
+    --dots: rgb(234 228 218 / 0.38);
     --accent: #f4c430;
-    --on-fill: #1c1c1d;
-    --footer-bg: #111112;
-    --footer-ink: #ededec;
+    --on-fill: #1c1a18;
+    --footer-bg: #121110;
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #1c1c1d;
-  --bg-2: #2a2a2b;
-  --panel: #232324;
-  --ink: #ededec;
-  --ink-2: #a9a9a7;
-  --ink-3: #7b7b79;
-  --line: rgb(255 255 255 / 0.16);
-  --dots: rgb(255 255 255 / 0.38);
+  --bg: #1c1a18;
+  --bg-2: #2a2724;
+  --panel: #23211e;
+  --ink: var(--paper);
+  --ink-2: #aaa499;
+  --ink-3: #7d786f;
+  --line: rgb(234 228 218 / 0.16);
+  --dots: rgb(234 228 218 / 0.38);
   --accent: #f4c430;
-  --on-fill: #1c1c1d;
-  --footer-bg: #111112;
-  --footer-ink: #ededec;
+  --on-fill: #1c1a18;
+  --footer-bg: #121110;
 }
 
 /* ---------- Base ---------- */
@@ -926,11 +926,11 @@ video[data-clip]:not([controls]) {
   overflow: hidden;
   border-radius: var(--radius);
   background: #000;
-  color: #fff;
+  color: var(--paper);
   text-decoration: none;
 }
 .yt:hover {
-  color: #fff;
+  color: var(--paper);
 }
 .yt img {
   width: 100%;
@@ -1228,12 +1228,12 @@ ol.flow {
   margin: 0;
   padding: 0;
   border: 0;
-  background: rgb(10 10 12 / 0.96);
-  color: #f2f1ec;
+  background: rgb(18 17 16 / 0.96);
+  color: var(--paper);
   overflow: hidden;
 }
 .lb::backdrop {
-  background: rgb(10 10 12 / 0.6);
+  background: rgb(18 17 16 / 0.6);
 }
 .lb[open] {
   display: grid;
@@ -1280,7 +1280,7 @@ ol.flow {
 }
 .lb-caption {
   max-width: 60rem;
-  color: #c9c9cf;
+  color: color-mix(in srgb, var(--paper) 82%, transparent);
 }
 .lb-meta {
   display: flex;
@@ -1288,11 +1288,11 @@ ol.flow {
   flex: none;
   font-family: var(--mono);
   font-size: 0.75rem;
-  color: #9a9aa3;
+  color: color-mix(in srgb, var(--paper) 58%, transparent);
   white-space: nowrap;
 }
 .lb-meta a:hover {
-  color: #fff;
+  color: var(--paper);
 }
 .lb button {
   position: absolute;
@@ -1303,13 +1303,13 @@ ol.flow {
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: rgb(255 255 255 / 0.1);
-  color: #fff;
+  background: rgb(234 228 218 / 0.12);
+  color: var(--paper);
   cursor: pointer;
   transition: background-color 0.2s;
 }
 .lb button:hover {
-  background: rgb(255 255 255 / 0.22);
+  background: rgb(234 228 218 / 0.24);
 }
 .lb button svg {
   width: 1.25rem;
