@@ -17,7 +17,7 @@
 }
 
 /* ---------- Tokens ---------- */
-/* Light: machined aluminium, black anodising, brass. Dark: navy anodising, gold. */
+/* Light: machined aluminium, black anodising, brass. Dark: gunmetal and gold. */
 :root {
   color-scheme: light;
   --bg: #e8eaed;
@@ -54,34 +54,34 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #121a2e;
-    --bg-2: #1c2742;
-    --panel: #182139;
-    --ink: #eef0f4;
-    --ink-2: #aab3c6;
-    --ink-3: #7783a0;
-    --line: rgb(255 255 255 / 0.18);
-    --dots: rgb(255 255 255 / 0.4);
+    --bg: #1c1c1d;
+    --bg-2: #2a2a2b;
+    --panel: #232324;
+    --ink: #ededec;
+    --ink-2: #a9a9a7;
+    --ink-3: #7b7b79;
+    --line: rgb(255 255 255 / 0.16);
+    --dots: rgb(255 255 255 / 0.38);
     --accent: #f4c430;
-    --on-fill: #121a2e;
-    --footer-bg: #0b1120;
-    --footer-ink: #eef0f4;
+    --on-fill: #1c1c1d;
+    --footer-bg: #111112;
+    --footer-ink: #ededec;
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #121a2e;
-  --bg-2: #1c2742;
-  --panel: #182139;
-  --ink: #eef0f4;
-  --ink-2: #aab3c6;
-  --ink-3: #7783a0;
-  --line: rgb(255 255 255 / 0.18);
-  --dots: rgb(255 255 255 / 0.4);
+  --bg: #1c1c1d;
+  --bg-2: #2a2a2b;
+  --panel: #232324;
+  --ink: #ededec;
+  --ink-2: #a9a9a7;
+  --ink-3: #7b7b79;
+  --line: rgb(255 255 255 / 0.16);
+  --dots: rgb(255 255 255 / 0.38);
   --accent: #f4c430;
-  --on-fill: #121a2e;
-  --footer-bg: #0b1120;
-  --footer-ink: #eef0f4;
+  --on-fill: #1c1c1d;
+  --footer-bg: #111112;
+  --footer-ink: #ededec;
 }
 
 /* ---------- Base ---------- */
