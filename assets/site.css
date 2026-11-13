@@ -567,6 +567,76 @@ a.t-row:hover .t-go .icon {
   max-width: 38em;
   font-size: 1rem;
 }
+/* The cue that a card opens a write-up; the whole card is the link */
+.card-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.3;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: var(--stroke);
+  text-underline-offset: 0.22em;
+}
+.card-go .icon {
+  transition: transform 0.3s var(--ease);
+}
+.card:hover .card-go,
+.card:focus-visible .card-go {
+  color: var(--accent);
+}
+.card:hover .card-go .icon {
+  transform: translateX(4px);
+}
+.card {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+}
+.card:hover {
+  color: inherit;
+}
+.card-img {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--bg-2);
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.card:hover .card-img img {
+  transform: scale(1.04);
+}
+.card-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgb(128 128 128 / 0.18);
+  pointer-events: none;
+}
+.card .label {
+  margin-top: 0.95rem;
+}
+.card h3 {
+  margin-top: 0.3rem;
+  font-size: 1.3125rem;
+  font-weight: var(--w-head);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.card-desc {
+  max-width: 38em;
+  font-size: 1rem;
+}
 .card {
   display: block;
   height: 100%;
@@ -1168,42 +1238,23 @@ ol.flow {
   --ink-2: color-mix(in srgb, var(--footer-ink) 68%, transparent);
   --dots: color-mix(in srgb, var(--footer-ink) 40%, transparent);
   --accent: var(--fill);
+  --bg: var(--footer-bg);
 }
 .site-footer .wrap {
-  padding-block: clamp(3rem, 8vw, 6rem) 1.75rem;
+  padding-block: clamp(2.5rem, 6vw, 4rem) 1.75rem;
 }
 .site-footer .eyebrow {
   color: var(--ink-2);
 }
-.footer-email {
-  display: inline-block;
-  margin-top: 1.1rem;
-  font-size: clamp(1.6rem, 6.2vw, 4.25rem);
-  font-weight: var(--w-display);
-  line-height: 1.06;
-  letter-spacing: var(--tight);
-  text-decoration: none;
-  overflow-wrap: anywhere;
-}
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 2.25rem;
-  margin-top: clamp(1.75rem, 4vw, 2.75rem);
-}
-.footer-links a,
-.footer-links span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.9375rem;
+.site-footer .actions {
+  margin-top: 1.25rem;
 }
 .footer-base {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.5rem 2rem;
-  margin-top: clamp(3rem, 7vw, 5rem);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
   padding-top: 1.25rem;
   border-top: var(--stroke) dotted var(--dots);
   font-family: var(--mono);
@@ -1380,9 +1431,12 @@ ol.flow {
   .card h3 {
     font-size: 1.0625rem;
   }
-  .card h3 .icon,
   .card-desc {
     display: none;
+  }
+  .card-go {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
   }
   .cards.feature {
     grid-template-columns: minmax(0, 1fr);
