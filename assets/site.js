@@ -9,13 +9,16 @@
 
   /* ---------- Theme toggle ---------- */
   var toggle = document.querySelector(".theme-toggle");
+  var chrome = document.querySelector('meta[name="theme-color"]');
+  var paint = function () {
+    if (chrome) chrome.content = root.dataset.theme === "dark" ? "#1c1a18" : "#eae4da";
+  };
+  paint();
   if (toggle) {
     toggle.addEventListener("click", function () {
-      var dark =
-        root.dataset.theme === "dark" ||
-        (!root.dataset.theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
-      var next = dark ? "light" : "dark";
+      var next = root.dataset.theme === "dark" ? "light" : "dark";
       root.dataset.theme = next;
+      paint();
       try {
         localStorage.setItem("theme", next);
       } catch (e) {}

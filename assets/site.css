@@ -17,8 +17,9 @@
 }
 
 /* ---------- Tokens ---------- */
-/* Warm off-white, black and brass; gunmetal and gold when dark. --paper is the
-   off-white itself, which is also the text colour on every dark surface. */
+/* Warm off-white, black and brass. The dark theme, gunmetal and gold, applies only when a
+   visitor switches to it. --paper is the off-white itself, which is also the text colour on
+   every dark surface. */
 :root {
   color-scheme: light;
   --paper: #eae4da;
@@ -53,22 +54,6 @@
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --bg: #1c1a18;
-    --bg-2: #2a2724;
-    --panel: #23211e;
-    --ink: var(--paper);
-    --ink-2: #aaa499;
-    --ink-3: #7d786f;
-    --line: rgb(234 228 218 / 0.16);
-    --dots: rgb(234 228 218 / 0.38);
-    --accent: #f4c430;
-    --on-fill: #1c1a18;
-    --footer-bg: #121110;
-  }
-}
 :root[data-theme="dark"] {
   color-scheme: dark;
   --bg: #1c1a18;
