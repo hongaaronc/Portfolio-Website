@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>n.ot.e, a collaborative editor built with agents · Aaron Hong</title>
-  <meta name="description" content="Peer-to-peer CRDT collaboration, a deterministic expression language, a renderer that scales with the screen, and the tooling that lets AI agents build and verify it.">
+  <meta name="description" content="The editor in brief, and the two tools I built to make agent-driven development faster: an idea triage, and a harness that checks the result against the real game.">
   <meta name="author" content="Aaron Hong">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Aaron Hong">
   <meta property="og:title" content="n.ot.e, a collaborative editor built with agents · Aaron Hong">
-  <meta property="og:description" content="Peer-to-peer CRDT collaboration, a deterministic expression language, a renderer that scales with the screen, and the tooling that lets AI agents build and verify it.">
+  <meta property="og:description" content="The editor in brief, and the two tools I built to make agent-driven development faster: an idea triage, and a harness that checks the result against the real game.">
   <meta property="og:url" content="https://aaron-hong.com/Software/Note.html">
   <meta property="og:image" content="https://aaron-hong.com/media/cards/note-og.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -50,6 +50,7 @@
     <p class="case-links">
       <a class="ext" href="https://note.nostril.io/" target="_blank" rel="noopener">Open n.ot.e <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
       <a class="ext" href="https://note.nostril.io/info" target="_blank" rel="noopener">Take the tour <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      <a class="ext" href="https://note.nostril.io/develop?demo" target="_blank" rel="noopener">Idea triage demo <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
     </p>
     <dl class="facts">
       <div><dt>Role</dt><dd>Solo. Product, architecture and review; the code is written by AI agents under my direction</dd></div>
@@ -67,7 +68,11 @@
           <h2>What it is</h2>
           <p>osu! is a rhythm game whose levels, called beatmaps, are made by its players. n.ot.e is an editor for the levels of its drum mode, osu!taiko: a full authoring tool with a timeline, playback, in-editor testplay, and its own tools for the mode's scroll-speed effects.</p>
           <p>It is collaborative in the way Google Docs or Figma are. Several people edit one map at the same time, in the browser with nothing to install, or in native apps for Windows, macOS, Linux, Android and iOS. I started it in July 2026 and release it under my osu! name, Nostril.</p>
-          <p>The clips on this page are the real app. They are recorded from its guided tour, where every demo is a live editor driven by a script, not a video.</p>
+          <p>The guided tour at <a href="https://note.nostril.io/info" target="_blank" rel="noopener">note.nostril.io/info</a> shows what it does, one feature at a time. Every demo there is a live editor driven by a script, not a video, and the clips on this page are recorded from it.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://note.nostril.io/info" target="_blank" rel="noopener">Take the tour <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+            <a class="btn" href="https://note.nostril.io/" target="_blank" rel="noopener">Open the editor <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+          </div>
         </div>
         <div class="row-media">
           <div class="shots">
@@ -95,120 +100,55 @@
       <div class="row">
         <div class="row-text">
           <h2>How it's built</h2>
-          <p>n.ot.e is built with an agent-driven workflow. I run several Claude Code sessions at once, and they write the code. I decide what gets built and how it should behave, review what comes back, and build the systems that keep a fast-moving codebase correct.</p>
-          <p>That last part is most of the engineering. An agent starts every session knowing nothing about the project, cannot see the screen and cannot hear the audio. So everything that matters has to be written down, tested or measurable.</p>
-          <p>Two tools I built for this workflow have sections of their own further down: <a href="#compare">OsuTaikoCompare</a> and <a href="#develop">the idea triage</a>.</p>
+          <p>n.ot.e is built with an agent-driven workflow. I run several Claude Code sessions at once, and they write the code. I decide what gets built and how it should behave, and I review what comes back.</p>
+          <p>An agent starts every session knowing nothing about the project, and it cannot see the screen or hear the audio. The project's rules and decisions are written into the repository for it, and more than 2,700 tests hold it to them.</p>
+          <p>That leaves two slow steps: getting an idea clear enough to hand over, and checking that what comes back matches the real game. I built a tool for each, with the same workflow. It is AI development used to speed up AI development.</p>
         </div>
         <div class="row-media">
           <ul class="points">
-            <li><strong>Rulings, written down</strong><span>One CLAUDE.md and 30 skill documents hold the conventions, my decisions and the traps for each part of the codebase. Most rules trace back to a real regression. An agent reads the one for the area it is about to change.</span></li>
-            <li><strong>Tests as the spec</strong><span>More than 2,700 tests, built on real data where it exists: real maps for the curve fitter, real scores from the game for scoring, concurrent-edit cases for the sync layer. The reasons for a rule live in its tests, not in comments.</span></li>
-            <li><strong>Measure, don't guess</strong><span>Behaviour is measured headless: frame timings and GPU cost per frame on both graphics backends, and the page's audio graph tapped to check, to the sample, where a hit sound lands against the music.</span></li>
-            <li><strong>Many sessions, one working tree</strong><span>Several sessions share one checkout. The rules for that (stage explicit paths, never discard working-tree state, commit small) came out of a real incident, when one session erased hours of another's work.</span></li>
-            <li><strong>One bar for every change</strong><span>Every pull request states the time and space cost of what it adds and how often that runs, what existing code it reused, and why it exists, whoever or whatever wrote it.</span></li>
+            <li><strong><a href="#develop">The idea triage</a></strong><span>Takes a rough idea to one that is ready to hand to an agent.</span></li>
+            <li><strong><a href="#compare">OsuTaikoCompare</a></strong><span>Measures n.ot.e against the real game, frame by frame, so an agent can check its own work.</span></li>
           </ul>
         </div>
       </div>
-    </section>
-    <section class="chapter">
-      <div class="row stack">
+      <div class="row part">
         <div class="row-text">
-          <h2>Collaboration without a server</h2>
-          <p>Edits, cursors and selections appear on every collaborator's screen as they happen, and none of it passes through a server of mine. The map is a Yjs document, a CRDT, that browsers sync directly over WebRTC; a small signaling server only introduces peers. The song and the rest of a map's files travel peer to peer as well, over WebTorrent.</p>
-          <p>The hard part of a CRDT editor is that every operation has to converge to the same result on every peer and still undo cleanly. Each rule in the mutation layer comes from a bug that shipped. One example: moving a note by deleting and re-inserting it produced duplicates when one person moved it while another pressed undo, so every edit now changes fields in place on an object with a stable id.</p>
-          <p>Undo is per person: it takes back your edits and leaves everyone else's alone. The collaboration layer alone has close to a thousand tests.</p>
+          <h3 id="develop">The idea triage: from a napkin to a merged branch</h3>
+          <p>Some of my best ideas start on a napkin during lunch. When one is ready to hand to an agent as it stands, I do that from wherever I am: I use the Claude Code mobile app heavily when I am away from my desk.</p>
+          <p>The idea triage, at note.nostril.io/develop, is for the ideas that are not there yet. It is a different interface to Claude that I built for low-stakes brainstorming, and its job is to take a rough idea to one that is ready to prompt.</p>
+          <p>I jot notes on its napkin, as in a notes app. Claude reads the code and turns each note into a card: how it read the note, what the code already does, what it would build, and how ready the idea is. What it needs from me arrives as multiple-choice questions, so working an idea through takes a few taps.</p>
+          <p>From there a card can start a Claude Code session on a branch of its own, and it follows that branch through to merge and release. A read-only demo with sample cards is public.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://note.nostril.io/develop?demo" target="_blank" rel="noopener">Open the demo <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+          </div>
         </div>
         <div class="row-media">
-          <div class="shots">
-            <div class="shots-row">
-              <figure class="shot" style="--ar:3.2661">
-                <div class="frame">
-                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/collab-poster.webp" width="1424" height="436" aria-label="Two editors side by side. The first invites a friend, the second accepts and loads the same map, and the two take turns placing notes that appear on both screens.">
-                    <source src="../Pieces/Software/Note/collab.mp4" type="video/mp4">
-                  </video>
-                </div>
-              </figure>
-            </div>
+          <div class="figs">
+            <figure class="shot wide" style="--ar:1.4400">
+              <a href="../media/Software/Note/develop-card-2400.webp" data-lb data-w="2400" data-h="1667" data-orig="../Pieces/Software/Note/develop-card.png">
+                <img src="../media/Software/Note/develop-card-960.webp" srcset="../media/Software/Note/develop-card-480.webp 480w, ../media/Software/Note/develop-card-960.webp 960w, ../media/Software/Note/develop-card-1600.webp 1600w, ../media/Software/Note/develop-card-2400.webp 2400w" sizes="(min-width: 62rem) 54vw, 92vw" width="2400" height="1667" alt="The idea triage showing a card titled Translate modding posts in the extension: on the left, the original note, Claude&#x27;s reading of it, what the app does today and what it would build; on the right, a conversation with multiple-choice questions such as Which translator? and Which languages first?; along the bottom, the phase pipeline at Brainstorming." loading="lazy" decoding="async">
+              </a>
+              <figcaption>A card while brainstorming. Claude's reading of the note is on the left; its questions arrive as choices on the right.</figcaption>
+            </figure>
+            <figure class="shot wide" style="--ar:1.4400">
+              <a href="../media/Software/Note/develop-napkin-2400.webp" data-lb data-w="2400" data-h="1667" data-orig="../Pieces/Software/Note/develop-napkin.png">
+                <img src="../media/Software/Note/develop-napkin-960.webp" srcset="../media/Software/Note/develop-napkin-480.webp 480w, ../media/Software/Note/develop-napkin-960.webp 960w, ../media/Software/Note/develop-napkin-1600.webp 1600w, ../media/Software/Note/develop-napkin-2400.webp 2400w" sizes="(min-width: 62rem) 54vw, 92vw" width="2400" height="1667" alt="The top of the idea triage: a search bar, a strip counting cards in each phase, a napkin with two rough notes and a Turn these 2 into cards button, and folded cards below with their pipelines at Merged and Shipped." loading="lazy" decoding="async">
+              </a>
+              <figcaption>The napkin and the pipeline. Every card shows its phase, from Brainstorming to Shipped.</figcaption>
+            </figure>
           </div>
         </div>
       </div>
-    </section>
-    <section class="chapter">
-      <div class="row stack">
+      <div class="row part">
         <div class="row-text">
-          <h2>A language for scroll speed</h2>
-          <p>Taiko levels change how fast the notes scroll, for effect. In the game's file format that is one timing line per change, and an elaborate map has tens of thousands of them, placed by hand.</p>
-          <p>n.ot.e replaces that with a small expression language. A Transform spans part of the map and computes the speed at every note from an expression such as <code>linear(1.0, 0.9)</code>. Transforms stack, users can define their own functions, and the timing lines become derived output.</p>
-          <p>Two constraints shaped it. It has to be deterministic, with no randomness and no assignment, because every collaborator derives the result independently and they must agree. And it has to re-derive fast enough to follow a handle while it is being dragged, as in the clip.</p>
-          <p>For existing maps, a curve fitter recognises the ramps already in the file and turns them into Transforms. It checks each fit against the original at every note and skips what it cannot reproduce, runs in a worker so a large map does not stall the page, and is calibrated against six real maps kept as test fixtures.</p>
+          <h3 id="compare">OsuTaikoCompare: how I matched it with the real game</h3>
+          <p>An editor is only useful if what it shows is what the game will do. n.ot.e's Full Testplay reproduces the original client's gameplay screen, down to the health bar, the mascot and the map's storyboard. Whether it really matches is a question an agent cannot answer by looking, and one I can only answer slowly.</p>
+          <p>OsuTaikoCompare is a harness I built to answer it by measurement. It plays one map in the real clients, osu!stable and osu!lazer, and in n.ot.e, and compares their frames at identical moments of the map: side by side, stacked, or as a per-pixel difference.</p>
+          <p>The trick is the clock. The harness adds a small machine-readable timecode to the test map, so every frame captured from a real client says which moment of the map it shows. n.ot.e is then driven to render exactly those moments, and its own timecode is read back to prove that it did.</p>
+          <p>It is made for agents as much as for me. Every command ends with one JSON object holding the facts of the run, the moments that differ most and their images, so a session can change the code, run the comparison and read the result on its own. And it had to be fast, because a slow experiment does not get run: rebuilding the pipeline took a standard run from 17 min 52 s to 1 min 21 s.</p>
         </div>
         <div class="row-media">
           <div class="shots">
-            <div class="shots-row">
-              <figure class="shot" style="--ar:1.6000">
-                <div class="frame">
-                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/sv-poster.webp" width="1424" height="890" aria-label="On the SV strip, a Transform bracket is drawn over a phrase and given the expression linear(); it is pasted onto the following phrases, then a handle is dragged during testplay and the notes re-space live.">
-                    <source src="../Pieces/Software/Note/sv.mp4" type="video/mp4">
-                  </video>
-                </div>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="chapter">
-      <div class="row text-only">
-        <div class="row-text">
-          <h2>Writing only what was touched</h2>
-          <p>A beatmap is a plain text file that other tools and other people edit too, so n.ot.e is strict about what it writes. A map that is opened and exported unchanged comes out byte for byte the same, and an edit changes only the lines it touched.</p>
-          <p>That rule reaches well past the serializer. The parser keeps a lossless syntax tree of the file instead of a model of the parts it understands. What n.ot.e adds on top, such as Transforms and linked copies, lives in a sidecar file beside the map. And a curve the fitter recognised is stored as a description of lines that already exist, so nothing is rewritten until the user edits it.</p>
-        </div>
-      </div>
-    </section>
-    <section class="chapter">
-      <div class="row stack">
-        <div class="row-text">
-          <h2>Rendering that scales with the screen, not the map</h2>
-          <p>The rule for the renderer is that a frame's cost scales with what is on screen and never with the size of the map. Per-frame work is windowed to the viewport and looked up by binary search, so a map with 30,000 timing lines scrolls like one with 30.</p>
-          <p>It draws with Pixi.js, on WebGPU on desktop and WebGL on mobile. What does not fit in sprites is custom meshes and shaders written for both backends: instanced snap ticks, and the waveform and spectrogram backdrops of the timing view.</p>
-          <p>A built-in overlay times both halves of a frame, CPU and GPU, so a slow frame is diagnosed before it is optimised. One standing rule: a debounce or a wait-for-it-to-settle delay is never accepted as a performance fix. Work is gated on events or coalesced to the next frame.</p>
-        </div>
-        <div class="row-media">
-          <div class="shots">
-            <div class="shots-row">
-              <figure class="shot" style="--ar:1.6000">
-                <div class="frame">
-                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/timing-poster.webp" width="1424" height="890" aria-label="The timing lens showing the song&#x27;s onsets under the notes. A red line is dragged later and back, and with the Maintain toggles on the notes stay snapped to it.">
-                    <source src="../Pieces/Software/Note/timing.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <figcaption>The timing view. The audio backdrop under the notes is drawn by a custom shader, and moving a tempo line keeps the notes on it snapped.</figcaption>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="chapter">
-      <div class="row stack">
-        <div class="row-text">
-          <h2>Matching the real game</h2>
-          <p>An editor is only useful if what it shows is what the game will do. Testplay runs the map inside the editor under the game's own judgement and scoring rules, and the scoring code is checked against real scores set in the original client.</p>
-          <p>Full Testplay goes further and reproduces the original client's whole gameplay screen: playfield, health bar and mascot, plus the map's background, video and storyboard, which needed a storyboard engine of its own.</p>
-          <p>Audio is held to the same standard. A hit sound has to land on its note in the music, including at slowed-down playback through a time-stretcher, and that is measured, not judged by ear.</p>
-        </div>
-        <div class="row-media">
-          <div class="shots">
-            <div class="shots-row">
-              <figure class="shot" style="--ar:1.6000">
-                <div class="frame">
-                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/testplay-poster.webp" width="1424" height="890" aria-label="Testplay running on Autoplay inside the editor with score and accuracy counting up, then the Mods panel opening and Hidden being switched on.">
-                    <source src="../Pieces/Software/Note/testplay.mp4" type="video/mp4">
-                  </video>
-                </div>
-              </figure>
-            </div>
             <div class="shots-row">
               <figure class="shot" style="--ar:1.6000">
                 <div class="frame">
@@ -216,23 +156,10 @@
                     <source src="../Pieces/Software/Note/full-testplay.mp4" type="video/mp4">
                   </video>
                 </div>
-                <figcaption>Full Testplay, running on Autoplay.</figcaption>
+                <figcaption>Full Testplay in n.ot.e, running on Autoplay. This is the screen being matched.</figcaption>
               </figure>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <section class="chapter">
-      <div class="row">
-        <div class="row-text">
-          <h2 id="compare">OsuTaikoCompare: checking against the real clients</h2>
-          <p>Whether n.ot.e matches the game is a question an agent cannot answer by looking, and I can only answer slowly. OsuTaikoCompare is a harness I built to answer it by measurement. It plays one map in the real clients, osu!stable and osu!lazer, and in n.ot.e, and compares their frames at identical moments of the map: side by side, stacked, or as a per-pixel difference.</p>
-          <p>The trick is the clock. The harness adds a small machine-readable timecode to the test map's storyboard. The real clients run in real time and are captured losslessly, and each captured frame is labelled with the map time its timecode shows. n.ot.e is then driven to render exactly those times, and its own timecode is read back to prove that it did.</p>
-          <p>It is made for agents as much as for me. Run from a script, every command ends with one JSON object holding the facts of the run, the moments that differ most, and their images. The clients are unmodified, sandboxed copies with no network access, and never log in.</p>
-          <p>Speed mattered, because a slow experiment does not get run. Rebuilding the pipeline took the standard run from 17 min 52 s to 1 min 21 s on a four-core machine with no GPU. Frames are compared on worker threads, or by a WebGL engine that is bit-exact with that CPU reference.</p>
-        </div>
-        <div class="row-media">
           <ol class="flow">
             <li><strong>A test map</strong><span>Any map, with a timecode strip injected into its storyboard.</span></li>
             <li><strong>The real clients</strong><span>osu!stable and osu!lazer play it in real time, sandboxed and offline. Their frames are captured losslessly.</span></li>
@@ -241,140 +168,6 @@
             <li><strong>Comparison</strong><span>Frames from the same instant are paired: side by side, stacked, or as a per-pixel difference.</span></li>
             <li><strong>Report</strong><span>The facts, the most different moments and their images, as JSON for a person or an agent.</span></li>
           </ol>
-        </div>
-      </div>
-    </section>
-    <section class="chapter">
-      <div class="row">
-        <div class="row-text">
-          <h2>One codebase, six platforms</h2>
-          <p>The same app runs in a browser tab and inside native shells for Windows, macOS, Linux, Android and iOS. The shells are Tauri and Rust, and add what a browser cannot: offline use, saving straight to the map's file, and a native audio backend called from Rust.</p>
-          <p>The interface is built for touch as well as mouse and pen, with long-press menus in place of right-click, a touch drum for testplay and a tabletop layout for foldables. It is available in 17 languages.</p>
-          <p>GitHub Actions builds every installer. Shipping to real machines brought the usual platform work, such as repacking the Linux AppImage so that it starts on distributions with a newer graphics stack.</p>
-        </div>
-        <div class="row-media">
-          <div class="shots">
-            <div class="shots-row">
-              <figure class="shot" style="--ar:0.6949">
-                <a href="../media/Software/Note/tablet-1640.webp" data-lb data-w="1640" data-h="2360" data-orig="../Pieces/Software/Note/tablet.png">
-                  <img src="../media/Software/Note/tablet-960.webp" srcset="../media/Software/Note/tablet-480.webp 480w, ../media/Software/Note/tablet-960.webp 960w, ../media/Software/Note/tablet-1640.webp 1640w" sizes="(min-width: 62rem) 18vw, 31vw" width="1640" height="2360" alt="The editor on a tablet in portrait, with three difficulties open." loading="lazy" decoding="async">
-                </a>
-                <figcaption>Tablet</figcaption>
-              </figure>
-              <figure class="shot" style="--ar:0.4621">
-                <a href="../media/Software/Note/phone-1109.webp" data-lb data-w="1109" data-h="2400" data-orig="../Pieces/Software/Note/phone.png">
-                  <img src="../media/Software/Note/phone-960.webp" srcset="../media/Software/Note/phone-480.webp 480w, ../media/Software/Note/phone-960.webp 960w, ../media/Software/Note/phone-1109.webp 1109w" sizes="(min-width: 62rem) 18vw, 31vw" width="1109" height="2400" alt="The editor on a phone: the note band on top, then transport, a compact toolbar and the song&#x27;s details." loading="lazy" decoding="async">
-                </a>
-                <figcaption>Phone</figcaption>
-              </figure>
-              <figure class="shot" style="--ar:0.4621">
-                <a href="../media/Software/Note/phone-drum-1109.webp" data-lb data-w="1109" data-h="2400" data-orig="../Pieces/Software/Note/phone-drum.png">
-                  <img src="../media/Software/Note/phone-drum-960.webp" srcset="../media/Software/Note/phone-drum-480.webp 480w, ../media/Software/Note/phone-drum-960.webp 960w, ../media/Software/Note/phone-drum-1109.webp 1109w" sizes="(min-width: 62rem) 18vw, 31vw" width="1109" height="2400" alt="Testplay on a phone with the touch drum, a large half-circle drum, filling the lower part of the screen." loading="lazy" decoding="async">
-                </a>
-                <figcaption>Testplay with the touch drum</figcaption>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="chapter">
-      <div class="row stack">
-        <div class="row-text">
-          <h2 id="develop">The idea triage: from a napkin to a merged branch</h2>
-          <p>Some of my best ideas start on a napkin during lunch. When one is ready to hand to an agent as it stands, I do that from wherever I am: I use the Claude Code mobile app heavily when I am away from my desk.</p>
-          <p>The idea triage, at note.nostril.io/develop, is for the ideas that are not there yet. It is a different interface to Claude that I built for low-stakes brainstorming, and its job is to take a rough idea to one that is ready to prompt.</p>
-          <p>I jot notes on its napkin, as in a notes app. Claude reads the code and turns each note into a card: how it read the note, what the code already does, what it would build, and how ready the idea is. What it needs from me arrives as multiple-choice questions, so working an idea through takes a few taps.</p>
-          <p>A card then moves through a pipeline. Build it starts a Claude Code session in the cloud on a branch of its own, follow-up notes start further sessions on that branch, and Merge lands it. The card shows whether main has the branch and whether a release does, across the project's three repositories.</p>
-          <p>The site holds no AI credentials of its own. Each user connects their own Claude, and the server only relays calls. A read-only demo with sample cards is public.</p>
-          <p class="case-links"><a class="ext" href="https://note.nostril.io/develop?demo" target="_blank" rel="noopener">Open the demo <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></p>
-        </div>
-        <div class="row-media">
-          <div class="shots">
-            <div class="shots-row">
-              <figure class="shot" style="--ar:1.4400">
-                <a href="../media/Software/Note/develop-card-2400.webp" data-lb data-w="2400" data-h="1667" data-orig="../Pieces/Software/Note/develop-card.png">
-                  <img src="../media/Software/Note/develop-card-960.webp" srcset="../media/Software/Note/develop-card-480.webp 480w, ../media/Software/Note/develop-card-960.webp 960w, ../media/Software/Note/develop-card-1600.webp 1600w, ../media/Software/Note/develop-card-2400.webp 2400w" sizes="(min-width: 82rem) 76rem, 92vw" width="2400" height="1667" alt="The idea triage showing a card titled Translate modding posts in the extension: on the left, the original note, Claude&#x27;s reading of it, what the app does today and what it would build; on the right, a conversation with multiple-choice questions such as Which translator? and Which languages first?; along the bottom, the phase pipeline at Brainstorming." loading="lazy" decoding="async">
-                </a>
-                <figcaption>A card while brainstorming. Claude's reading of the note is on the left; its questions arrive as choices on the right.</figcaption>
-              </figure>
-            </div>
-          </div>
-          <div class="figs two">
-            <figure class="shot" style="--ar:1.4400">
-              <a href="../media/Software/Note/develop-built-2400.webp" data-lb data-w="2400" data-h="1667" data-orig="../Pieces/Software/Note/develop-built.png">
-                <img src="../media/Software/Note/develop-built-960.webp" srcset="../media/Software/Note/develop-built-480.webp 480w, ../media/Software/Note/develop-built-960.webp 960w, ../media/Software/Note/develop-built-1600.webp 1600w, ../media/Software/Note/develop-built-2400.webp 2400w" sizes="(min-width: 62rem) 28vw, 46vw" width="2400" height="1667" alt="A card titled Touch drum in tabletop mode on foldables at the Built phase, with chips reading Not on main and Not in a release, a note about the branch it was built on, and a Merge button at the end of its pipeline." loading="lazy" decoding="async">
-              </a>
-              <figcaption>A built card. The branch, its status against main and the Merge step sit on the card.</figcaption>
-            </figure>
-            <figure class="shot" style="--ar:1.4400">
-              <a href="../media/Software/Note/develop-napkin-2400.webp" data-lb data-w="2400" data-h="1667" data-orig="../Pieces/Software/Note/develop-napkin.png">
-                <img src="../media/Software/Note/develop-napkin-960.webp" srcset="../media/Software/Note/develop-napkin-480.webp 480w, ../media/Software/Note/develop-napkin-960.webp 960w, ../media/Software/Note/develop-napkin-1600.webp 1600w, ../media/Software/Note/develop-napkin-2400.webp 2400w" sizes="(min-width: 62rem) 28vw, 46vw" width="2400" height="1667" alt="The top of the idea triage: a search bar, a strip counting cards in each phase, a napkin with two rough notes and a Turn these 2 into cards button, and folded cards below with their pipelines at Merged and Shipped." loading="lazy" decoding="async">
-              </a>
-              <figcaption>The napkin and the pipeline. Every card shows its phase, from Brainstorming to Shipped.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="chapter">
-      <div class="row">
-        <div class="row-text">
-          <h2>Under the hood</h2>
-          <p>The codebase is a TypeScript monorepo: eleven packages underneath a Next.js app, a browser extension for Chrome and Firefox, and Rust shells for the native builds. A map flows through the layers on the right.</p>
-          <p>The tests and a typecheck of the whole app run on every push.</p>
-        </div>
-        <div class="row-media">
-          <ol class="flow">
-            <li><strong>Parser</strong><span>A lossless syntax tree of the map file, plus the timing helpers every other layer shares.</span></li>
-            <li><strong>Collab</strong><span>The Yjs document that is the source of truth while editing. Peers sync over WebRTC; the map's other files go over WebTorrent.</span></li>
-            <li><strong>SV engine</strong><span>The expression compiler, the derivation from Transforms down to timing lines, and the curve fitter.</span></li>
-            <li><strong>Engine</strong><span>Playback and testplay simulation, the audio clock, and the serializer that writes the file back.</span></li>
-            <li><strong>Renderer</strong><span>Pixi.js on WebGPU (WebGL on mobile), one renderer per band, with custom meshes and shaders.</span></li>
-            <li><strong>Editor</strong><span>Input handling, with one class per tool.</span></li>
-            <li><strong>App</strong><span>A Next.js and React interface in 17 languages, wrapped by Tauri for desktop and mobile.</span></li>
-          </ol>
-        </div>
-      </div>
-    </section>
-    <section class="chapter">
-      <div class="row">
-        <div class="row-text">
-          <h2>More of the editor</h2>
-        </div>
-        <div class="row-media">
-          <div class="figs">
-            <figure class="shot wide" style="--ar:1.6000">
-              <div class="frame">
-                <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/linked-poster.webp" width="1424" height="890" aria-label="A pattern is copied and pasted as linked copies. Editing the original changes every copy; editing one copy changes only that one.">
-                  <source src="../Pieces/Software/Note/linked.mp4" type="video/mp4">
-                </video>
-              </div>
-              <figcaption>Linked copies. A copy is a record that points at its source, and its notes are derived, never stored, so every collaborator computes the same result. Change the source and every copy follows; change one copy and only it changes.</figcaption>
-            </figure>
-            <figure class="shot" style="--ar:1.6000">
-              <div class="frame">
-                <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/difficulties-poster.webp" width="1424" height="890" aria-label="The difficulty list opening and two more difficulties being added, so three note bands scroll together.">
-                  <source src="../Pieces/Software/Note/difficulties.mp4" type="video/mp4">
-                </video>
-              </div>
-              <figcaption>Several difficulties open side by side, each band drawn by its own renderer.</figcaption>
-            </figure>
-            <figure class="shot" style="--ar:1.6000">
-              <div class="frame">
-                <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/modding-poster.webp" width="1424" height="890" aria-label="The Modding view with discussion posts pinned along the timeline and one opened as a card above the notes.">
-                  <source src="../Pieces/Software/Note/modding.mp4" type="video/mp4">
-                </video>
-              </div>
-              <figcaption>Discussion posts from the osu! website on the timeline. A companion browser extension syncs drafts between the editor and the site's review box.</figcaption>
-            </figure>
-            <figure class="shot wide" style="--ar:1.6000">
-              <a href="../media/Software/Note/structure-view-2400.webp" data-lb data-w="2400" data-h="1500" data-orig="../Pieces/Software/Note/structure-view.png">
-                <img src="../media/Software/Note/structure-view-960.webp" srcset="../media/Software/Note/structure-view-480.webp 480w, ../media/Software/Note/structure-view-960.webp 960w, ../media/Software/Note/structure-view-1600.webp 1600w, ../media/Software/Note/structure-view-2400.webp 2400w" sizes="(min-width: 62rem) 54vw, 92vw" width="2400" height="1500" alt="Structure View: three difficulties drawn as stacked rows of measures instead of one scrolling band." loading="lazy" decoding="async">
-              </a>
-              <figcaption>Structure View: the same map as static rows of measures.</figcaption>
-            </figure>
-          </div>
         </div>
       </div>
     </section>

@@ -776,6 +776,41 @@ a.t-row:hover .t-go .icon {
   letter-spacing: 0.08em;
   color: var(--accent);
 }
+/* A titled part of a chapter, numbered under it: 02.1, 02.2 */
+.chapter {
+  counter-reset: part;
+}
+.row.part {
+  padding-top: clamp(2rem, 4vw, 3.25rem);
+  border-top: 1px solid var(--line);
+}
+.row-text h3 {
+  font-size: clamp(1.3rem, 2.1vw, 1.65rem);
+  font-weight: 680;
+  font-stretch: 110%;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.row.part .row-text h3::before {
+  counter-increment: part;
+  content: counter(chapter, decimal-leading-zero) "." counter(part);
+  display: block;
+  margin-bottom: 0.85rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-stretch: 100%;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.row-text .actions {
+  margin-top: 1.6rem;
+}
+.points a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
 .row-text p,
 .row-text li {
   text-wrap: pretty;
