@@ -22,6 +22,174 @@
     });
   }
 
+  /* ---------- Home: the header fades in on scroll, and the big name docks into it ---------- */
+  (function () {
+    var title = document.querySelector(".hero h1");
+    var slot = document.querySelector(".brand-name");
+    if (!root.classList.contains("home") || !title || !slot) return;
+
+    var clamp = function (v) {
+      return v < 0 ? 0 : v > 1 ? 1 : v;
+    };
+    var lerp = function (a, b, t) {
+      return a + (b - a) * t;
+    };
+    var ramp = function (from, to, v) {
+      var x = clamp((v - from) / (to - from));
+      return x * x * (3 - 2 * x);
+    };
+    var onScroll = function (run) {
+      var queued = false;
+      window.addEventListener(
+        "scroll",
+        function () {
+          if (queued) return;
+          queued = true;
+          requestAnimationFrame(function () {
+            queued = false;
+            run();
+          });
+        },
+        { passive: true }
+      );
+    };
+    root.classList.remove("pre");
+
+    if (reduceMotion.matches) {
+      /* No motion: the header name appears once the big one has scrolled away. */
+      root.classList.add("dock-static");
+      var header = function () {
+        var v = ramp(8, 72, window.scrollY).toFixed(3);
+        var gone = title.getBoundingClientRect().bottom < 0;
+        root.style.setProperty("--hdr", v);
+        root.style.setProperty("--seal", v);
+        root.style.setProperty("--tag", gone ? "0" : "1");
+        root.classList.toggle("docked", gone);
+      };
+      onScroll(header);
+      header();
+      return;
+    }
+
+    var from = title.querySelectorAll("span");
+    var to = slot.querySelectorAll("span");
+    var dock = document.createElement("div");
+    dock.className = "dock";
+    dock.setAttribute("aria-hidden", "true");
+    var words = [0, 1].map(function (i) {
+      var word = document.createElement("span");
+      word.textContent = from[i].textContent;
+      dock.appendChild(word);
+      return word;
+    });
+    document.body.appendChild(dock);
+
+    var probe = document.createElement("i");
+    probe.style.cssText = "display:inline-block;width:0;height:0;vertical-align:baseline";
+
+    /* Where a word's text starts and where its baseline sits, in viewport pixels. */
+    function locate(el) {
+      el.insertBefore(probe, el.firstChild);
+      var p = probe.getBoundingClientRect();
+      var style = getComputedStyle(el);
+      var size = parseFloat(style.fontSize);
+      var found = {
+        x: p.left,
+        base: p.top,
+        size: size,
+        stretch: parseFloat(style.fontStretch) || 100,
+        spacing: (parseFloat(style.letterSpacing) || 0) / size
+      };
+      el.removeChild(probe);
+      return found;
+    }
+    function textWidth(el) {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      return range.getBoundingClientRect().width;
+    }
+
+    var start, end, rise, travel, gap, stepStart, stepEnd, widths, band, navLeft;
+    var last = "";
+
+    function measure() {
+      var y = window.scrollY;
+      start = [locate(from[0]), locate(from[1])];
+      start.forEach(function (s) {
+        s.base += y;
+      });
+      end = [locate(to[0]), locate(to[1])];
+
+      words[0].style.cssText = "font-size:100px;transform:none";
+      words[0].insertBefore(probe, words[0].firstChild);
+      rise = (probe.getBoundingClientRect().top - words[0].getBoundingClientRect().top) / 100;
+      words[0].removeChild(probe);
+
+      /* Each word's width in ems, at the start and at the end. */
+      widths = [0, 1].map(function (i) {
+        return [textWidth(from[i]) / start[0].size, textWidth(to[i]) / end[0].size];
+      });
+      gap = (start[1].base - start[0].base) / start[0].size;
+      /* How far right of the first word the second one sits once they share a line, in ems. */
+      stepEnd = (end[1].x - end[0].x) / end[0].size;
+      stepStart = widths[0][0] + (stepEnd - widths[0][1]);
+      travel = start[1].base - end[1].base;
+      band = document.querySelector(".site-header").getBoundingClientRect().bottom;
+      navLeft = document.querySelector(".site-nav").getBoundingClientRect().left;
+      last = "";
+      update();
+    }
+
+    /* A word that reaches up into the header is kept narrow enough to stay clear of the nav. */
+    function fitted(size, x, base, reach) {
+      var room = (navLeft - 8 - x) / reach;
+      if (room >= size) return size;
+      return lerp(size, room, ramp(0, 24, band - (base - rise * size)));
+    }
+
+    function place(word, x, base, size, t) {
+      word.style.fontSize = size.toFixed(2) + "px";
+      word.style.fontStretch = lerp(start[0].stretch, end[0].stretch, t).toFixed(1) + "%";
+      word.style.letterSpacing = lerp(start[0].spacing, end[0].spacing, t).toFixed(4) + "em";
+      word.style.transform = "translate3d(" + x.toFixed(2) + "px," + (base - rise * size).toFixed(2) + "px,0)";
+    }
+
+    function update() {
+      var y = window.scrollY;
+      var key = Math.min(y, Math.max(travel, 72));
+      if (key === last) return;
+      last = key;
+
+      var t = clamp(y / travel);
+      /* The lower line keeps pace with the page, so the content under it pushes the name up.
+         The second word then slides out to the right of the first and lifts onto its line. */
+      var lower = start[1].base - Math.min(y, travel);
+      var slide = ramp(0.56, 0.9, t);
+      var lift = ramp(0.8, 1, t);
+      var x = lerp(start[0].x, end[0].x, t);
+      var step = ((start[1].x - start[0].x) / start[0].size) * (1 - slide) + lerp(stepStart, stepEnd, t) * slide;
+      var size = lerp(start[0].size, end[0].size, t);
+      size = Math.min(
+        fitted(size, x, lower - gap * size * (1 - lift), lerp(widths[0][0], widths[0][1], t)),
+        fitted(size, x, lower, step + lerp(widths[1][0], widths[1][1], t))
+      );
+      var upper = lower - gap * size * (1 - lift);
+      place(words[0], x, upper, size, t);
+      place(words[1], x + step * size, lower, size, t);
+
+      root.style.setProperty("--hdr", ramp(8, 72, y).toFixed(3));
+      root.style.setProperty("--seal", ramp(0.88, 1, t).toFixed(3));
+      /* "Portfolio" is gone before the name's top edge reaches it. */
+      root.style.setProperty("--tag", (1 - ramp(0, 18, band - (upper - rise * size))).toFixed(3));
+    }
+
+    onScroll(update);
+    window.addEventListener("resize", measure);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+    root.classList.add("docking");
+    measure();
+  })();
+
   /* ---------- YouTube: swap the thumbnail for the player on click ---------- */
   document.querySelectorAll("a.yt[data-yt]").forEach(function (link) {
     link.addEventListener("click", function (event) {

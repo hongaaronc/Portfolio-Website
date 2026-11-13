@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="home">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aaron Hong · Portfolio</title>
-  <meta name="description" content="Portfolio of Aaron Hong, a software engineer and game developer who also designs and ships hardware. Write-ups, videos and build logs for the work on my resume.">
+  <meta name="description" content="Portfolio of Aaron Hong, a software engineer in Seattle. Write-ups, videos and build logs for n.ot.e, AT SUNDOWN, Synth Labs and more.">
   <meta name="author" content="Aaron Hong">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aaron Hong">
   <meta property="og:title" content="Aaron Hong · Portfolio">
-  <meta property="og:description" content="Portfolio of Aaron Hong, a software engineer and game developer who also designs and ships hardware. Write-ups, videos and build logs for the work on my resume.">
+  <meta property="og:description" content="Portfolio of Aaron Hong, a software engineer in Seattle. Write-ups, videos and build logs for n.ot.e, AT SUNDOWN, Synth Labs and more.">
   <meta property="og:url" content="https://aaron-hong.com/">
   <meta property="og:image" content="https://aaron-hong.com/assets/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -19,7 +19,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/site.css">
-  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add("pre");addEventListener("load",function(){document.documentElement.classList.remove("pre")});</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -28,7 +28,8 @@
   <div class="wrap">
     <a class="brand" href="#top">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect class="mark-cap" x="2" y="2" width="20" height="20" rx="5.5"/><circle class="mark-dish" cx="12" cy="12" r="5"/></svg>
-      Aaron Hong
+      <span class="brand-name"><span>Aaron</span> <span>Hong</span></span>
+      <span class="brand-tag" aria-hidden="true">Portfolio</span>
     </a>
     <nav class="site-nav" aria-label="Site">
       <a href="#work">Work</a>
@@ -44,10 +45,9 @@
 <main id="main">
   <section class="hero wrap">
     <div class="hero-main">
-      <p class="eyebrow">Portfolio</p>
       <h1><span>Aaron</span> <span>Hong</span></h1>
-      <p class="hero-lede">Software engineer and game developer who also designs and ships hardware.</p>
-      <p class="hero-note">Here from my resume? This is the longer version: write-ups, videos and build logs for the work it mentions, and for what I'm building now.</p>
+      <p class="hero-title">Software Engineer</p>
+      <p class="eyebrow hero-place">Seattle, WA</p>
       <ul class="actions">
         <li><a class="btn primary" href="Pieces/Aaron%20Hong%20Resume%202026.pdf"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> Resume <small>PDF</small></a></li>
         <li><a class="btn" href="mailto:hong.aaron.c@gmail.com">Email</a></li>
