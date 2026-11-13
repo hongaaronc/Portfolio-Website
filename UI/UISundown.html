@@ -1,84 +1,192 @@
-<html>
-    <head>
-        <title>Aaron Hong - Portfolio</title>
-        <link rel="stylesheet" href="../main.css">
-        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
-    </head>
-    
-    <body>
-        <!--
-        <div id="headercontainer">
-            <h1>Aaron Hong</h1>
-            <h3>Portfolio</h3>
-            <ul id="contactinfo">
-                <li>Phone: 813-391-7068</li>
-                <li>Email: <a href="mailto:hong.aaron.c@gmail.com">hong.aaron.c@gmail.com</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/hongaaronc/">hongaaronc</a></li>
-            </ul>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quick, Easy, Readable UI in AT SUNDOWN · Aaron Hong</title>
+  <meta name="description" content="Iterating on a HUD that four players can read at a glance: corners, radial meters, pings and a restyle.">
+  <meta name="author" content="Aaron Hong">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aaron Hong">
+  <meta property="og:title" content="Quick, Easy, Readable UI in AT SUNDOWN · Aaron Hong">
+  <meta property="og:description" content="Iterating on a HUD that four players can read at a glance: corners, radial meters, pings and a restyle.">
+  <meta property="og:url" content="https://aaron-hong.com/UI/UISundown.html">
+  <meta property="og:image" content="https://aaron-hong.com/media/cards/uisundown-og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#eae4da">
+  <link rel="canonical" href="https://aaron-hong.com/UI/UISundown.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/varela-round-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect class="mark-cap" x="2" y="2" width="20" height="20" rx="5.5"/><circle class="mark-dish" cx="12" cy="12" r="5"/></svg>
+      Aaron Hong
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#work">Work</a>
+      <a href="../Pieces/Aaron%20Hong%20Resume%202026.pdf">Resume</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path class="half" d="M12 3.75a8.25 8.25 0 0 1 0 16.5z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <header class="case-head wrap">
+    <a class="back" href="../index.html#at-sundown"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> All work</a>
+    <p class="eyebrow">AT SUNDOWN &middot; UI</p>
+    <h1>Quick, Easy, Readable UI</h1>
+    <p class="case-sub">Iterations in <i>AT SUNDOWN</i></p>
+  </header>
+
+  <article class="chapters wrap">
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Trying to Save Screen Estate</h2>
+          <p>Here is a video of one of the first implementations of the HUD in AT SUNDOWN. The HUD elements for each player were placed in one of four corners. This was done to save more screen space. However, it didn’t work very well, since it wasn’t easy to remember which corner your player was in and quickly glance to know the information you need.</p>
         </div>
-        -->
-        <div id="sectionscontainer">
-            <h3 class="pieceheader">Quick, Easy, Readable UI</h3>
-            <h4 class="piecesubheader">Iterations in <i>AT SUNDOWN</i></h4>
-            <ul class="piecesection">
-                <div class="pieceimages">
-                    <a href="../Pieces/UI/SuperOldUI.png" target="_blank"><img src="../Pieces/UI/SuperOldUI.png"/></a>
-                </div>
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Trying to Save Screen Estate</h4>
-                    <p>
-                        Here is a video of one of the first implementations of the HUD in AT SUNDOWN. The HUD elements for each player were placed in one of four corners. This was done to save more screen space. However, it didn’t work very well, since it wasn’t easy to remember which corner your player was in and quickly glance to know the information you need.
-                    </p>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">UI that Builds Muscle Memory</h4>
-                    <p>
-                        The next implementation of the HUD was along the bottom. While using more screen estate, the tradeoff was worth it in that you could instinctively glance downward regardless of which player you were. It makes it easier to read quickly, somewhat allowing the player to develop muscle memory for the eyes.
-                    </p>
-                </div>
-                <div class="pieceimages">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/H0FCn1y_484" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="pieceimages">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6fRViSIr-G0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Radial Meters</h4>
-                    <p>
-                        Later, I made a mockup for a new HUD design that used radial meters to display information. After mocking up a design that I liked, I implemented it. We found the radial meters to be much easier to read quickly. However, we still desired the HUD to be more quickly readable.
-                    </p>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Pings/Pops</h4>
-                    <p>
-                        We decided to put in HUD “ping” animations - little UI explosions that pop up when your abilities come off of cooldown, or your weapon reloads. These colored explosions let you see these crucial moments in your peripheral vision. While somewhat bleeding into the actual gameplay area, being an animation made this HUD element not intrusive, but still useful. A diamond shape was used for the weapon meter so that we could have a different diamond shape, which would be more quickly discernable.
-                    </p>
-                </div>
-                <div class="pieceimages">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/B3KAPMmCo-4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="pieceimages">
-                    <a href="../Pieces/UI/CharacterSelectConceptsRefinedSmall.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/CharacterSelectConceptsRefinedSmall.fw.png"/></a>
-                    <a href="../Pieces/UI/HUDConceptsSmall.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/HUDConceptsSmall.fw.png"/></a>
-                    <a href="../Pieces/UI/WeaponSelectConcepts.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/WeaponSelectConcepts.fw.png"/></a>
-                    <a href="../Pieces/UI/PostGameNoNamesSmall.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/PostGameNoNamesSmall.fw.png"/></a>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ax0Pb_7e4Q4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">A New Style</h4>
-                    <p>
-                        After being asked to redesign the characters by our publisher, we decided we also could redesign the HUD as well to make it look better, and perhaps make it suit the characters' tone as well. Our publisher wanted something “edgier”. I made several HUD mockups - playing around diamond shapes a lot. However, I decided to keep one of the meters as a circular shape, as I thought the shape difference would be helpful in making the HUD readable at a glance. We liked this final HUD design, and made similar tweaks throughout the other game menus to match the theme (shown are the character select, weapon select, and post-game screen mockups).
-                    </p>
-                </div>
-            </ul>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row solo">
+              <figure class="shot" style="--ar:1.7778">
+                <a href="../media/UI/SuperOldUI-960.webp" data-lb data-w="960" data-h="540" data-orig="../Pieces/UI/SuperOldUI.png">
+                  <img src="../media/UI/SuperOldUI-960.webp" srcset="../media/UI/SuperOldUI-480.webp 480w, ../media/UI/SuperOldUI-960.webp 960w" sizes="(min-width: 62rem) 54vw, 92vw" width="960" height="540" alt="Early AT SUNDOWN build with each player&#x27;s HUD tucked into a different corner of the screen." loading="lazy" decoding="async">
+                </a>
+              </figure>
+            </div>
+          </div>
         </div>
-    </body>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>UI that Builds Muscle Memory</h2>
+          <p>The next implementation of the HUD was along the bottom. While using more screen estate, the tradeoff was worth it in that you could instinctively glance downward regardless of which player you were. It makes it easier to read quickly, somewhat allowing the player to develop muscle memory for the eyes.</p>
+        </div>
+        <div class="row-media">
+          <a class="yt" href="https://www.youtube.com/watch?v=H0FCn1y_484" data-yt="H0FCn1y_484" data-title="AT SUNDOWN - 1v1 Footage B-Reel" target="_blank" rel="noopener">
+            <img src="../media/yt/H0FCn1y_484-640.webp" srcset="../media/yt/H0FCn1y_484-640.webp 640w, ../media/yt/H0FCn1y_484-1280.webp 1280w" sizes="(min-width: 62rem) 54vw, 92vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
+            <span class="yt-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="yt-label"><span class="visually-hidden">Play video: </span>AT SUNDOWN - 1v1 Footage B-Reel</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Radial Meters</h2>
+          <p>Later, I made a mockup for a new HUD design that used radial meters to display information. After mocking up a design that I liked, I implemented it. We found the radial meters to be much easier to read quickly. However, we still desired the HUD to be more quickly readable.</p>
+        </div>
+        <div class="row-media">
+          <a class="yt" href="https://www.youtube.com/watch?v=6fRViSIr-G0" data-yt="6fRViSIr-G0" data-title="AT SUNDOWN - Me vs 3 Bots" target="_blank" rel="noopener">
+            <img src="../media/yt/6fRViSIr-G0-640.webp" srcset="../media/yt/6fRViSIr-G0-640.webp 640w, ../media/yt/6fRViSIr-G0-1280.webp 1280w" sizes="(min-width: 62rem) 54vw, 92vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
+            <span class="yt-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="yt-label"><span class="visually-hidden">Play video: </span>AT SUNDOWN - Me vs 3 Bots</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Pings/Pops</h2>
+          <p>We decided to put in HUD “ping” animations - little UI explosions that pop up when your abilities come off of cooldown, or your weapon reloads. These colored explosions let you see these crucial moments in your peripheral vision. While somewhat bleeding into the actual gameplay area, being an animation made this HUD element not intrusive, but still useful. A diamond shape was used for the weapon meter so that we could have a different diamond shape, which would be more quickly discernable.</p>
+        </div>
+        <div class="row-media">
+          <a class="yt" href="https://www.youtube.com/watch?v=B3KAPMmCo-4" data-yt="B3KAPMmCo-4" data-title="B Reel of Me Working on AT SUNDOWN" target="_blank" rel="noopener">
+            <img src="../media/yt/B3KAPMmCo-4-640.webp" srcset="../media/yt/B3KAPMmCo-4-640.webp 640w, ../media/yt/B3KAPMmCo-4-1280.webp 1280w" sizes="(min-width: 62rem) 54vw, 92vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
+            <span class="yt-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="yt-label"><span class="visually-hidden">Play video: </span>B Reel of Me Working on AT SUNDOWN</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>A New Style</h2>
+          <p>After being asked to redesign the characters by our publisher, we decided we also could redesign the HUD as well to make it look better, and perhaps make it suit the characters' tone as well. Our publisher wanted something “edgier”. I made several HUD mockups - playing around diamond shapes a lot. However, I decided to keep one of the meters as a circular shape, as I thought the shape difference would be helpful in making the HUD readable at a glance. We liked this final HUD design, and made similar tweaks throughout the other game menus to match the theme (shown are the character select, weapon select, and post-game screen mockups).</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row solo">
+              <figure class="shot" style="--ar:1.2727">
+                <a href="../media/UI/CharacterSelectConceptsRefinedSmall-fw-1400.webp" data-lb data-w="1400" data-h="1100" data-orig="../Pieces/UI/CharacterSelectConceptsRefinedSmall.fw.png">
+                  <img src="../media/UI/CharacterSelectConceptsRefinedSmall-fw-960.webp" srcset="../media/UI/CharacterSelectConceptsRefinedSmall-fw-480.webp 480w, ../media/UI/CharacterSelectConceptsRefinedSmall-fw-960.webp 960w, ../media/UI/CharacterSelectConceptsRefinedSmall-fw-1400.webp 1400w" sizes="(min-width: 62rem) 54vw, 92vw" width="1400" height="1100" alt="Eight numbered character-select badge concepts in yellow and black, built from circles and diamonds." loading="lazy" decoding="async">
+                </a>
+              </figure>
+            </div>
+            <div class="shots-row solo">
+              <figure class="shot" style="--ar:8.7871">
+                <a href="../media/UI/HUDConceptsSmall-fw-2188.webp" data-lb data-w="2188" data-h="249" data-orig="../Pieces/UI/HUDConceptsSmall.fw.png">
+                  <img src="../media/UI/HUDConceptsSmall-fw-960.webp" srcset="../media/UI/HUDConceptsSmall-fw-480.webp 480w, ../media/UI/HUDConceptsSmall-fw-960.webp 960w, ../media/UI/HUDConceptsSmall-fw-1600.webp 1600w, ../media/UI/HUDConceptsSmall-fw-2188.webp 2188w" sizes="(min-width: 62rem) 54vw, 92vw" width="2188" height="249" alt="A row of HUD concepts combining diamond-shaped and circular meters." loading="lazy" decoding="async">
+                </a>
+              </figure>
+            </div>
+            <div class="shots-row solo">
+              <figure class="shot" style="--ar:6.6530">
+                <a href="../media/UI/WeaponSelectConcepts-fw-4000.webp" data-lb data-w="4000" data-h="601" data-orig="../Pieces/UI/WeaponSelectConcepts.fw.png">
+                  <img src="../media/UI/WeaponSelectConcepts-fw-960.webp" srcset="../media/UI/WeaponSelectConcepts-fw-480.webp 480w, ../media/UI/WeaponSelectConcepts-fw-960.webp 960w, ../media/UI/WeaponSelectConcepts-fw-1600.webp 1600w, ../media/UI/WeaponSelectConcepts-fw-4000.webp 4000w" sizes="(min-width: 62rem) 54vw, 92vw" width="4000" height="601" alt="Eight weapon-select concepts: yellow diamond and rectangular badges around a shotgun icon." loading="lazy" decoding="async">
+                </a>
+              </figure>
+            </div>
+            <div class="shots-row solo">
+              <figure class="shot" style="--ar:2.9001">
+                <a href="../media/UI/PostGameNoNamesSmall-fw-2526.webp" data-lb data-w="2526" data-h="871" data-orig="../Pieces/UI/PostGameNoNamesSmall.fw.png">
+                  <img src="../media/UI/PostGameNoNamesSmall-fw-960.webp" srcset="../media/UI/PostGameNoNamesSmall-fw-480.webp 480w, ../media/UI/PostGameNoNamesSmall-fw-960.webp 960w, ../media/UI/PostGameNoNamesSmall-fw-1600.webp 1600w, ../media/UI/PostGameNoNamesSmall-fw-2526.webp 2526w" sizes="(min-width: 62rem) 54vw, 92vw" width="2526" height="871" alt="Post-game screen concepts: a ranked diamond badge and stat ribbons in each player colour." loading="lazy" decoding="async">
+                </a>
+              </figure>
+            </div>
+          </div>
+          <a class="yt" href="https://www.youtube.com/watch?v=Ax0Pb_7e4Q4" data-yt="Ax0Pb_7e4Q4" data-title="AT SUNDOWN - Slow Motion B-Reel" target="_blank" rel="noopener">
+            <img src="../media/yt/Ax0Pb_7e4Q4-640.webp" srcset="../media/yt/Ax0Pb_7e4Q4-640.webp 640w, ../media/yt/Ax0Pb_7e4Q4-1280.webp 1280w" sizes="(min-width: 62rem) 54vw, 92vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
+            <span class="yt-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="yt-label"><span class="visually-hidden">Play video: </span>AT SUNDOWN - Slow Motion B-Reel</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <nav class="pager wrap" aria-label="More work">
+    <a href="../Gameplay/AISundown.html" rel="prev">
+      <span class="label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span>
+      <strong>AI Implementation</strong>
+    </a>
+    <a href="../TechArt/RopeRendering.html" rel="next">
+      <span class="label">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <strong>Rope Rendering</strong>
+    </a>
+  </nav>
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <h2 class="eyebrow">Contact</h2>
+    <ul class="actions">
+      <li><a class="btn primary" href="../Pieces/Aaron%20Hong%20Resume%202026.pdf"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> Resume <small>PDF</small></a></li>
+      <li><a class="btn" href="mailto:hong.aaron.c@gmail.com">Email</a></li>
+      <li><a class="btn" href="https://www.linkedin.com/in/hongaaronc/" target="_blank" rel="noopener">LinkedIn <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+    </ul>
+    <div class="footer-base">
+      <span>&copy; Aaron Hong</span>
+      <a href="#top">Back to top <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
 </html>

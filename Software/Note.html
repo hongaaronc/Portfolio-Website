@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>n.ot.e, a collaborative editor built with agents · Aaron Hong</title>
+  <meta name="description" content="The editor in brief, and the two tools I built to make agent-driven development faster: an idea triage, and a harness that checks the result against the real game.">
+  <meta name="author" content="Aaron Hong">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aaron Hong">
+  <meta property="og:title" content="n.ot.e, a collaborative editor built with agents · Aaron Hong">
+  <meta property="og:description" content="The editor in brief, and the two tools I built to make agent-driven development faster: an idea triage, and a harness that checks the result against the real game.">
+  <meta property="og:url" content="https://aaron-hong.com/Software/Note.html">
+  <meta property="og:image" content="https://aaron-hong.com/media/cards/note-og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#eae4da">
+  <link rel="canonical" href="https://aaron-hong.com/Software/Note.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/varela-round-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect class="mark-cap" x="2" y="2" width="20" height="20" rx="5.5"/><circle class="mark-dish" cx="12" cy="12" r="5"/></svg>
+      Aaron Hong
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#work">Work</a>
+      <a href="../Pieces/Aaron%20Hong%20Resume%202026.pdf">Resume</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path class="half" d="M12 3.75a8.25 8.25 0 0 1 0 16.5z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <header class="case-head wrap">
+    <a class="back" href="../index.html#note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> All work</a>
+    <p class="eyebrow">Personal project &middot; Software</p>
+    <h1>n.ot.e</h1>
+    <p class="case-sub">A real-time collaborative editor for rhythm-game levels. It runs in the browser and natively on five platforms, and it is built with an agent-driven workflow.</p>
+    <p class="case-links">
+      <a class="ext" href="https://note.nostril.io/" target="_blank" rel="noopener">Open n.ot.e <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      <a class="ext" href="https://note.nostril.io/info" target="_blank" rel="noopener">Take the tour <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      <a class="ext" href="https://note.nostril.io/develop?demo" target="_blank" rel="noopener">Idea triage demo <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    </p>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>Solo. Product, architecture and review; the code is written by AI agents under my direction</dd></div>
+      <div><dt>When</dt><dd>July 2026 to now</dd></div>
+      <div><dt>Stack</dt><dd>TypeScript, React, Next.js, Yjs and WebRTC, Pixi.js on WebGPU, Web Audio, Rust and Tauri</dd></div>
+      <div><dt>Platforms</dt><dd>Web, Windows, macOS, Linux, Android, iOS</dd></div>
+      <div><dt>Size</dt><dd>About 200,000 lines of TypeScript and 10,000 of Rust, with more than 2,700 tests</dd></div>
+    </dl>
+  </header>
+
+  <article class="chapters wrap">
+    <section class="chapter">
+      <div class="row stack">
+        <div class="row-text">
+          <h2>What it is</h2>
+          <p>osu! is a rhythm game whose levels, called beatmaps, are made by its players. n.ot.e is an editor for the levels of its drum mode, osu!taiko: a full authoring tool with a timeline, playback, in-editor testplay, and its own tools for the mode's scroll-speed effects.</p>
+          <p>It is collaborative in the way Google Docs or Figma are. Several people edit one map at the same time, in the browser with nothing to install, or in native apps for Windows, macOS, Linux, Android and iOS. I started it in July 2026 and release it under my osu! name, Nostril.</p>
+          <p>The guided tour at <a href="https://note.nostril.io/info" target="_blank" rel="noopener">note.nostril.io/info</a> shows what it does, one feature at a time. Every demo there is a live editor driven by a script, not a video, and the clips on this page are recorded from it.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://note.nostril.io/info" target="_blank" rel="noopener">Take the tour <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+            <a class="btn" href="https://note.nostril.io/" target="_blank" rel="noopener">Open the editor <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+          </div>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.6000">
+                <a href="../media/Software/Note/overview-2400.webp" data-lb data-w="2400" data-h="1500" data-orig="../Pieces/Software/Note/overview.png">
+                  <img src="../media/Software/Note/overview-960.webp" srcset="../media/Software/Note/overview-480.webp 480w, ../media/Software/Note/overview-960.webp 960w, ../media/Software/Note/overview-1600.webp 1600w, ../media/Software/Note/overview-2400.webp 2400w" sizes="(min-width: 82rem) 76rem, 92vw" width="2400" height="1500" alt="The n.ot.e editor: a dense run of red and blue notes on the note band, the SV strip below it with speed curves and linear() Transform brackets, then the toolbar and the song&#x27;s details." loading="lazy" decoding="async">
+                </a>
+              </figure>
+            </div>
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.6000">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/responsive-poster.webp" width="1424" height="890" aria-label="The editor window reshaping itself from a desktop window into a phone held upright, a phone on its side and a tablet, the interface rearranging each time.">
+                    <source src="../Pieces/Software/Note/responsive.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>How it's built</h2>
+          <p>n.ot.e is built with an agent-driven workflow. I run several Claude Code sessions at once, and they write the code. I decide what gets built and how it should behave, and I review what comes back.</p>
+          <p>An agent starts every session knowing nothing about the project, and it cannot see the screen or hear the audio. The project's rules and decisions are written into the repository for it, and more than 2,700 tests hold it to them.</p>
+          <p>That leaves two slow steps: getting an idea clear enough to hand over, and checking that what comes back matches the real game. I built a tool for each, with the same workflow. It is AI development used to speed up AI development.</p>
+        </div>
+        <div class="row-media">
+          <ul class="points">
+            <li><strong><a href="#develop">The idea triage</a></strong><span>Takes a rough idea to one that is ready to hand to an agent.</span></li>
+            <li><strong><a href="#compare">OsuTaikoCompare</a></strong><span>Measures n.ot.e against the real game, frame by frame, so an agent can check its own work.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row part">
+        <div class="row-text">
+          <h3 id="develop">The idea triage: from a napkin to a merged branch</h3>
+          <p>Some of my best ideas start on a napkin during lunch. When one is ready to hand to an agent as it stands, I do that from wherever I am: I use the Claude Code mobile app heavily when I am away from my desk.</p>
+          <p>The idea triage, at note.nostril.io/develop, is for the ideas that are not there yet. It is a different interface to Claude that I built for low-stakes brainstorming, and its job is to take a rough idea to one that is ready to prompt.</p>
+          <p>I jot notes on its napkin, as in a notes app. Claude reads the code and turns each note into a card: how it read the note, what the code already does, what it would build, and how ready the idea is. What it needs from me arrives as multiple-choice questions, so working an idea through takes a few taps.</p>
+          <p>From there a card can start a Claude Code session on a branch of its own, and it follows that branch through to merge and release. A read-only demo with sample cards is public.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://note.nostril.io/develop?demo" target="_blank" rel="noopener">Open the demo <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+          </div>
+        </div>
+        <div class="row-media">
+          <div class="figs">
+            <figure class="shot wide" style="--ar:1.4400">
+              <a href="../media/Software/Note/develop-card-2400.webp" data-lb data-w="2400" data-h="1667" data-orig="../Pieces/Software/Note/develop-card.png">
+                <img src="../media/Software/Note/develop-card-960.webp" srcset="../media/Software/Note/develop-card-480.webp 480w, ../media/Software/Note/develop-card-960.webp 960w, ../media/Software/Note/develop-card-1600.webp 1600w, ../media/Software/Note/develop-card-2400.webp 2400w" sizes="(min-width: 62rem) 54vw, 92vw" width="2400" height="1667" alt="The idea triage showing a card titled Translate modding posts in the extension: on the left, the original note, Claude&#x27;s reading of it, what the app does today and what it would build; on the right, a conversation with multiple-choice questions such as Which translator? and Which languages first?; along the bottom, the phase pipeline at Brainstorming." loading="lazy" decoding="async">
+              </a>
+              <figcaption>A card while brainstorming. Claude's reading of the note is on the left; its questions arrive as choices on the right.</figcaption>
+            </figure>
+            <figure class="shot wide" style="--ar:1.4400">
+              <a href="../media/Software/Note/develop-napkin-2400.webp" data-lb data-w="2400" data-h="1667" data-orig="../Pieces/Software/Note/develop-napkin.png">
+                <img src="../media/Software/Note/develop-napkin-960.webp" srcset="../media/Software/Note/develop-napkin-480.webp 480w, ../media/Software/Note/develop-napkin-960.webp 960w, ../media/Software/Note/develop-napkin-1600.webp 1600w, ../media/Software/Note/develop-napkin-2400.webp 2400w" sizes="(min-width: 62rem) 54vw, 92vw" width="2400" height="1667" alt="The top of the idea triage: a search bar, a strip counting cards in each phase, a napkin with two rough notes and a Turn these 2 into cards button, and folded cards below with their pipelines at Merged and Shipped." loading="lazy" decoding="async">
+              </a>
+              <figcaption>The napkin and the pipeline. Every card shows its phase, from Brainstorming to Shipped.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="row part">
+        <div class="row-text">
+          <h3 id="compare">OsuTaikoCompare: how I matched it with the real game</h3>
+          <p>An editor is only useful if what it shows is what the game will do. n.ot.e's Full Testplay reproduces the original client's gameplay screen, down to the health bar, the mascot and the map's storyboard. Whether it really matches is a question an agent cannot answer by looking, and one I can only answer slowly.</p>
+          <p>OsuTaikoCompare is a harness I built to answer it by measurement. It plays one map in the real clients, osu!stable and osu!lazer, and in n.ot.e, and compares their frames at identical moments of the map: side by side, stacked, or as a per-pixel difference.</p>
+          <p>The trick is the clock. The harness adds a small machine-readable timecode to the test map, so every frame captured from a real client says which moment of the map it shows. n.ot.e is then driven to render exactly those moments, and its own timecode is read back to prove that it did.</p>
+          <p>It is made for agents as much as for me. Every command ends with one JSON object holding the facts of the run, the moments that differ most and their images, so a session can change the code, run the comparison and read the result on its own. And it had to be fast, because a slow experiment does not get run: rebuilding the pipeline took a standard run from 17 min 52 s to 1 min 21 s.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.6000">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Software/Note/full-testplay-poster.webp" width="1440" height="900" aria-label="Full Testplay running on Autoplay: an osu!stable-style taiko screen with the scrolling playfield, the combo climbing, the score counting up and the health bar filling.">
+                    <source src="../Pieces/Software/Note/full-testplay.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <figcaption>Full Testplay in n.ot.e, running on Autoplay. This is the screen being matched.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <ol class="flow">
+            <li><strong>A test map</strong><span>Any map, with a timecode strip injected into its storyboard.</span></li>
+            <li><strong>The real clients</strong><span>osu!stable and osu!lazer play it in real time, sandboxed and offline. Their frames are captured losslessly.</span></li>
+            <li><strong>Labelling</strong><span>Every captured frame is tagged with the map time decoded from its timecode.</span></li>
+            <li><strong>n.ot.e, driven</strong><span>n.ot.e renders exactly those map times, frame by frame, and proves it with its own timecode.</span></li>
+            <li><strong>Comparison</strong><span>Frames from the same instant are paired: side by side, stacked, or as a per-pixel difference.</span></li>
+            <li><strong>Report</strong><span>The facts, the most different moments and their images, as JSON for a person or an agent.</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <nav class="pager wrap" aria-label="More work">
+    <a href="../Cad/Synth060.html" rel="next">
+      <span class="label">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <strong>A 60% Mechanical Keyboard</strong>
+    </a>
+  </nav>
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <h2 class="eyebrow">Contact</h2>
+    <ul class="actions">
+      <li><a class="btn primary" href="../Pieces/Aaron%20Hong%20Resume%202026.pdf"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> Resume <small>PDF</small></a></li>
+      <li><a class="btn" href="mailto:hong.aaron.c@gmail.com">Email</a></li>
+      <li><a class="btn" href="https://www.linkedin.com/in/hongaaronc/" target="_blank" rel="noopener">LinkedIn <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+    </ul>
+    <div class="footer-base">
+      <span>&copy; Aaron Hong</span>
+      <a href="#top">Back to top <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

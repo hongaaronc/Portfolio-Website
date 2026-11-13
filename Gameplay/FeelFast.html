@@ -1,69 +1,172 @@
-<html>
-    <head>
-        <title>Aaron Hong - Portfolio</title>
-        <link rel="stylesheet" href="../main.css">
-        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
-    </head>
-    
-    <body>
-        <!--
-        <div id="headercontainer">
-            <h1>Aaron Hong</h1>
-            <h3>Portfolio</h3>
-            <ul id="contactinfo">
-                <li>Phone: 813-391-7068</li>
-                <li>Email: <a href="mailto:hong.aaron.c@gmail.com">hong.aaron.c@gmail.com</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/hongaaronc/">hongaaronc</a></li>
-            </ul>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making Things Feel Fast in Skyshot · Aaron Hong</title>
+  <meta name="description" content="Camera tilt, field-of-view punch and a HUD modelled on fighter jets instead of sports games.">
+  <meta name="author" content="Aaron Hong">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aaron Hong">
+  <meta property="og:title" content="Making Things Feel Fast in Skyshot · Aaron Hong">
+  <meta property="og:description" content="Camera tilt, field-of-view punch and a HUD modelled on fighter jets instead of sports games.">
+  <meta property="og:url" content="https://aaron-hong.com/Gameplay/FeelFast.html">
+  <meta property="og:image" content="https://aaron-hong.com/media/cards/feelfast-og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#eae4da">
+  <link rel="canonical" href="https://aaron-hong.com/Gameplay/FeelFast.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/varela-round-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect class="mark-cap" x="2" y="2" width="20" height="20" rx="5.5"/><circle class="mark-dish" cx="12" cy="12" r="5"/></svg>
+      Aaron Hong
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#work">Work</a>
+      <a href="../Pieces/Aaron%20Hong%20Resume%202026.pdf">Resume</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path class="half" d="M12 3.75a8.25 8.25 0 0 1 0 16.5z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <header class="case-head wrap">
+    <a class="back" href="../index.html#skyshot"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> All work</a>
+    <p class="eyebrow">Skyshot &middot; Gameplay</p>
+    <h1>Making Things Feel Fast</h1>
+    <p class="case-sub">Inspired by Fighter Jets, Not Games</p>
+  </header>
+
+  <article class="chapters wrap">
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Camera Tilt</h2>
+          <p>Here is one of the earliest videos of my senior capstone project, Skyshot. To make the game feel faster, smoother, and more natural, I added camera motions. One of the goals in doing so was to make them feel smooth, directly linked to the motions, and unobtrusive in terms of first-person aiming. I decided to only have camera motions in the forward axis, so that the reticle position would be unaffected. To supplement these motions, field of view punch and adjustments were also put in to make running feel faster. Using the grappling hook worked by comparing your camera forward vector to the vector from your camera to the grapple point. This was nice, since the two vectors were always initially equal at the point of firing, so these type of motions always smoothly started from 0 degrees of tilt for every grapple motion.</p>
         </div>
-        -->
-        <div id="sectionscontainer">
-            <h3 class="pieceheader">Making Things Feel Fast</h3>
-            <h4 class="piecesubheader">Inspired by Fighter Jets, Not Games</h4>
-            <ul class="piecesection">
-                <div class="pieceimages">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/R3-Ec36kK2c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="row-media">
+          <!-- The original embed here was youtube.com/watch?v=R3-Ec36kK2c, which is now a private video. A clip of an early Skyshot prototype stands in for it; swap the embed back in if the video is made public again. -->
+          <div class="shots">
+            <div class="shots-row solo">
+              <figure class="shot" style="--ar:1.0000; --max:561px">
+                <div class="frame">
+                  <video data-clip controls muted loop playsinline preload="none" poster="../media/Gameplay/skyshot-poster.webp" width="374" height="374" aria-label="Early Skyshot prototype: first-person footage swinging through a greybox level, the horizon tilting with each swing.">
+                    <source src="../media/Gameplay/skyshot.mp4" type="video/mp4">
+                  </video>
                 </div>
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Camera Tilt</h4>
-                    <p>
-                        Here is one of the earliest videos of my senior capstone project, Skyshot. To make the game feel faster, smoother, and more natural, I added camera motions. One of the goals in doing so was to make them feel smooth, directly linked to the motions, and unobtrusive in terms of first-person aiming. I decided to only have camera motions in the forward axis, so that the reticle position would be unaffected. To supplement these motions, field of view punch and adjustments were also put in to make running feel faster. Using the grappling hook worked by comparing your camera forward vector to the vector from your camera to the grapple point. This was nice, since the two vectors were always initially equal at the point of firing, so these type of motions always smoothly started from 0 degrees of tilt for every grapple motion.
-                    </p>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Inspiration from Fighter Jets</h4>
-                    <p>
-                        Later, I worked on the UI. The first picture here shows another team member’s mockup of what they believed the HUD should look like. I really did not like where this was going, so I made a mockup of my own (the second image). Since I wanted to convey the feeling of speed, rather than design my HUD based on other sports games, I looked more into the HUDs of fast things - namely fighter jets and fantasy spaceships. This is extremely reflected in my mockup, particularly with the horizon line. This video shows how the HUD looked in-game after I implemented it (please ignore the first-person arm animations, that was someone else’s work).
-                    </p>
-                    <p>
-                        I also recognized the opportunity to add more juice to supplement the screen shake and tilt I worked on earlier. I put HUD shake, which let me give the illusion of screen-shaking in the upward and left axis, while not actually affecting the player’s aim. I split the HUD elements onto different layers depending on how close to the center they were, so that elements that were more in peripheral vision shook more drastically while elements closer to the middle only shook subtly. I also found that the horizon line helped emphasize the camera tilt effect, which was a nice touch.
-                    </p>
-                </div>
-                <div class="pieceimages">
-                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/NotMyUI.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/NotMyUI.png"/></a>
-                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI.fw.png"/></a>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/t50c__D-nKE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-            </ul>
-            <ul class="piecesection">
-                <div class="pieceimages">
-                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI1.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI1.fw.png"/></a>
-                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI2.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI2.fw.png"/></a>
-                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI3.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI3.fw.png"/></a>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/A267Dj3yDnQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-                <div class="piecebody">
-                    <h4 class="piecesectionheader">Enhancing Readability</h4>
-                    <p>
-                        The team and faculty really liked where I was going with this HUD design, particularly in aesthetics. However, in terms of readability and usefulness - there was room for improvement. These pictures are some other HUD concepts that I iterated on.
-                    </p>
-                    <p>
-                        This video is the final trailer for the project, and shows the final HUD.
-                    </p>
-                </div>
-            </ul>
+              </figure>
+            </div>
+          </div>
         </div>
-    </body>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Inspiration from Fighter Jets</h2>
+          <p>Later, I worked on the UI. The first picture here shows another team member’s mockup of what they believed the HUD should look like. I really did not like where this was going, so I made a mockup of my own (the second image). Since I wanted to convey the feeling of speed, rather than design my HUD based on other sports games, I looked more into the HUDs of fast things - namely fighter jets and fantasy spaceships. This is extremely reflected in my mockup, particularly with the horizon line. This video shows how the HUD looked in-game after I implemented it (please ignore the first-person arm animations, that was someone else’s work).</p>
+          <p>I also recognized the opportunity to add more juice to supplement the screen shake and tilt I worked on earlier. I put HUD shake, which let me give the illusion of screen-shaking in the upward and left axis, while not actually affecting the player’s aim. I split the HUD elements onto different layers depending on how close to the center they were, so that elements that were more in peripheral vision shook more drastically while elements closer to the middle only shook subtly. I also found that the horizon line helped emphasize the camera tilt effect, which was a nice touch.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row">
+              <figure class="shot on-dark" style="--ar:1.7143">
+                <a href="../media/UI/Skyshot/SkyshotHUD/NotMyUI-2400.webp" data-lb data-w="2400" data-h="1400" data-orig="../Pieces/UI/Skyshot/SkyshotHUD/NotMyUI.png" data-bg="on-dark">
+                  <img src="../media/UI/Skyshot/SkyshotHUD/NotMyUI-960.webp" srcset="../media/UI/Skyshot/SkyshotHUD/NotMyUI-480.webp 480w, ../media/UI/Skyshot/SkyshotHUD/NotMyUI-960.webp 960w, ../media/UI/Skyshot/SkyshotHUD/NotMyUI-1600.webp 1600w, ../media/UI/Skyshot/SkyshotHUD/NotMyUI-2400.webp 2400w" sizes="(min-width: 62rem) 28vw, 46vw" width="2400" height="1400" alt="A teammate&#x27;s HUD mockup: score and timer in the top-left corner, a speed readout bottom-left and an event log on the right." loading="lazy" decoding="async">
+                </a>
+              </figure>
+              <figure class="shot" style="--ar:1.7778">
+                <a href="../media/UI/Skyshot/SkyshotHUD/SkyshotUI-fw-1920.webp" data-lb data-w="1920" data-h="1080" data-orig="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI.fw.png">
+                  <img src="../media/UI/Skyshot/SkyshotHUD/SkyshotUI-fw-960.webp" srcset="../media/UI/Skyshot/SkyshotHUD/SkyshotUI-fw-480.webp 480w, ../media/UI/Skyshot/SkyshotHUD/SkyshotUI-fw-960.webp 960w, ../media/UI/Skyshot/SkyshotHUD/SkyshotUI-fw-1600.webp 1600w, ../media/UI/Skyshot/SkyshotHUD/SkyshotUI-fw-1920.webp 1920w" sizes="(min-width: 62rem) 28vw, 46vw" width="1920" height="1080" alt="My HUD mockup on teal: thin altitude and time-dilation scales at the sides, a horizon line through the reticle, and velocity, grapple and g-force readouts along the bottom." loading="lazy" decoding="async">
+                </a>
+              </figure>
+            </div>
+          </div>
+          <a class="yt" href="https://www.youtube.com/watch?v=t50c__D-nKE" data-yt="t50c__D-nKE" data-title="Skyshot Pre-Alpha Footage" target="_blank" rel="noopener">
+            <img src="../media/yt/t50c__D-nKE-640.webp" srcset="../media/yt/t50c__D-nKE-640.webp 640w, ../media/yt/t50c__D-nKE-1280.webp 1280w" sizes="(min-width: 62rem) 54vw, 92vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
+            <span class="yt-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="yt-label"><span class="visually-hidden">Play video: </span>Skyshot Pre-Alpha Footage</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="row">
+        <div class="row-text">
+          <h2>Enhancing Readability</h2>
+          <p>The team and faculty really liked where I was going with this HUD design, particularly in aesthetics. However, in terms of readability and usefulness - there was room for improvement. These pictures are some other HUD concepts that I iterated on.</p>
+          <p>This video is the final trailer for the project, and shows the final HUD.</p>
+        </div>
+        <div class="row-media">
+          <div class="shots">
+            <div class="shots-row solo">
+              <figure class="shot" style="--ar:1.7778">
+                <a href="../media/UI/Skyshot/SkyshotHUD/SkyshotUI1-fw-1920.webp" data-lb data-w="1920" data-h="1080" data-orig="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI1.fw.png">
+                  <img src="../media/UI/Skyshot/SkyshotHUD/SkyshotUI1-fw-960.webp" srcset="../media/UI/Skyshot/SkyshotHUD/SkyshotUI1-fw-480.webp 480w, ../media/UI/Skyshot/SkyshotHUD/SkyshotUI1-fw-960.webp 960w, ../media/UI/Skyshot/SkyshotHUD/SkyshotUI1-fw-1600.webp 1600w, ../media/UI/Skyshot/SkyshotHUD/SkyshotUI1-fw-1920.webp 1920w" sizes="(min-width: 62rem) 54vw, 92vw" width="1920" height="1080" alt="HUD iteration on teal with a bracketed reticle and fewer readouts along the bottom." loading="lazy" decoding="async">
+                </a>
+              </figure>
+            </div>
+            <div class="shots-row">
+              <figure class="shot" style="--ar:1.7778">
+                <a href="../media/UI/Skyshot/SkyshotHUD/SkyshotUI2-fw-1920.webp" data-lb data-w="1920" data-h="1080" data-orig="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI2.fw.png">
+                  <img src="../media/UI/Skyshot/SkyshotHUD/SkyshotUI2-fw-960.webp" srcset="../media/UI/Skyshot/SkyshotHUD/SkyshotUI2-fw-480.webp 480w, ../media/UI/Skyshot/SkyshotHUD/SkyshotUI2-fw-960.webp 960w, ../media/UI/Skyshot/SkyshotHUD/SkyshotUI2-fw-1600.webp 1600w, ../media/UI/Skyshot/SkyshotHUD/SkyshotUI2-fw-1920.webp 1920w" sizes="(min-width: 62rem) 28vw, 46vw" width="1920" height="1080" alt="HUD iteration on grey with a compact reticle and a single velocity bar in the bottom-left." loading="lazy" decoding="async">
+                </a>
+              </figure>
+              <figure class="shot" style="--ar:1.7778">
+                <a href="../media/UI/Skyshot/SkyshotHUD/SkyshotUI3-fw-1920.webp" data-lb data-w="1920" data-h="1080" data-orig="../Pieces/UI/Skyshot/SkyshotHUD/SkyshotUI3.fw.png">
+                  <img src="../media/UI/Skyshot/SkyshotHUD/SkyshotUI3-fw-960.webp" srcset="../media/UI/Skyshot/SkyshotHUD/SkyshotUI3-fw-480.webp 480w, ../media/UI/Skyshot/SkyshotHUD/SkyshotUI3-fw-960.webp 960w, ../media/UI/Skyshot/SkyshotHUD/SkyshotUI3-fw-1600.webp 1600w, ../media/UI/Skyshot/SkyshotHUD/SkyshotUI3-fw-1920.webp 1920w" sizes="(min-width: 62rem) 28vw, 46vw" width="1920" height="1080" alt="HUD iteration on grey, a further simplified version of the same layout." loading="lazy" decoding="async">
+                </a>
+              </figure>
+            </div>
+          </div>
+          <a class="yt" href="https://www.youtube.com/watch?v=A267Dj3yDnQ" data-yt="A267Dj3yDnQ" data-title="Skyshot Trailer" target="_blank" rel="noopener">
+            <img src="../media/yt/A267Dj3yDnQ-640.webp" srcset="../media/yt/A267Dj3yDnQ-640.webp 640w, ../media/yt/A267Dj3yDnQ-1280.webp 1280w" sizes="(min-width: 62rem) 54vw, 92vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
+            <span class="yt-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="yt-label"><span class="visually-hidden">Play video: </span>Skyshot Trailer</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <nav class="pager wrap" aria-label="More work">
+    <a href="../TechArt/OtherTechArtSUNDOWN.html" rel="prev">
+      <span class="label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span>
+      <strong>Other Tech Art</strong>
+    </a>
+    <a href="../UI/UISkyshot.html" rel="next">
+      <span class="label">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <strong>Menu UI</strong>
+    </a>
+  </nav>
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <h2 class="eyebrow">Contact</h2>
+    <ul class="actions">
+      <li><a class="btn primary" href="../Pieces/Aaron%20Hong%20Resume%202026.pdf"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> Resume <small>PDF</small></a></li>
+      <li><a class="btn" href="mailto:hong.aaron.c@gmail.com">Email</a></li>
+      <li><a class="btn" href="https://www.linkedin.com/in/hongaaronc/" target="_blank" rel="noopener">LinkedIn <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+    </ul>
+    <div class="footer-base">
+      <span>&copy; Aaron Hong</span>
+      <a href="#top">Back to top <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
 </html>

@@ -1,41 +1,125 @@
-<html>
-    <head>
-        <title>Aaron Hong - Portfolio</title>
-        <link rel="stylesheet" href="../main.css">
-        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
-    </head>
-    
-    <body>
-        <!--
-        <div id="headercontainer">
-            <h1>Aaron Hong</h1>
-            <h3>Portfolio</h3>
-            <ul id="contactinfo">
-                <li>Phone: 813-391-7068</li>
-                <li>Email: <a href="mailto:hong.aaron.c@gmail.com">hong.aaron.c@gmail.com</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/hongaaronc/">hongaaronc</a></li>
-            </ul>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu UI in Skyshot · Aaron Hong</title>
+  <meta name="description" content="Mockups for the main menu, lobby and post-match screens, implemented in Unreal Engine 4 with UMG.">
+  <meta name="author" content="Aaron Hong">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aaron Hong">
+  <meta property="og:title" content="Menu UI in Skyshot · Aaron Hong">
+  <meta property="og:description" content="Mockups for the main menu, lobby and post-match screens, implemented in Unreal Engine 4 with UMG.">
+  <meta property="og:url" content="https://aaron-hong.com/UI/UISkyshot.html">
+  <meta property="og:image" content="https://aaron-hong.com/media/cards/uiskyshot-og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#eae4da">
+  <link rel="canonical" href="https://aaron-hong.com/UI/UISkyshot.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/varela-round-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect class="mark-cap" x="2" y="2" width="20" height="20" rx="5.5"/><circle class="mark-dish" cx="12" cy="12" r="5"/></svg>
+      Aaron Hong
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#work">Work</a>
+      <a href="../Pieces/Aaron%20Hong%20Resume%202026.pdf">Resume</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path class="half" d="M12 3.75a8.25 8.25 0 0 1 0 16.5z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <header class="case-head wrap">
+    <a class="back" href="../index.html#skyshot"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> All work</a>
+    <p class="eyebrow">Skyshot &middot; UI</p>
+    <h1>Menu UI Works</h1>
+    <p class="case-sub">Iterations in <i>Skyshot</i></p>
+  </header>
+
+  <article class="chapters wrap">
+    <section class="chapter">
+      <div class="row stack">
+        <div class="row-text">
+          <h2>Examples</h2>
+          <p>Here are some examples of mockups I made, iterating on UI for various menu screens for my senior capstone game project, Skyshot. I implemented the final versions that we settled with in Unreal Engine 4 using UMG.</p>
         </div>
-        -->
-        <div id="sectionscontainer">
-            <h3 class="pieceheader">Menu UI Works</h3>
-            <h4 class="piecesubheader">Iterations in <i>Skyshot</i></h4>
-            <ul class="piecesection">
-                <div class="piecebody" style="max-width:100%;">
-                    <h4 class="piecesectionheader">Examples</h4>
-                    <p>
-                        Here are some examples of mockups I made, iterating on UI for various menu screens for my senior capstone game project, Skyshot. I implemented the final versions that we settled with in Unreal Engine 4 using UMG.
-                    </p>
-                </div>
-                <div class="pieceimages" style="max-width:100%;">
-                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/MainMenu.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/MainMenu.fw.png"/></a>
-                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/Lobby.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/Lobby.fw.png"/></a>
-                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/Lobby2.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/Lobby2.fw.png"/></a>
-                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/Lobby3.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/Lobby3.fw.png"/></a>
-                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/Lobby4.fw.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/Lobby4.fw.png"/></a>
-                    <a href="../Pieces/UI/Skyshot/SkyshotHUD/PostMatchMockup.png" target="_blank" class="smallimage"><img src="../Pieces/UI/Skyshot/SkyshotHUD/PostMatchMockup.png"/></a>
-                </div>
-            </ul>
+        <div class="row-media">
+          <div class="shots wall">
+            <figure class="shot" style="--ar:1.7778">
+              <a href="../media/UI/Skyshot/SkyshotHUD/MainMenu-fw-1920.webp" data-lb data-w="1920" data-h="1080" data-orig="../Pieces/UI/Skyshot/SkyshotHUD/MainMenu.fw.png">
+                <img src="../media/UI/Skyshot/SkyshotHUD/MainMenu-fw-960.webp" srcset="../media/UI/Skyshot/SkyshotHUD/MainMenu-fw-480.webp 480w, ../media/UI/Skyshot/SkyshotHUD/MainMenu-fw-960.webp 960w, ../media/UI/Skyshot/SkyshotHUD/MainMenu-fw-1600.webp 1600w, ../media/UI/Skyshot/SkyshotHUD/MainMenu-fw-1920.webp 1920w" sizes="(min-width: 62rem) 30vw, 46vw" width="1920" height="1080" alt="Main menu mockup: Play Online, Training, Settings and Quit beside the Skyshot logo, over a sky-blue arena." loading="lazy" decoding="async">
+              </a>
+            </figure>
+            <figure class="shot" style="--ar:1.7778">
+              <a href="../media/UI/Skyshot/SkyshotHUD/Lobby-fw-1920.webp" data-lb data-w="1920" data-h="1080" data-orig="../Pieces/UI/Skyshot/SkyshotHUD/Lobby.fw.png">
+                <img src="../media/UI/Skyshot/SkyshotHUD/Lobby-fw-960.webp" srcset="../media/UI/Skyshot/SkyshotHUD/Lobby-fw-480.webp 480w, ../media/UI/Skyshot/SkyshotHUD/Lobby-fw-960.webp 960w, ../media/UI/Skyshot/SkyshotHUD/Lobby-fw-1600.webp 1600w, ../media/UI/Skyshot/SkyshotHUD/Lobby-fw-1920.webp 1920w" sizes="(min-width: 62rem) 30vw, 46vw" width="1920" height="1080" alt="Lobby mockup on mint green: server name, map preview, chat, red and blue team slots and a Start Game button." loading="lazy" decoding="async">
+              </a>
+            </figure>
+            <figure class="shot" style="--ar:1.7778">
+              <a href="../media/UI/Skyshot/SkyshotHUD/Lobby2-fw-1920.webp" data-lb data-w="1920" data-h="1080" data-orig="../Pieces/UI/Skyshot/SkyshotHUD/Lobby2.fw.png">
+                <img src="../media/UI/Skyshot/SkyshotHUD/Lobby2-fw-960.webp" srcset="../media/UI/Skyshot/SkyshotHUD/Lobby2-fw-480.webp 480w, ../media/UI/Skyshot/SkyshotHUD/Lobby2-fw-960.webp 960w, ../media/UI/Skyshot/SkyshotHUD/Lobby2-fw-1600.webp 1600w, ../media/UI/Skyshot/SkyshotHUD/Lobby2-fw-1920.webp 1920w" sizes="(min-width: 62rem) 30vw, 46vw" width="1920" height="1080" alt="Second lobby mockup with a restyled Start Game button." loading="lazy" decoding="async">
+              </a>
+            </figure>
+            <figure class="shot" style="--ar:1.7778">
+              <a href="../media/UI/Skyshot/SkyshotHUD/Lobby3-fw-1920.webp" data-lb data-w="1920" data-h="1080" data-orig="../Pieces/UI/Skyshot/SkyshotHUD/Lobby3.fw.png">
+                <img src="../media/UI/Skyshot/SkyshotHUD/Lobby3-fw-960.webp" srcset="../media/UI/Skyshot/SkyshotHUD/Lobby3-fw-480.webp 480w, ../media/UI/Skyshot/SkyshotHUD/Lobby3-fw-960.webp 960w, ../media/UI/Skyshot/SkyshotHUD/Lobby3-fw-1600.webp 1600w, ../media/UI/Skyshot/SkyshotHUD/Lobby3-fw-1920.webp 1920w" sizes="(min-width: 62rem) 30vw, 46vw" width="1920" height="1080" alt="Third lobby mockup with the Start Game button moved under the team slots." loading="lazy" decoding="async">
+              </a>
+            </figure>
+            <figure class="shot" style="--ar:1.7778">
+              <a href="../media/UI/Skyshot/SkyshotHUD/Lobby4-fw-1920.webp" data-lb data-w="1920" data-h="1080" data-orig="../Pieces/UI/Skyshot/SkyshotHUD/Lobby4.fw.png">
+                <img src="../media/UI/Skyshot/SkyshotHUD/Lobby4-fw-960.webp" srcset="../media/UI/Skyshot/SkyshotHUD/Lobby4-fw-480.webp 480w, ../media/UI/Skyshot/SkyshotHUD/Lobby4-fw-960.webp 960w, ../media/UI/Skyshot/SkyshotHUD/Lobby4-fw-1600.webp 1600w, ../media/UI/Skyshot/SkyshotHUD/Lobby4-fw-1920.webp 1920w" sizes="(min-width: 62rem) 30vw, 46vw" width="1920" height="1080" alt="Fourth lobby mockup with a larger map preview and a Spectate option." loading="lazy" decoding="async">
+              </a>
+            </figure>
+            <figure class="shot" style="--ar:1.8529">
+              <a href="../media/UI/Skyshot/SkyshotHUD/PostMatchMockup-806.webp" data-lb data-w="806" data-h="435" data-orig="../Pieces/UI/Skyshot/SkyshotHUD/PostMatchMockup.png">
+                <img src="../media/UI/Skyshot/SkyshotHUD/PostMatchMockup-806.webp" srcset="../media/UI/Skyshot/SkyshotHUD/PostMatchMockup-480.webp 480w, ../media/UI/Skyshot/SkyshotHUD/PostMatchMockup-806.webp 806w" sizes="(min-width: 62rem) 30vw, 46vw" width="806" height="435" alt="Post-match mockup: a 6 to 9 victory banner, a scoreboard for both teams and a chat panel." loading="lazy" decoding="async">
+              </a>
+            </figure>
+          </div>
         </div>
-    </body>
+      </div>
+    </section>
+  </article>
+
+  <nav class="pager wrap" aria-label="More work">
+    <a href="../Gameplay/FeelFast.html" rel="prev">
+      <span class="label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span>
+      <strong>Making Fast Gamefeel</strong>
+    </a>
+    <a href="../ArtAnimation/3DModels.html" rel="next">
+      <span class="label">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <strong>3D Modelling</strong>
+    </a>
+  </nav>
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <h2 class="eyebrow">Contact</h2>
+    <ul class="actions">
+      <li><a class="btn primary" href="../Pieces/Aaron%20Hong%20Resume%202026.pdf"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> Resume <small>PDF</small></a></li>
+      <li><a class="btn" href="mailto:hong.aaron.c@gmail.com">Email</a></li>
+      <li><a class="btn" href="https://www.linkedin.com/in/hongaaronc/" target="_blank" rel="noopener">LinkedIn <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+    </ul>
+    <div class="footer-base">
+      <span>&copy; Aaron Hong</span>
+      <a href="#top">Back to top <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
 </html>
