@@ -751,27 +751,6 @@ a.t-row:hover .t-go .icon {
   margin-top: 1.5rem;
 }
 
-/* Key facts under a page title */
-.facts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr));
-  gap: 1.4rem 2rem;
-  margin-top: clamp(2rem, 4vw, 3rem);
-  padding-top: 1.4rem;
-  border-top: var(--stroke) dotted var(--dots);
-}
-.facts dt {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--ink-2);
-}
-.facts dd {
-  margin-top: 0.4rem;
-  font-size: 0.9375rem;
-  line-height: 1.45;
-  text-wrap: pretty;
-}
-
 .note {
   max-width: 44rem;
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
