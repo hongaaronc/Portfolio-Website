@@ -65,7 +65,7 @@
       <div class="row stack">
         <div class="row-text">
           <h2>What it is</h2>
-          <p>osu! is a rhythm game whose levels are made by its players. n.ot.e is an editor for the levels of its drum mode, osu!taiko. I built it with an agent-driven workflow.</p>
+          <p>osu! is a rhythm game whose levels are made by its players. n.ot.e is an editor for the levels of its drum mode, osu!taiko.</p>
           <p>The guided tour at <a href="https://note.nostril.io/info" target="_blank" rel="noopener">note.nostril.io/info</a> shows what it does, one feature at a time.</p>
           <div class="actions">
             <a class="btn primary" href="https://note.nostril.io/info" target="_blank" rel="noopener">Take the tour <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
@@ -98,7 +98,7 @@
       <div class="row">
         <div class="row-text">
           <h2>How it's built</h2>
-          <p>Two parts of that workflow were slow: getting an idea clear enough to hand to an agent, and checking that the result matches the real game. I built a tool for each.</p>
+          <p>Two parts of the agent-driven workflow were slow: getting an idea clear enough to hand to an agent, and checking that the result matches the real game. I built a tool for each.</p>
         </div>
         <div class="row-media">
           <ul class="points">
@@ -138,7 +138,7 @@
         <div class="row-text">
           <h3 id="compare">OsuTaikoCompare</h3>
           <p>n.ot.e's Full Testplay reproduces the real game's gameplay screen. OsuTaikoCompare is the harness I built to measure how well it matches. It plays one map in osu!stable, osu!lazer and n.ot.e, and compares their frames at the same moments of the map.</p>
-          <p>Every command ends with one JSON object, so an agent can change the code, run the comparison and read the result on its own. Rebuilding the pipeline for speed took a standard run from 17 min 52 s to 1 min 21 s.</p>
+          <p>It is optimized for agent efficiency. The tech stack was intentionally chosen to be quick to set up and performant in a Cloud Container. Font choices are also optimized for high confidence OCR.</p>
         </div>
         <div class="row-media">
           <div class="shots">
